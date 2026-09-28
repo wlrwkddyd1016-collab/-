@@ -6,7 +6,7 @@
   <title>JPMorgan Chase & Co. 스타일 웹사이트</title>
   
   <style>
-    /* 1. 기본 여백 초기화 및 깔끔한 시스템 폰트 설정 */
+    /* 1. 기본 스타일 초기화 */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -19,10 +19,10 @@
       color: #111;
       display: flex;
       flex-direction: column;
-      min-height: 100vh; /* 화면 전체 높이를 채우도록 설정 */
+      min-height: 100vh;
     }
 
-    /* 2. 상단 네이비 헤더 */
+    /* 2. 상단 헤더 */
     header {
       background-color: #0a1e36;
       color: #ffffff;
@@ -47,10 +47,10 @@
     }
 
     nav a:hover {
-      color: #ffffff; /* 마우스를 올리면 글자가 밝아집니다 */
+      color: #ffffff;
     }
 
-    /* 3. 메인 배너 (Hero Section) */
+    /* 3. 메인 배너 */
     .hero {
       background: linear-gradient(135deg, #0a1e36 0%, #16365c 100%);
       color: #ffffff;
@@ -83,44 +83,57 @@
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 
-    .btn-main:hover {
-      background-color: #f1f5f9;
-    }
-
-    /* 4. 카드 영역 */
+    /* 4. 카드 영역 (사진이 쏙 들어가도록 디자인 개선) */
     .cards-container {
       max-width: 1100px;
       margin: -35px auto 60px auto;
       padding: 0 20px;
       display: flex;
-      gap: 20px;
-      flex: 1; /* 푸터가 바닥에 머물도록 공간 확보 */
+      gap: 24px;
+      flex: 1;
     }
 
     .card {
       background-color: #ffffff;
       border-radius: 8px;
-      padding: 30px;
+      overflow: hidden; /* 사진 모서리가 카드 밖으로 삐져나가지 않게 잘라줍니다 */
       flex: 1;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-      border-top: 4px solid #0a1e36; /* 상단에 네이비 포인트 선 */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
     }
 
-    .card h3 {
+    /* [새로 추가된 곳] 카드 상단 이미지 스타일 */
+    .card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover; /* 사진 비율이 찌그러지지 않고 영역에 꽉 차게 맞춰줍니다 */
+      display: block;
+    }
+
+    /* 카드 글자 내용물 패딩 */
+    .card-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-content h3 {
       font-size: 20px;
       margin-bottom: 12px;
       color: #0a1e36;
     }
 
-    .card p {
+    .card-content p {
       color: #555;
       line-height: 1.6;
-      font-size: 15px;
+      font-size: 14px;
     }
 
-    /* 5. [새로 추가된 곳] 하단 푸터 (Footer) */
+    /* 5. 푸터 */
     footer {
-      background-color: #061322; /* 헤더보다 살짝 더 짙은 네이비 블랙 */
+      background-color: #061322;
       color: #8899a6;
       padding: 35px 40px;
       text-align: center;
@@ -134,10 +147,6 @@
       margin: 0 10px;
     }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
-
     .footer-links {
       margin-bottom: 12px;
     }
@@ -145,7 +154,7 @@
 </head>
 <body>
 
-  <!-- 1. 헤더: 회사 로고와 상단 메뉴 -->
+  <!-- 헤더 -->
   <header>
     <div class="logo">JPMORGAN CHASE & CO.</div>
     <nav>
@@ -155,30 +164,46 @@
     </nav>
   </header>
 
-  <!-- 2. 메인 배너: 시선을 사로잡는 타이틀 -->
+  <!-- 메인 배너 -->
   <section class="hero">
     <h1>미래를 움직이는 금융과 기술</h1>
     <p>데이터 기반의 인사이트와 지속 가능한 투자 전략으로 고객의 새로운 내일을 함께 설계합니다.</p>
     <a href="#explore" class="btn-main">프로젝트 둘러보기</a>
   </section>
 
-  <!-- 3. 카드 영역: 3가지 핵심 강점 -->
+  <!-- [사진이 추가된 카드 영역] -->
   <section class="cards-container">
+    
+    <!-- 카드 1: 자산 관리 (금융 그래프 사진) -->
     <div class="card">
-      <h3>자산 관리 솔루션</h3>
-      <p>안정성과 수익률을 균형 있게 고려한 맞춤형 글로벌 포트폴리오를 제공합니다.</p>
+      <img class="card-img" src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600&auto=format&fit=crop&q=80" alt="금융 자산 분석 그래프">
+      <div class="card-content">
+        <h3>자산 관리 솔루션</h3>
+        <p>안정성과 수익률을 균형 있게 고려한 맞춤형 글로벌 포트폴리오를 제공합니다.</p>
+      </div>
     </div>
+
+    <!-- 카드 2: 디지털 혁신 (기술 및 데이터 분석 사진) -->
     <div class="card">
-      <h3>디지털 혁신</h3>
-      <p>최신 웹 기술과 데이터 시스템을 융합하여 금융 서비스의 효율성을 극대화합니다.</p>
+      <img class="card-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=80" alt="데이터 분석 화면">
+      <div class="card-content">
+        <h3>디지털 혁신</h3>
+        <p>최신 웹 기술과 데이터 시스템을 융합하여 금융 서비스의 효율성을 극대화합니다.</p>
+      </div>
     </div>
+
+    <!-- 카드 3: 글로벌 네트워크 (글로벌 금융 빌딩 사진) -->
     <div class="card">
-      <h3>글로벌 네트워크</h3>
-      <p>전 세계 시장과의 실시간 연결을 통해 신뢰할 수 있는 투자 파트너십을 구축합니다.</p>
+      <img class="card-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&auto=format&fit=crop&q=80" alt="고층 금융 빌딩 전경">
+      <div class="card-content">
+        <h3>글로벌 네트워크</h3>
+        <p>전 세계 시장과의 실시간 연결을 통해 신뢰할 수 있는 투자 파트너십을 구축합니다.</p>
+      </div>
     </div>
+
   </section>
 
-  <!-- 4. [새로 추가된 곳] 푸터: 하단 저작권 및 링크 -->
+  <!-- 푸터 -->
   <footer>
     <div class="footer-links">
       <a href="#">개인정보처리방침</a> | 
