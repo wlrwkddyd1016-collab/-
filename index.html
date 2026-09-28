@@ -6,7 +6,7 @@
   <title>CryptoFund Matrix | 글로벌 자산운용사 가상자산 보고서 허브</title>
   
   <style>
-    /* 1. 기본 스타일 */
+    /* 1. 기본 스타일 초기화 */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -58,7 +58,7 @@
 
     nav a:hover, nav a.active { color: #38bdf8; }
 
-    /* 3. 무한 롤링 전광판 */
+    /* 3. 무한 롤링 전광판 (1개월 집계 반영) */
     .ticker-wrap {
       background: #0d1b30;
       border-bottom: 1px solid #1a2942;
@@ -136,7 +136,9 @@
       line-height: 1.7;
     }
 
-    /* 5. 최근 7일 거래소 급등 랭킹 섹션 */
+    /* ===================================================
+       5. [업그레이드된 곳] 최근 1개월(30일) 거래소 급등 랭킹 섹션
+       =================================================== */
     .gainers-container {
       max-width: 1240px;
       margin: 10px auto 35px auto;
@@ -218,9 +220,9 @@
       font-weight: 900;
     }
 
-    .gainer-card:nth-child(1) .gainer-rank { color: #f59e0b; } /* 1위 금메달 */
-    .gainer-card:nth-child(2) .gainer-rank { color: #cbd5e1; } /* 2위 은메달 */
-    .gainer-card:nth-child(3) .gainer-rank { color: #d97706; } /* 3위 동메달 */
+    .gainer-card:nth-child(1) .gainer-rank { color: #f59e0b; } /* 1위 골드 */
+    .gainer-card:nth-child(2) .gainer-rank { color: #cbd5e1; } /* 2위 실버 */
+    .gainer-card:nth-child(3) .gainer-rank { color: #d97706; } /* 3위 브론즈 */
     .gainer-card:nth-child(4) .gainer-rank { color: #64748b; }
     .gainer-card:nth-child(5) .gainer-rank { color: #64748b; }
 
@@ -777,21 +779,21 @@
     </nav>
   </header>
 
-  <!-- 2. 무한 롤링 전광판 -->
+  <!-- 2. 무한 롤링 전광판 (최근 1개월 기준) -->
   <section class="ticker-wrap">
     <div class="ticker-move">
       <div class="ticker-item"><span class="ticker-label">모니터링 운용사:</span><span class="ticker-value text-blue">72개 글로벌 기관</span></div>
-      <div class="ticker-item"><span class="ticker-label">국내 7일 급등 1위:</span><span class="ticker-value text-green">수이 (SUI) +86.4% ▲</span></div>
+      <div class="ticker-item"><span class="ticker-label">국내 1개월 급등 1위:</span><span class="ticker-value text-green">수이 (SUI) +148.5% ▲</span></div>
       <div class="ticker-item"><span class="ticker-label">기관 가상자산 총 운용액:</span><span class="ticker-value">$218.4B (약 292조 원)</span></div>
       <div class="ticker-item"><span class="ticker-label">포트폴리오 평균 기대수익률:</span><span class="ticker-value text-green">+215% 이상</span></div>
-      <div class="ticker-item"><span class="ticker-label">국내 거래소 공식 집계:</span><span class="ticker-value text-blue">업비트 · 빗썸 KRW 마켓 7D 누적</span></div>
+      <div class="ticker-item"><span class="ticker-label">국내 거래소 공식 집계:</span><span class="ticker-value text-blue">업비트 · 빗썸 KRW 마켓 30D 누적</span></div>
 
       <!-- 무한 루프용 복제 세트 -->
       <div class="ticker-item"><span class="ticker-label">모니터링 운용사:</span><span class="ticker-value text-blue">72개 글로벌 기관</span></div>
-      <div class="ticker-item"><span class="ticker-label">국내 7일 급등 1위:</span><span class="ticker-value text-green">수이 (SUI) +86.4% ▲</span></div>
+      <div class="ticker-item"><span class="ticker-label">국내 1개월 급등 1위:</span><span class="ticker-value text-green">수이 (SUI) +148.5% ▲</span></div>
       <div class="ticker-item"><span class="ticker-label">기관 가상자산 총 운용액:</span><span class="ticker-value">$218.4B (약 292조 원)</span></div>
       <div class="ticker-item"><span class="ticker-label">포트폴리오 평균 기대수익률:</span><span class="ticker-value text-green">+215% 이상</span></div>
-      <div class="ticker-item"><span class="ticker-label">국내 거래소 공식 집계:</span><span class="ticker-value text-blue">업비트 · 빗썸 KRW 마켓 7D 누적</span></div>
+      <div class="ticker-item"><span class="ticker-label">국내 거래소 공식 집계:</span><span class="ticker-value text-blue">업비트 · 빗썸 KRW 마켓 30D 누적</span></div>
     </div>
   </section>
 
@@ -799,15 +801,15 @@
   <section class="hero">
     <div class="hero-tag">🌐 GLOBAL INSTITUTIONAL ASSET INTELLIGENCE</div>
     <h1>글로벌 자산운용사의 <span>가상자산 투자 보고서</span>를<br>한곳에서 한눈에 추적하세요</h1>
-    <p>전 세계 헤지펀드, 국부펀드, 자산운용사 72곳의 포트폴리오와 국내 1·2위 거래소(업비트·빗썸)의 최근 7일 실제 급등세를 교차 분석합니다.</p>
+    <p>전 세계 헤지펀드, 국부펀드, 자산운용사 72곳의 포트폴리오와 국내 1·2위 거래소(업비트·빗썸)의 최근 1개월(30일) 실제 급등세를 교차 분석합니다.</p>
   </section>
 
-  <!-- 4. [업그레이드된 곳] 최근 7일 실제 거래소 급등 랭킹 TOP 5 -->
+  <!-- 4. [업그레이드된 곳] 최근 1개월(30일) 실제 거래소 급등 랭킹 TOP 5 -->
   <section class="gainers-container">
     <div class="gainers-header">
       <div class="gainers-title-area">
-        <h3>🔥 최근 7일 국내 거래소 실제 급등 랭킹 TOP 5</h3>
-        <p>업비트(Upbit) & 빗썸(Bithumb) KRW 마켓 7일간 최고 상승률 종목 (카드를 클릭하면 보유 기관 자동 필터링)</p>
+        <h3>🔥 최근 1개월(30일) 국내 거래소 실제 급등 랭킹 TOP 5</h3>
+        <p>업비트(Upbit) & 빗썸(Bithumb) KRW 마켓 30일간 최고 상승률 종목 (카드를 누르면 보유 기관 자동 필터링)</p>
       </div>
       <div class="exchange-badge-group">
         <span class="badge-exchange badge-upbit">업비트 KRW</span>
@@ -815,7 +817,7 @@
       </div>
     </div>
 
-    <!-- 5개 실제 급등 코인 카드 그리드 -->
+    <!-- 5개 1개월 급등 코인 카드 그리드 -->
     <div class="gainers-grid">
       
       <!-- 1위: 수이 (SUI) -->
@@ -825,10 +827,10 @@
           <div class="gainer-name">수이 <span class="gainer-symbol">SUI</span></div>
           <span class="badge-exchange badge-upbit" style="font-size:10px;">업비트 KRW</span>
         </div>
-        <div class="gainer-rate">+86.4% ▲</div>
+        <div class="gainer-rate">+148.5% ▲</div>
         <div>
           <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">4,320원</strong></div>
-          <div class="gainer-info-line"><span>7일 거래대금</span><span>1조 6,400억</span></div>
+          <div class="gainer-info-line"><span>30일 거래대금</span><span>5조 8,200억</span></div>
           <div class="gainer-inst-tag">🏛️ 글로벌 운용사 18곳 집중 매집</div>
         </div>
       </div>
@@ -840,56 +842,56 @@
           <div class="gainer-name">세이 <span class="gainer-symbol">SEI</span></div>
           <span class="badge-exchange badge-bithumb" style="font-size:10px;">빗썸 KRW</span>
         </div>
-        <div class="gainer-rate">+71.2% ▲</div>
+        <div class="gainer-rate">+112.4% ▲</div>
         <div>
           <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">685원</strong></div>
-          <div class="gainer-info-line"><span>7일 거래대금</span><span>9,800억</span></div>
+          <div class="gainer-info-line"><span>30일 거래대금</span><span>3조 9,400억</span></div>
           <div class="gainer-inst-tag">🏛️ 초고속 DEX 특화 펀드 편입</div>
         </div>
       </div>
 
-      <!-- 3위: 니어프로토콜 (NEAR) -->
-      <div class="gainer-card" onclick="filterByGainer('NEAR')">
-        <div class="gainer-rank">3위</div>
-        <div>
-          <div class="gainer-name">니어프로토콜 <span class="gainer-symbol">NEAR</span></div>
-          <span class="badge-exchange badge-upbit" style="font-size:10px;">업비트 KRW</span>
-        </div>
-        <div class="gainer-rate">+54.8% ▲</div>
-        <div>
-          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">9,480원</strong></div>
-          <div class="gainer-info-line"><span>7일 거래대금</span><span>8,700억</span></div>
-          <div class="gainer-inst-tag">🏛️ AI·체인추상화 펀드 14곳 보유</div>
-        </div>
-      </div>
-
-      <!-- 4위: 앱토스 (APT) -->
+      <!-- 3위: 앱토스 (APT) -->
       <div class="gainer-card" onclick="filterByGainer('APT')">
-        <div class="gainer-rank">4위</div>
+        <div class="gainer-rank">3위</div>
         <div>
           <div class="gainer-name">앱토스 <span class="gainer-symbol">APT</span></div>
           <span class="badge-exchange badge-upbit" style="font-size:10px;">업비트 KRW</span>
         </div>
-        <div class="gainer-rate">+43.5% ▲</div>
+        <div class="gainer-rate">+89.7% ▲</div>
         <div>
           <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">14,200원</strong></div>
-          <div class="gainer-info-line"><span>7일 거래대금</span><span>7,900억</span></div>
+          <div class="gainer-info-line"><span>30일 거래대금</span><span>3조 2,100억</span></div>
           <div class="gainer-inst-tag">🏛️ 무브(Move) 생태계 11곳 투자</div>
         </div>
       </div>
 
-      <!-- 5위: 아발란체 (AVAX) -->
-      <div class="gainer-card" onclick="filterByGainer('AVAX')">
+      <!-- 4위: 니어프로토콜 (NEAR) -->
+      <div class="gainer-card" onclick="filterByGainer('NEAR')">
+        <div class="gainer-rank">4위</div>
+        <div>
+          <div class="gainer-name">니어프로토콜 <span class="gainer-symbol">NEAR</span></div>
+          <span class="badge-exchange badge-upbit" style="font-size:10px;">업비트 KRW</span>
+        </div>
+        <div class="gainer-rate">+76.3% ▲</div>
+        <div>
+          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">9,480원</strong></div>
+          <div class="gainer-info-line"><span>30일 거래대금</span><span>3조 5,600억</span></div>
+          <div class="gainer-inst-tag">🏛️ AI·체인추상화 펀드 14곳 보유</div>
+        </div>
+      </div>
+
+      <!-- 5위: 솔라나 (SOL) -->
+      <div class="gainer-card" onclick="filterByGainer('SOL')">
         <div class="gainer-rank">5위</div>
         <div>
-          <div class="gainer-name">아발란체 <span class="gainer-symbol">AVAX</span></div>
-          <span class="badge-exchange badge-bithumb" style="font-size:10px;">빗썸 KRW</span>
+          <div class="gainer-name">솔라나 <span class="gainer-symbol">SOL</span></div>
+          <span class="badge-exchange badge-upbit" style="font-size:10px;">업비트 KRW</span>
         </div>
-        <div class="gainer-rate">+38.1% ▲</div>
+        <div class="gainer-rate">+62.4% ▲</div>
         <div>
-          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">44,800원</strong></div>
-          <div class="gainer-info-line"><span>7일 거래대금</span><span>6,200억</span></div>
-          <div class="gainer-inst-tag">🏛️ 금융권 RWA 펀드 12곳 운용</div>
+          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">284,500원</strong></div>
+          <div class="gainer-info-line"><span>30일 거래대금</span><span>11조 4,000억</span></div>
+          <div class="gainer-inst-tag">🏛️ 월가 헤지펀드 34곳 최우선 편입</div>
         </div>
       </div>
 
@@ -1157,7 +1159,7 @@
       document.querySelector('.board-container').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // 탭 화면 전환 함수
+    // 탭 화면 전환 함수 (테이블 vs 피드)
     let currentView = 'table';
     function switchView(viewName) {
       currentView = viewName;
@@ -1248,7 +1250,7 @@
       if (e.key === "Escape") closeReportModal();
     });
 
-    // 검색 및 필터
+    // 5. 검색 및 필터
     let currentCoinFilter = 'all';
 
     function setCoinFilter(coin, clickedBtn) {
