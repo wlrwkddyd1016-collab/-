@@ -244,6 +244,7 @@
 
     .firm-location { font-size: 12px; color: #64748b; }
 
+    /* 코인별 뱃지 */
     .coin-badge {
       display: inline-block;
       padding: 3px 7px;
@@ -285,12 +286,9 @@
       color: #08101e;
     }
 
-    /* ===================================================
-       [새로 추가된 곳] 6. 정식 실사 보고서 모달 스타일
-       =================================================== */
-    /* 반투명 암막 배경 */
+    /* 6. 정식 실사 보고서 모달 스타일 */
     .modal-overlay {
-      display: none; /* 평소에는 숨겨둠 */
+      display: none;
       position: fixed;
       top: 0;
       left: 0;
@@ -304,12 +302,11 @@
       padding: 20px;
     }
 
-    /* 중앙에 뜨는 실제 A4 서류철 디자인 */
     .report-modal {
       background: #0f1d34;
       border: 1px solid #2a3e5c;
       width: 100%;
-      max-width: 780px;
+      max-width: 800px;
       max-height: 90vh;
       border-radius: 12px;
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
@@ -324,7 +321,6 @@
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    /* 보고서 헤더 (문서 번호 & 공시 뱃지) */
     .report-header {
       background: #091322;
       padding: 20px 28px;
@@ -355,7 +351,6 @@
 
     .btn-close-modal:hover { color: #ffffff; }
 
-    /* 보고서 본문 스크롤 영역 */
     .report-body {
       padding: 28px;
       overflow-y: auto;
@@ -394,7 +389,7 @@
       color: #64748b;
     }
 
-    /* 기관 메타 정보 그리드 */
+    /* [업그레이드된 곳] 2행 3열 그리드로 목표 기대수익률 포함 */
     .report-meta-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -419,7 +414,6 @@
       color: #f1f5f9;
     }
 
-    /* 섹션 제목 */
     .report-sec-title {
       font-size: 15px;
       font-weight: 700;
@@ -447,22 +441,42 @@
       font-size: 13.5px;
     }
 
-    /* 코인별 상세 분석 리스트 */
+    /* 코인별 상세 분석 리스트 및 수익률 뱃지 */
     .asset-reason-item {
       background: #0a1628;
       border-left: 3px solid #38bdf8;
-      padding: 12px 16px;
-      margin-bottom: 10px;
+      padding: 14px 18px;
+      margin-bottom: 12px;
       border-radius: 0 6px 6px 0;
     }
 
-    .asset-reason-item strong {
-      color: #ffffff;
-      display: inline-block;
-      margin-right: 6px;
+    .asset-header-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
-    /* 보고서 하단 서명 및 승인 도장 영역 */
+    .asset-header-line strong {
+      color: #ffffff;
+      font-size: 15px;
+    }
+
+    /* [새로 추가된 곳] 최소 100% 이상 목표 기대수익률 뱃지 */
+    .roi-badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #34d399;
+      font-weight: 800;
+      padding: 2px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
     .report-footer-stamp {
       margin-top: 28px;
       padding-top: 20px;
@@ -492,7 +506,6 @@
       text-align: right;
     }
 
-    /* 7. 푸터 */
     footer {
       background-color: #050a14;
       border-top: 1px solid #1a2942;
@@ -536,15 +549,15 @@
       <div class="ticker-item"><span class="ticker-label">모니터링 운용사:</span><span class="ticker-value text-blue">72개 글로벌 기관</span></div>
       <div class="ticker-item"><span class="ticker-label">기관 가상자산 총 운용액:</span><span class="ticker-value">$218.4B (약 292조 원)</span></div>
       <div class="ticker-item"><span class="ticker-label">최대 비중 자산:</span><span class="ticker-value text-green">Bitcoin (48.2%)</span></div>
-      <div class="ticker-item"><span class="ticker-label">급상승 편입 코인:</span><span class="ticker-value text-blue">SOL · SUI · LINK</span></div>
-      <div class="ticker-item"><span class="ticker-label">분기별 공시 갱신:</span><span class="ticker-value text-green">실시간 연동 완료</span></div>
+      <div class="ticker-item"><span class="ticker-label">포트폴리오 평균 기대수익률:</span><span class="ticker-value text-green">+215% 이상</span></div>
+      <div class="ticker-item"><span class="ticker-label">분기별 공시 갱신:</span><span class="ticker-value text-blue">실시간 연동 완료</span></div>
 
       <!-- 무한 루프용 복제 세트 -->
       <div class="ticker-item"><span class="ticker-label">모니터링 운용사:</span><span class="ticker-value text-blue">72개 글로벌 기관</span></div>
       <div class="ticker-item"><span class="ticker-label">기관 가상자산 총 운용액:</span><span class="ticker-value">$218.4B (약 292조 원)</span></div>
       <div class="ticker-item"><span class="ticker-label">최대 비중 자산:</span><span class="ticker-value text-green">Bitcoin (48.2%)</span></div>
-      <div class="ticker-item"><span class="ticker-label">급상승 편입 코인:</span><span class="ticker-value text-blue">SOL · SUI · LINK</span></div>
-      <div class="ticker-item"><span class="ticker-label">분기별 공시 갱신:</span><span class="ticker-value text-green">실시간 연동 완료</span></div>
+      <div class="ticker-item"><span class="ticker-label">포트폴리오 평균 기대수익률:</span><span class="ticker-value text-green">+215% 이상</span></div>
+      <div class="ticker-item"><span class="ticker-label">분기별 공시 갱신:</span><span class="ticker-value text-blue">실시간 연동 완료</span></div>
     </div>
   </section>
 
@@ -560,7 +573,7 @@
     <div class="board-header">
       <div class="board-title">
         <h2>기관별 가상자산 편입 현황 (72개 기관)</h2>
-        <p>자산운용사 행 오른쪽의 [보고서 요약]을 누르면 상세 투자 심의 보고서가 열립니다.</p>
+        <p>자산운용사 행 오른쪽의 [보고서 요약]을 누르면 기대 수익률과 상세 투자 심의 보고서가 열립니다.</p>
       </div>
 
       <div class="controls-wrapper">
@@ -1114,18 +1127,14 @@
     </div>
   </main>
 
-  <!-- ===================================================
-       [새로 추가된 곳] 정식 실사 보고서 모달 팝업 구조
-       =================================================== -->
+  <!-- 보고서 모달 팝업 구조 -->
   <div id="reportModalOverlay" class="modal-overlay" onclick="closeModalOnOverlay(event)">
     <div class="report-modal">
-      <!-- 헤더 -->
       <div class="report-header">
         <div class="report-doc-id" id="modalDocId">DOC-2026-Q3-DISCLOSURE</div>
         <button class="btn-close-modal" onclick="closeReportModal()">✕</button>
       </div>
 
-      <!-- 보고서 본문 -->
       <div class="report-body">
         <div class="report-title-area">
           <div class="report-badge">INSTITUTIONAL ALLOCATION BRIEFING</div>
@@ -1133,33 +1142,29 @@
           <div class="report-sub" id="modalFirmSub">본사 위치 · 펀드 유형</div>
         </div>
 
-        <!-- 기본 정보 -->
+        <!-- [수정된 곳] 종합 기대수익률 지표가 포함된 메타 정보 그리드 -->
         <div class="report-meta-grid">
           <div class="meta-box"><span class="meta-k">가상자산 총 운용액 (AUM)</span><span class="meta-v" id="modalAum">$0.0B</span></div>
-          <div class="meta-box"><span class="meta-k">공시 주기 및 기준일</span><span class="meta-v">2026 Q3 정기 공시</span></div>
+          <div class="meta-box"><span class="meta-k">포트폴리오 목표 기대수익률</span><span class="meta-v" id="modalFundRoi" style="color:#10b981; font-weight:800;">+180% 이상</span></div>
           <div class="meta-box"><span class="meta-k">포트폴리오 배분 비율</span><span class="meta-v" id="modalWeight">BTC 50% / ETH 50%</span></div>
-          <div class="meta-box"><span class="meta-k">투자 심의 위원회 등급</span><span class="meta-v" style="color:#38bdf8;">Class-A (운용 승인)</span></div>
+          <div class="meta-box"><span class="meta-k">공시 주기 및 심의 등급</span><span class="meta-v" style="color:#38bdf8;">2026 Q3 · Class-A 승인</span></div>
         </div>
 
-        <!-- 핵심 투자 논거 -->
         <div class="report-sec-title">1. 거시 전략적 투자 논거 (Investment Thesis)</div>
         <div class="report-p" id="modalThesis">
           본 기관은 글로벌 통화 인플레이션 헤지 및 디지털 금융 인프라 확장을 목표로 가상자산 포트폴리오를 전략적으로 구성함.
         </div>
 
-        <!-- 코인별 편입 사유 -->
-        <div class="report-sec-title">2. 주요 편입 가상자산별 심의 배경 (Asset Breakdown)</div>
+        <div class="report-sec-title">2. 주요 편입 가상자산별 기대수익률 및 심의 배경 (Asset Breakdown)</div>
         <div id="modalAssetReasons">
-          <!-- 스크립트에서 자동 생성되는 코인별 상세 이유 -->
+          <!-- 스크립트에서 자동 생성되는 코인별 상세 사유 및 100%+ 기대수익률 뱃지 -->
         </div>
 
-        <!-- 리스크 관리 및 전망 -->
         <div class="report-sec-title">3. 리스크 통제 및 향후 포지션 전망 (Risk & Outlook)</div>
         <div class="report-p">
           현물 ETF 기반 수탁(Custody) 체계와 다중 서명 볼트를 통해 청산 리스크를 원천 차단하였으며, 향후 반감기 사이클 및 기관 온체인 결제망 확장에 따라 분기별 리밸런싱을 진행할 예정임.
         </div>
 
-        <!-- 하단 심의 승인 도장 -->
         <div class="report-footer-stamp">
           <div class="stamp-badge">OFFICIALLY APPROVED</div>
           <div class="sign-info">
@@ -1177,26 +1182,78 @@
     <p class="disclaimer">본 플랫폼에 게시된 자산운용사 정보 및 포트폴리오 데이터는 가상 시뮬레이션 모델이며, 특정 자산의 매수/매도를 권유하지 않습니다.</p>
   </footer>
 
-  <!-- 필터, 검색 및 정식 보고서 모달 스크립트 -->
+  <!-- 필터, 검색 및 기대 수익률 연동 스크립트 -->
   <script>
-    // 1. 코인별 심의 사유 사전 (실제 기관 보고서 톤)
+    // [코인별 100% 이상 기대수익률 및 정밀 사유 데이터베이스]
     const coinRationales = {
-      "BTC": "<strong>비트코인(BTC)</strong>: 거시경제 통화 가치 절하에 대응하는 디지털 가치 저장 수단(Digital Gold)이자 기관 포트폴리오의 안전자산 기축 축적으로 최우선 배분.",
-      "ETH": "<strong>이더리움(ETH)</strong>: 온체인 스마트 컨트랙트 및 디파이(DeFi) 생태계의 기축 결제 통화로, 스테이킹 보상을 통한 안정적 현금흐름(Yield) 창출 목적.",
-      "SOL": "<strong>솔라나(SOL)</strong>: 초당 수만 건의 트랜잭션을 처리하는 고성능 L1 결제망 및 탈중앙 거래소(DEX) 유동성 장악력에 주목한 성장형 자산 편입.",
-      "XRP": "<strong>리플(XRP)</strong>: 글로벌 은행권 및 금융 기관 간 국가 간 국경 결제(Cross-Border Payment) 유동성 혁신 인프라 연동을 위한 전략적 편입.",
-      "LINK": "<strong>체인링크(LINK)</strong>: 전통 실물자산(RWA)의 온체인 토큰화와 스마트 컨트랙트 데이터 무결성을 보장하는 탈중앙 오라클 표준 독점력 평가.",
-      "AVAX": "<strong>아발란체(AVAX)</strong>: 기관 전용 규제 준수 프라이빗 서브넷(Subnet) 구축 및 엔터프라이즈 블록체인 금융 솔루션 확장성 확보.",
-      "SUI": "<strong>수이(SUI)</strong>: 객체(Object) 중심 데이터 모델 및 Move 언어 기반의 차세대 초고속 병렬 처리 레이어1 기술력 선점.",
-      "NEAR": "<strong>니어(NEAR)</strong>: 계정 추상화 및 체인 추상화 기술을 통해 웹2 사용자의 웹3 온보딩과 AI 연계 분산 컴퓨팅 인프라 지원.",
-      "DOGE": "<strong>도지코인(DOGE)</strong>: 글로벌 리테일 유동성과 소액 결제망(Micro-Payment) 확장성, 강력한 커뮤니티 파워 기반 단기 모멘텀 헤지.",
-      "SHIB": "<strong>시바이누(SHIB)</strong>: 레이어2 네트워크 '시바리움' 생태계 확장 및 토큰 소각 메커니즘을 통한 공급 제한 모델 검증.",
-      "ADA": "<strong>카르다노(ADA)</strong>: 동료 평가(Peer-Review) 학술 검증 기반의 안정적 지분증명(PoS) 프로토콜 및 아프리카/신흥국 금융 포용성 평가.",
-      "DOT": "<strong>폴카닷(DOT)</strong>: 서로 다른 독립 블록체인 간의 상호 운용성을 보장하는 파라체인 인터체인 네트워크 연결 허브 구축.",
-      "APT": "<strong>앱토스(APT)</strong>: 페이스북(Diem) 출신 엔지니어들의 Move 엔진 기반 엔터프라이즈급 안정성과 모바일 웹3 환경 대응."
+      "BTC": {
+        name: "비트코인 (Bitcoin)",
+        roi: "+130% ~ +220%",
+        reason: "거시경제 통화 가치 절하에 대응하는 디지털 가치 저장 수단(Digital Gold)이자 기관 포트폴리오의 안전자산 기축 축적으로 최우선 배분. 현물 ETF 기반 기관 자금의 구조적 유입으로 전고점 돌파 사이클 목표."
+      },
+      "ETH": {
+        name: "이더리움 (Ethereum)",
+        roi: "+150% ~ +280%",
+        reason: "온체인 스마트 컨트랙트 및 디파이(DeFi) 생태계의 기축 결제 통화. 스테이킹을 통한 안정적 복리 이자(Yield) 확보 및 실물자산(RWA) 토큰화 발행 허브 장악력 평가."
+      },
+      "SOL": {
+        name: "솔라나 (Solana)",
+        roi: "+220% ~ +380%",
+        reason: "초당 수만 건을 처리하는 고성능 결제망과 리테일 DEX 점유율 급상승에 주목. 기관용 초고속 거래 인프라 확장에 따른 멀티플 재평가 기대."
+      },
+      "XRP": {
+        name: "리플 (XRP)",
+        roi: "+180% ~ +340%",
+        reason: "글로벌 상업은행 간 국경 간 송금(Cross-Border Payment) 유동성 혁신 및 제도권 스테이블코인 연동 테스트에 따른 대규모 은행 파트너십 확장 반영."
+      },
+      "LINK": {
+        name: "체인링크 (Chainlink)",
+        roi: "+200% ~ +350%",
+        reason: "월가 전통 금융사들의 온체인 채권 및 실물자산(RWA) 토큰화에 필수적인 CCIP 상호운용성 프로토콜과 오라클 표준 독점력에 기반한 장기 롱 포지션."
+      },
+      "AVAX": {
+        name: "아발란체 (Avalanche)",
+        roi: "+190% ~ +320%",
+        reason: "기관 전용 맞춤형 규제 준수 프라이빗 서브넷(Subnet) 구축 및 대형 글로벌 은행들의 프라이빗 블록체인 PoC 파트너십 집중에 따른 가치 상승."
+      },
+      "SUI": {
+        name: "수이 (Sui)",
+        roi: "+280% ~ +480%",
+        reason: "객체(Object) 중심 데이터 모델과 Move 언어 기반의 차세대 초고속 병렬 처리 L1 기술력 선점. 온체인 트랜잭션 급증에 따른 폭발적 상승 모멘텀 평가."
+      },
+      "NEAR": {
+        name: "니어프로토콜 (NEAR)",
+        roi: "+210% ~ +360%",
+        reason: "체인 추상화(Chain Abstraction)를 통한 원클릭 웹3 진입 환경과 AI 연계 분산 컴퓨팅/데이터 레이어 확장성에 주목한 차세대 포지션."
+      },
+      "DOGE": {
+        name: "도지코인 (Dogecoin)",
+        roi: "+160% ~ +310%",
+        reason: "글로벌 소액 결제망(Micro-Payment) 채택 가능성과 전 세계 최상위 리테일 브랜드 인지도, 유동성 확장 사이클을 겨냥한 모멘텀 헤지 편입."
+      },
+      "SHIB": {
+        name: "시바이누 (Shiba Inu)",
+        roi: "+180% ~ +350%",
+        reason: "자체 레이어2 네트워크 '시바리움(Shibarium)' 트랜잭션 급증 및 지속적 토큰 소각(Burn) 메커니즘을 통한 유통 공급량 축소 효과 기대."
+      },
+      "ADA": {
+        name: "카르다노 (Cardano)",
+        roi: "+140% ~ +250%",
+        reason: "동료 평가(Peer-Review) 학술 검증 기반의 견고한 PoS 인프라 및 신흥국 금융 포용성 중심의 장기 가치 저장 수단."
+      },
+      "DOT": {
+        name: "폴카닷 (Polkadot)",
+        roi: "+150% ~ +270%",
+        reason: "서로 다른 독립 블록체인을 연결하는 파라체인 인터체인 네트워크 허브 기술 및 기업용 웹3 연결 표준 선점."
+      },
+      "APT": {
+        name: "앱토스 (Aptos)",
+        roi: "+240% ~ +420%",
+        reason: "빅테크(Diem) 출신 엔지니어들의 Move 엔진 안정성과 글로벌 핀테크/모바일 결제 앱 대량 연동에 따른 가파른 성장 전망."
+      }
     };
 
-    // 2. 보고서 요약 버튼 클릭 시 호출되는 함수
+    // 보고서 요약 버튼 클릭 시 호출
     function openExecutiveReport(button) {
       const row = button.closest("tr");
       const firmName = row.querySelector(".firm-name").innerText;
@@ -1206,7 +1263,7 @@
       const coinsAttr = row.getAttribute("data-coins") || "";
       const coins = coinsAttr.split(" ");
 
-      // 문서 ID 랜덤 생성 (예: DOC-2026-NEXUS-8492)
+      // 문서 ID 생성
       const cleanFirm = firmName.split(" ")[0].toUpperCase().replace(/[^A-Z]/g, "") || "FUND";
       const randomNum = Math.floor(1000 + Math.random() * 9000);
       document.getElementById("modalDocId").innerText = `DOC-2026-Q3-${cleanFirm}-${randomNum}`;
@@ -1216,48 +1273,54 @@
       document.getElementById("modalAum").innerText = aum;
       document.getElementById("modalWeight").innerText = weight;
 
-      // 대표 거시 전략 자동 조립
-      document.getElementById("modalThesis").innerText = 
-        `${firmName}의 2026년 3분기 디지털 자산 운용 위원회 의결에 따라, 본 펀드는 변동성 통제 및 포트폴리오 다변화를 위해 총 운용자산 중 ${aum} 규모를 가상자산에 배분함. 전통 화폐 가치 방어와 차세대 블록체인 기술 인프라 선점을 핵심 목표로 설정함.`;
+      // 펀드 종합 기대수익률 (100% 이상 난수 생성: +140% ~ +280%)
+      const fundRoiScore = 140 + Math.floor((firmName.length * 17) % 150);
+      document.getElementById("modalFundRoi").innerText = `+${fundRoiScore}% 이상 (중장기)`;
 
-      // 편입된 코인별 사유 동적 생성
+      // 거시 전략 논거 작성
+      document.getElementById("modalThesis").innerText = 
+        `${firmName} 디지털 자산 운용 위원회의 최신 심의 결과, 본 기관은 글로벌 통화 인플레이션 방어 및 벤처 알파 창출을 위해 총 운용액 중 ${aum} 규모를 가상자산에 배분함. 전체 포트폴리오의 중장기 목표 기대수익률은 최소 +${fundRoiScore}% 이상으로 승인 완료됨.`;
+
+      // 각 코인별 사유 및 기대수익률 뱃지 동적 생성
       const container = document.getElementById("modalAssetReasons");
       container.innerHTML = "";
       coins.forEach(coin => {
         if (coinRationales[coin]) {
+          const item = coinRationales[coin];
           const div = document.createElement("div");
           div.className = "asset-reason-item";
-          div.innerHTML = coinRationales[coin];
+          div.innerHTML = `
+            <div class="asset-header-line">
+              <strong>${item.name}</strong>
+              <span class="roi-badge">🎯 목표 기대수익률: ${item.roi}</span>
+            </div>
+            <div style="font-size: 13.5px; color: #cbd5e1; margin-top: 4px;">${item.reason}</div>
+          `;
           container.appendChild(div);
         }
       });
 
-      // 모달 띄우기
+      // 모달 표시
       document.getElementById("reportModalOverlay").style.display = "flex";
-      document.body.style.overflow = "hidden"; // 배경 스크롤 방지
+      document.body.style.overflow = "hidden";
     }
 
-    // 모달 닫기
     function closeReportModal() {
       document.getElementById("reportModalOverlay").style.display = "none";
-      document.body.style.overflow = ""; // 스크롤 복원
+      document.body.style.overflow = "";
     }
 
-    // 모달 바깥 어두운 배경 클릭 시 닫기
     function closeModalOnOverlay(event) {
       if (event.target.id === "reportModalOverlay") {
         closeReportModal();
       }
     }
 
-    // ESC 키 누르면 닫기
     window.addEventListener("keydown", function(e) {
-      if (e.key === "Escape") {
-        closeReportModal();
-      }
+      if (e.key === "Escape") closeReportModal();
     });
 
-    // 3. 필터 및 검색
+    // 필터 및 검색
     let currentCoinFilter = 'all';
 
     function setCoinFilter(coin, clickedBtn) {
