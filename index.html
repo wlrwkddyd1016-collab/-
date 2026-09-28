@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JPMorgan Chase & Co. 스타일 웹사이트</title>
+  <title>About Us | JPMorgan Chase & Co.</title>
   
   <style>
-    /* 1. 기본 스타일 초기화 */
+    /* 1. 기본 초기화 및 폰트 */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -50,100 +50,103 @@
       color: #ffffff;
     }
 
-    /* 3. 메인 배너 */
-    .hero {
-      background: linear-gradient(135deg, #0a1e36 0%, #16365c 100%);
+    /* 현재 페이지 메뉴 강조 */
+    nav a.active {
       color: #ffffff;
-      padding: 90px 40px;
+      font-weight: 700;
+      border-bottom: 2px solid #ffffff;
+      padding-bottom: 4px;
+    }
+
+    /* 3. 서브 페이지 배너 */
+    .page-header {
+      background: #0a1e36;
+      color: #ffffff;
+      padding: 60px 40px;
       text-align: center;
     }
 
-    .hero h1 {
-      font-size: 40px;
-      margin-bottom: 18px;
-      font-weight: 700;
+    .page-header h1 {
+      font-size: 36px;
+      margin-bottom: 12px;
     }
 
-    .hero p {
+    .page-header p {
+      color: #cbd5e1;
+      font-size: 16px;
+    }
+
+    /* 4. 본문 소개 영역 */
+    .content-container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+      flex: 1;
+      line-height: 1.8;
+    }
+
+    .intro-box {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+      margin-bottom: 40px;
+    }
+
+    .intro-box h2 {
+      font-size: 26px;
+      color: #0a1e36;
+      margin-bottom: 18px;
+    }
+
+    .intro-box p {
+      color: #4b5563;
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+
+    /* 3개 가치 그리드 */
+    .values-grid {
+      display: flex;
+      gap: 20px;
+    }
+
+    .value-item {
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 8px;
+      flex: 1;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+      border-left: 4px solid #0a1e36;
+    }
+
+    .value-item h3 {
       font-size: 18px;
-      color: #d1d5db;
-      max-width: 650px;
-      margin: 0 auto 30px auto;
+      color: #0a1e36;
+      margin-bottom: 10px;
+    }
+
+    .value-item p {
+      color: #666;
+      font-size: 14px;
       line-height: 1.6;
     }
 
-    /* 배너 버튼 호버 효과 */
-    .btn-main {
+    /* 홈으로 가기 버튼 */
+    .btn-back {
       display: inline-block;
-      background-color: #ffffff;
-      color: #0a1e36;
-      padding: 13px 30px;
-      font-weight: 600;
+      margin-top: 20px;
+      background-color: #0a1e36;
+      color: #ffffff;
+      padding: 10px 22px;
       text-decoration: none;
       border-radius: 4px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: all 0.25s ease; /* 0.25초 동안 부드럽게 색상 및 그림자 변화 */
-    }
-
-    .btn-main:hover {
-      background-color: #e2e8f0;
-      transform: translateY(-2px); /* 마우스를 올리면 버튼이 2px 살짝 들립니다 */
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
-
-    /* 4. 카드 영역 */
-    .cards-container {
-      max-width: 1100px;
-      margin: -35px auto 60px auto;
-      padding: 0 20px;
-      display: flex;
-      gap: 24px;
-      flex: 1;
-    }
-
-    /* [업그레이드된 곳] 카드 스타일 */
-    .card {
-      background-color: #ffffff;
-      border-radius: 8px;
-      overflow: hidden;
-      flex: 1;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-      display: flex;
-      flex-direction: column;
-      cursor: pointer; /* 마우스를 올리면 손가락 모양 커서로 변경 */
-      transition: transform 0.3s ease, box-shadow 0.3s ease; /* 0.3초 동안 스르륵 올라오는 효과 */
-    }
-
-    /* [새로 추가된 곳] 마우스를 카드 위에 올렸을 때(hover)의 동작 */
-    .card:hover {
-      transform: translateY(-10px); /* 위쪽으로 10px 붕 떠오릅니다 */
-      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.16); /* 그림자가 넓고 짙어져 공중에 뜬 느낌 완성 */
-    }
-
-    .card-img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .card-content {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .card-content h3 {
-      font-size: 20px;
-      margin-bottom: 12px;
-      color: #0a1e36;
-    }
-
-    .card-content p {
-      color: #555;
-      line-height: 1.6;
       font-size: 14px;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-back:hover {
+      background-color: #16365c;
     }
 
     /* 5. 푸터 */
@@ -161,10 +164,6 @@
       text-decoration: none;
       margin: 0 10px;
     }
-
-    .footer-links {
-      margin-bottom: 12px;
-    }
   </style>
 </head>
 <body>
@@ -173,59 +172,47 @@
   <header>
     <div class="logo">JPMORGAN CHASE & CO.</div>
     <nav>
-      <a href="#about">About Us</a>
+      <!-- 메인 화면(index.html)으로 돌아가는 링크 -->
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About Us</a>
       <a href="#business">Our Businesses</a>
-      <a href="#news">News</a>
     </nav>
   </header>
 
-  <!-- 메인 배너 -->
-  <section class="hero">
-    <h1>미래를 움직이는 금융과 기술</h1>
-    <p>데이터 기반의 인사이트와 지속 가능한 투자 전략으로 고객의 새로운 내일을 함께 설계합니다.</p>
-    <a href="#explore" class="btn-main">프로젝트 둘러보기</a>
+  <!-- 서브 배너 -->
+  <section class="page-header">
+    <h1>About Our Company</h1>
+    <p>우리가 일하는 방식과 세상을 변화시키는 비전을 소개합니다.</p>
   </section>
 
-  <!-- 카드 영역 -->
-  <section class="cards-container">
-    
-    <!-- 카드 1 (업로드한 사진) -->
-    <div class="card">
-      <img class="card-img" src="./a-101.jpg" alt="내가 등록한 비즈니스 사진">
-      <div class="card-content">
-        <h3>자산 관리 솔루션</h3>
-        <p>안정성과 수익률을 균형 있게 고려한 맞춤형 글로벌 포트폴리오를 제공합니다.</p>
-      </div>
+  <!-- 본문 컨텐츠 -->
+  <main class="content-container">
+    <div class="intro-box">
+      <h2>글로벌 금융 시장을 이끄는 신뢰의 역사</h2>
+      <p>우리는 200년이 넘는 시간 동안 고객과 지역 사회의 든든한 동반자로 성장해 왔습니다. 단순한 자산 운용을 넘어 혁신 기술과 지속 가능한 투자를 통해 더 나은 내일을 개척합니다.</p>
+      <p>전 세계 100개 이상의 시장에서 수천만 명의 고객에게 최상의 금융 서비스를 제공하고 있습니다.</p>
+      <a href="index.html" class="btn-back">← 메인 화면으로 돌아가기</a>
     </div>
 
-    <!-- 카드 2 -->
-    <div class="card">
-      <img class="card-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=80" alt="데이터 분석 화면">
-      <div class="card-content">
-        <h3>디지털 혁신</h3>
-        <p>최신 웹 기술과 데이터 시스템을 융합하여 금융 서비스의 효율성을 극대화합니다.</p>
+    <!-- 3대 핵심 가치 -->
+    <div class="values-grid">
+      <div class="value-item">
+        <h3>투명한 신뢰</h3>
+        <p>엄격한 보안과 윤리적 기준을 통해 고객 자산의 안정성을 최우선으로 보호합니다.</p>
+      </div>
+      <div class="value-item">
+        <h3>지속 가능한 혁신</h3>
+        <p>환경과 사회에 기여하는 장기적인 안목의 책임 투자를 실천합니다.</p>
+      </div>
+      <div class="value-item">
+        <h3>고객 중심 솔루션</h3>
+        <p>데이터 기반의 정밀한 분석을 바탕으로 각 비즈니스에 최적화된 전략을 제시합니다.</p>
       </div>
     </div>
-
-    <!-- 카드 3 -->
-    <div class="card">
-      <img class="card-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&auto=format&fit=crop&q=80" alt="고층 금융 빌딩 전경">
-      <div class="card-content">
-        <h3>글로벌 네트워크</h3>
-        <p>전 세계 시장과의 실시간 연결을 통해 신뢰할 수 있는 투자 파트너십을 구축합니다.</p>
-      </div>
-    </div>
-
-  </section>
+  </main>
 
   <!-- 푸터 -->
   <footer>
-    <div class="footer-links">
-      <a href="#">개인정보처리방침</a> | 
-      <a href="#">이용약관</a> | 
-      <a href="#">보안센터</a> | 
-      <a href="#">문의하기</a>
-    </div>
     <p>© 2026 JPMorgan Chase & Co. All rights reserved.</p>
   </footer>
 
