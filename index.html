@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JPMorgan Chase & Co. 스타일 웹사이트</title>
+  <title>Global Institutional Digital Asset Tracker</title>
   
   <style>
     /* 1. 기본 스타일 초기화 */
@@ -11,287 +11,235 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
     }
 
     body {
-      background-color: #f7f9fa;
-      color: #111;
+      background-color: #08101e; /* 금융 터미널 느낌의 딥 네이비 블랙 */
+      color: #e2e8f0;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
-      transition: background-color 0.3s ease, color 0.3s ease; /* 테마 변경 시 부드럽게 전환 */
     }
 
-    /* 2. 상단 헤더 */
+    /* 2. 상단 네비게이션 헤더 */
     header {
-      background-color: #0a1e36;
-      color: #ffffff;
+      background-color: #0b172a;
+      border-bottom: 1px solid #1e293b;
       padding: 18px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .logo a {
+    .logo {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
       color: #ffffff;
-      text-decoration: none;
-      font-size: 20px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    nav {
       display: flex;
       align-items: center;
+      gap: 8px;
+    }
+
+    .logo span {
+      color: #38bdf8; /* 밝은 스카이블루 포인트 */
     }
 
     nav a {
-      color: #cbd5e1;
+      color: #94a3b8;
       text-decoration: none;
-      margin-left: 20px;
-      font-size: 15px;
+      margin-left: 24px;
+      font-size: 14px;
       transition: color 0.2s ease;
     }
 
-    nav a:hover {
-      color: #ffffff;
+    nav a:hover, nav a.active {
+      color: #38bdf8;
     }
 
-    nav a.active {
-      color: #ffffff;
-      font-weight: 700;
-      border-bottom: 2px solid #ffffff;
-      padding-bottom: 4px;
-    }
-
-    /* 다크 모드 토글 버튼 스타일 */
-    .theme-toggle-btn {
-      margin-left: 24px;
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: #ffffff;
-      padding: 6px 14px;
-      border-radius: 20px;
-      cursor: pointer;
+    /* 3. 상단 실시간 요약 지표 바 (거래소 전광판 느낌) */
+    .market-summary {
+      background: #0f1d32;
+      border-bottom: 1px solid #1e293b;
+      padding: 12px 40px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 15px;
       font-size: 13px;
+    }
+
+    .summary-item {
+      display: flex;
+      gap: 8px;
+    }
+
+    .summary-label {
+      color: #64748b;
+    }
+
+    .summary-value {
       font-weight: 600;
-      transition: background 0.2s ease;
+      color: #f8fafc;
     }
 
-    .theme-toggle-btn:hover {
-      background: rgba(255, 255, 255, 0.25);
-    }
+    .text-green { color: #10b981 !important; }
+    .text-blue { color: #38bdf8 !important; }
 
-    /* 3. 메인 배너 */
+    /* 4. 메인 타이틀 배너 */
     .hero {
-      background: linear-gradient(135deg, #0a1e36 0%, #16365c 100%);
-      color: #ffffff;
-      padding: 80px 20px;
+      padding: 60px 20px 40px 20px;
       text-align: center;
+      background: radial-gradient(circle at 50% 20%, #132742 0%, #08101e 70%);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 16px;
     }
 
     .hero h1 {
-      font-size: 38px;
-      margin-bottom: 18px;
+      font-size: 36px;
       font-weight: 700;
+      margin-bottom: 14px;
+      color: #ffffff;
       line-height: 1.3;
     }
 
     .hero p {
-      font-size: 17px;
-      color: #d1d5db;
-      max-width: 650px;
-      margin: 0 auto 30px auto;
-      line-height: 1.6;
-    }
-
-    .btn-main {
-      display: inline-block;
-      background-color: #ffffff;
-      color: #0a1e36;
-      padding: 13px 30px;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 4px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: all 0.25s ease;
-    }
-
-    .btn-main:hover {
-      background-color: #e2e8f0;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
-
-    /* 4. 카드 영역 */
-    .cards-container {
-      max-width: 1100px;
-      margin: -35px auto 40px auto;
-      padding: 0 20px;
-      display: flex;
-      gap: 24px;
-    }
-
-    .card {
-      background-color: #ffffff;
-      border-radius: 8px;
-      overflow: hidden;
-      flex: 1;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.16);
-    }
-
-    .card-img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .card-content {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .card-content h3 {
-      font-size: 20px;
-      margin-bottom: 12px;
-      color: #0a1e36;
-      transition: color 0.3s ease;
-    }
-
-    .card-content p {
-      color: #555;
-      line-height: 1.6;
-      font-size: 14px;
-      transition: color 0.3s ease;
-    }
-
-    /* 5. 계산기 박스 */
-    .calc-section {
-      max-width: 600px;
-      margin: 20px auto 60px auto;
-      padding: 30px;
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      text-align: center;
-      border-top: 4px solid #0a1e36;
-      transition: background-color 0.3s ease;
-    }
-
-    .calc-section h2 {
-      font-size: 22px;
-      color: #0a1e36;
-      margin-bottom: 10px;
-      transition: color 0.3s ease;
-    }
-
-    .calc-section p {
-      color: #666;
-      font-size: 14px;
-      margin-bottom: 24px;
-      transition: color 0.3s ease;
-    }
-
-    .calc-input-group {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .calc-input {
-      padding: 12px 16px;
       font-size: 16px;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      width: 65%;
-      outline: none;
+      color: #94a3b8;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
     }
 
-    .btn-calc {
-      padding: 12px 20px;
+    /* 5. 기관 보고서 게시판 테이블 영역 */
+    .main-container {
+      max-width: 1200px;
+      margin: 20px auto 60px auto;
+      padding: 0 20px;
+      width: 100%;
+      flex: 1;
+    }
+
+    .board-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .board-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    /* 테이블 컨테이너 */
+    .table-wrapper {
+      background-color: #0b172a;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      overflow-x: auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th {
+      background-color: #0f1d32;
+      color: #94a3b8;
+      padding: 16px 20px;
+      font-weight: 600;
+      border-bottom: 1px solid #1e293b;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 18px 20px;
+      border-bottom: 1px solid #172437;
+      vertical-align: middle;
+    }
+
+    tr:hover {
+      background-color: #11223b;
+    }
+
+    /* 운용사 이름 및 태그 */
+    .firm-name {
       font-size: 15px;
       font-weight: 600;
       color: #ffffff;
-      background-color: #0a1e36;
-      border: none;
+      margin-bottom: 4px;
+    }
+
+    .firm-location {
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    /* 보유 코인 뱃지 */
+    .coin-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      margin: 2px 4px 2px 0;
+    }
+
+    .badge-btc { background: rgba(247, 147, 26, 0.15); color: #f7931a; }
+    .badge-eth { background: rgba(98, 126, 234, 0.15); color: #8fa7ff; }
+    .badge-xrp { background: rgba(0, 168, 204, 0.15); color: #38bdf8; }
+    .badge-sol { background: rgba(20, 241, 149, 0.15); color: #14f195; }
+
+    /* 보고서 열람 버튼 */
+    .btn-report {
+      background-color: #1e293b;
+      color: #38bdf8;
+      border: 1px solid #334155;
+      padding: 8px 16px;
       border-radius: 6px;
       cursor: pointer;
-      transition: background 0.2s ease;
-    }
-
-    .btn-calc:hover {
-      background-color: #16365c;
-    }
-
-    .calc-result {
-      font-size: 18px;
+      font-size: 13px;
       font-weight: 600;
-      color: #0a1e36;
-      min-height: 28px;
-      padding: 12px;
-      background-color: #f1f5f9;
-      border-radius: 6px;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: all 0.2s ease;
+    }
+
+    .btn-report:hover {
+      background-color: #38bdf8;
+      color: #08101e;
     }
 
     /* 6. 푸터 */
     footer {
-      background-color: #061322;
-      color: #8899a6;
-      padding: 35px 20px;
+      background-color: #060c17;
+      border-top: 1px solid #1e293b;
+      padding: 30px 20px;
       text-align: center;
-      font-size: 14px;
+      font-size: 13px;
+      color: #64748b;
       line-height: 1.7;
-      margin-top: auto;
     }
 
-    footer a {
-      color: #cbd5e1;
-      text-decoration: none;
-      margin: 0 8px;
-    }
-
-    /* ===================================================
-       [새로 추가된 곳] 다크 모드 활성화 시 적용되는 야간 테마 색상
-       =================================================== */
-    body.dark-mode {
-      background-color: #0b1320; /* 짙은 네이비 블랙 배경 */
-      color: #e2e8f0;
-    }
-
-    body.dark-mode .card,
-    body.dark-mode .calc-section {
-      background-color: #132238; /* 카드와 계산기 상자 색상을 짙게 변경 */
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    }
-
-    body.dark-mode .card-content h3,
-    body.dark-mode .calc-section h2 {
-      color: #60a5fa; /* 헤드라인을 세련된 밝은 파란색으로 변경 */
-    }
-
-    body.dark-mode .card-content p,
-    body.dark-mode .calc-section p {
-      color: #94a3b8;
-    }
-
-    body.dark-mode .calc-result {
-      background-color: #1e3a5f;
-      color: #ffffff;
+    footer p.disclaimer {
+      font-size: 11px;
+      color: #475569;
+      margin-top: 6px;
     }
 
     /* 모바일 반응형 */
@@ -299,132 +247,156 @@
       header {
         flex-direction: column;
         gap: 12px;
-        padding: 16px 20px;
-        text-align: center;
+        padding: 16px;
       }
-
-      .cards-container {
+      .market-summary {
         flex-direction: column;
-        margin-top: 20px;
-        gap: 20px;
+        gap: 8px;
+        padding: 12px 20px;
       }
-
-      .calc-section {
-        margin: 20px 20px 50px 20px;
-        padding: 24px 16px;
+      .hero h1 {
+        font-size: 26px;
       }
-
-      .calc-input-group {
-        flex-direction: column;
-      }
-
-      .calc-input {
-        width: 100%;
+      th, td {
+        padding: 12px 14px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- 헤더: 다크 모드 토글 버튼 배치 -->
+  <!-- 1. 헤더 -->
   <header>
-    <div class="logo"><a href="index.html">JPMORGAN CHASE & CO.</a></div>
+    <div class="logo">
+      🏛️ GLOBAL <span>CRYPTO ASSET</span> MATRIX
+    </div>
     <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="#business">Our Businesses</a>
-      <button id="themeBtn" onclick="toggleTheme()" class="theme-toggle-btn">🌙 다크 모드</button>
+      <a href="index.html" class="active">운용사별 포트폴리오</a>
+      <a href="about.html">플랫폼 소개</a>
     </nav>
   </header>
 
-  <!-- 메인 배너 -->
+  <!-- 2. 시장 종합 지표 바 -->
+  <section class="market-summary">
+    <div class="summary-item">
+      <span class="summary-label">모니터링 운용사:</span>
+      <span class="summary-value text-blue">4개 글로벌 펀드</span>
+    </div>
+    <div class="summary-item">
+      <span class="summary-label">기관 총 디지털 자산 운용액:</span>
+      <span class="summary-value">$14.8B (약 19.8조 원)</span>
+    </div>
+    <div class="summary-item">
+      <span class="summary-label">최대 비중 편입 자산:</span>
+      <span class="summary-value text-green">Bitcoin (52.4%)</span>
+    </div>
+    <div class="summary-item">
+      <span class="summary-label">최근 분기 자금 유입세:</span>
+      <span class="summary-value text-green">+18.2% ▲</span>
+    </div>
+  </section>
+
+  <!-- 3. 메인 배너 -->
   <section class="hero">
-    <h1>미래를 움직이는 금융과 기술</h1>
-    <p>데이터 기반의 인사이트와 지속 가능한 투자 전략으로 고객의 새로운 내일을 함께 설계합니다.</p>
-    <a href="about.html" class="btn-main">회사 소개 알아보기</a>
+    <div class="hero-badge">QUARTERLY INSTITUTIONAL HOLDINGS</div>
+    <h1>글로벌 자산운용사 가상자산 편입 현황</h1>
+    <p>세계 유수의 헤지펀드와 자산운용사들이 공식 보고서를 통해 공시한 암호화폐 포트폴리오와 전략적 배분 내역을 실시간으로 추적합니다.</p>
   </section>
 
-  <!-- 카드 영역 -->
-  <section class="cards-container">
-    <div class="card">
-      <img class="card-img" src="./a-101.jpg" alt="내가 등록한 비즈니스 사진">
-      <div class="card-content">
-        <h3>자산 관리 솔루션</h3>
-        <p>안정성과 수익률을 균형 있게 고려한 맞춤형 글로벌 포트폴리오를 제공합니다.</p>
-      </div>
+  <!-- 4. 운용사 포트폴리오 테이블 (게시판) -->
+  <main class="main-container">
+    <div class="board-header">
+      <div class="board-title">📊 글로벌 기관 포트폴리오 현황 보고서</div>
     </div>
 
-    <div class="card">
-      <img class="card-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=80" alt="데이터 분석 화면">
-      <div class="card-content">
-        <h3>디지털 혁신</h3>
-        <p>최신 웹 기술과 데이터 시스템을 융합하여 금융 서비스의 효율성을 극대화합니다.</p>
-      </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>자산운용사명</th>
+            <th>운용 자산(AUM)</th>
+            <th>주요 편입 가상자산</th>
+            <th>포트폴리오 비중</th>
+            <th>공시 보고서</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 운용사 1 -->
+          <tr>
+            <td>
+              <div class="firm-name">넥서스 글로벌 캐피탈 (Nexus Global)</div>
+              <div class="firm-location">미국 뉴욕 · 헤지펀드</div>
+            </td>
+            <td><strong>$5.4B</strong></td>
+            <td>
+              <span class="coin-badge badge-btc">BTC</span>
+              <span class="coin-badge badge-eth">ETH</span>
+              <span class="coin-badge badge-sol">SOL</span>
+            </td>
+            <td>비트코인 55% / 이더리움 30% / 솔라나 15%</td>
+            <td><button class="btn-report" onclick="showReport('넥서스 글로벌', 'BTC 중심의 인플레이션 헤지 및 레이어1 생태계 롱 포지션 구축')">보고서 요약</button></td>
+          </tr>
+
+          <!-- 운용사 2 -->
+          <tr>
+            <td>
+              <div class="firm-name">아펙스 인스티튜셔널 파트너스 (Apex Partners)</div>
+              <div class="firm-location">영국 런던 · 대체투자운용사</div>
+            </td>
+            <td><strong>$3.8B</strong></td>
+            <td>
+              <span class="coin-badge badge-xrp">XRP</span>
+              <span class="coin-badge badge-btc">BTC</span>
+            </td>
+            <td>리플(XRP) 45% / 비트코인 40% / 현금성 15%</td>
+            <td><button class="btn-report" onclick="showReport('아펙스 파트너스', '국가 간 결제 유동성 혁신에 주목하여 XRP 및 BTC 집중 편입')">보고서 요약</button></td>
+          </tr>
+
+          <!-- 운용사 3 -->
+          <tr>
+            <td>
+              <div class="firm-name">크로노스 디지털 에셋 (Chronos Asset)</div>
+              <div class="firm-location">싱가포르 · 블록체인 전문 펀드</div>
+            </td>
+            <td><strong>$3.2B</strong></td>
+            <td>
+              <span class="coin-badge badge-eth">ETH</span>
+              <span class="coin-badge badge-sol">SOL</span>
+              <span class="coin-badge badge-btc">BTC</span>
+            </td>
+            <td>이더리움 45% / 솔라나 35% / 비트코인 20%</td>
+            <td><button class="btn-report" onclick="showReport('크로노스 디지털', '스마트 컨트랙트 플랫폼 및 디파이(DeFi) 기반 캐시플로우 집중 투자')">보고서 요약</button></td>
+          </tr>
+
+          <!-- 운용사 4 -->
+          <tr>
+            <td>
+              <div class="firm-name">발할라 인베스트먼트 (Valhalla Fund)</div>
+              <div class="firm-location">스위스 취리히 · 프라이빗 뱅크</div>
+            </td>
+            <td><strong>$2.4B</strong></td>
+            <td>
+              <span class="coin-badge badge-btc">BTC</span>
+              <span class="coin-badge badge-eth">ETH</span>
+            </td>
+            <td>비트코인 70% / 이더리움 30%</td>
+            <td><button class="btn-report" onclick="showReport('발할라 펀드', '전통 금융 리스크 방어용 금(Gold) 대체 자산으로 BTC 최우선 비축')">보고서 요약</button></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </main>
 
-    <div class="card">
-      <img class="card-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&auto=format&fit=crop&q=80" alt="고층 금융 빌딩 전경">
-      <div class="card-content">
-        <h3>글로벌 네트워크</h3>
-        <p>전 세계 시장과의 실시간 연결을 통해 신뢰할 수 있는 투자 파트너십을 구축합니다.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 계산기 영역 -->
-  <section class="calc-section">
-    <h2>모의 자산 성장 시뮬레이터</h2>
-    <p>연 5% 복리 수익률 기준 1년 뒤 예상 자산을 확인해 보세요.</p>
-    
-    <div class="calc-input-group">
-      <input type="number" id="investAmount" class="calc-input" placeholder="투자 금액 입력 (예: 1000000)">
-      <button onclick="calculateReturn()" class="btn-calc">계산하기</button>
-    </div>
-
-    <div id="resultText" class="calc-result">금액을 입력하고 [계산하기]를 눌러보세요.</div>
-  </section>
-
-  <!-- 푸터 -->
+  <!-- 5. 푸터 -->
   <footer>
-    <div class="footer-links">
-      <a href="about.html">회사 소개</a> | 
-      <a href="#">개인정보처리방침</a> | 
-      <a href="#">이용약관</a> | 
-      <a href="#">보안센터</a>
-    </div>
-    <p>© 2026 JPMorgan Chase & Co. All rights reserved.</p>
+    <p>© 2026 Global Crypto Asset Matrix. All rights reserved.</p>
+    <p class="disclaimer">본 사이트에 표시된 기관명과 포트폴리오 데이터는 가상 시뮬레이션 데이터이며, 실제 투자 권유를 목적으로 하지 않습니다.</p>
   </footer>
 
-  <!-- 자바스크립트 -->
+  <!-- 보고서 클릭 자바스크립트 -->
   <script>
-    // 1. 계산기 함수
-    function calculateReturn() {
-      const input = document.getElementById("investAmount").value;
-      const amount = Number(input);
-
-      if (!input || amount <= 0) {
-        document.getElementById("resultText").innerText = "⚠️ 올바른 금액을 숫자로 입력해주세요.";
-        document.getElementById("resultText").style.color = "#dc2626";
-        return;
-      }
-
-      const expectedTotal = Math.round(amount * 1.05);
-      document.getElementById("resultText").innerText = 
-        "1년 후 예상 자산: 약 " + expectedTotal.toLocaleString() + "원 (+5%)";
-    }
-
-    // 2. [새로 추가된 곳] 다크 모드 토글 스위치 함수
-    function toggleTheme() {
-      // <body> 태그에 'dark-mode' 클래스를 꼈다 뺐다(toggle) 합니다
-      document.body.classList.toggle("dark-mode");
-
-      const btn = document.getElementById("themeBtn");
-      // 현재 다크 모드 상태에 따라 버튼의 글자와 아이콘을 바꿔줍니다
-      if (document.body.classList.contains("dark-mode")) {
-        btn.innerText = "☀️ 라이트 모드";
-      } else {
-        btn.innerText = "🌙 다크 모드";
-      }
+    function showReport(firmName, summary) {
+      alert("📋 [" + firmName + " 기관 투자 브리핑]\n\n" + summary + "\n\n* 최신 공시 기준 작성 완료");
     }
   </script>
 
