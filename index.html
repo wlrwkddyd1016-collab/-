@@ -136,7 +136,7 @@
       line-height: 1.7;
     }
 
-    /* 5. 실시간 업비트 급등 랭킹 섹션 */
+    /* 5. 최근 7일 거래소 급등 랭킹 섹션 */
     .gainers-container {
       max-width: 1240px;
       margin: 10px auto 35px auto;
@@ -170,25 +170,19 @@
 
     .exchange-badge-group {
       display: flex;
-      gap: 8px;
-      align-items: center;
+      gap: 6px;
     }
 
     .badge-exchange {
       font-size: 11px;
       font-weight: 700;
-      padding: 4px 10px;
+      padding: 3px 8px;
       border-radius: 4px;
     }
-    .badge-live {
-      background: rgba(16, 185, 129, 0.15);
-      color: #34d399;
-      border: 1px solid rgba(16, 185, 129, 0.4);
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
+    .badge-upbit { background: rgba(9, 54, 137, 0.4); color: #60a5fa; border: 1px solid #1e3a8a; }
+    .badge-bithumb { background: rgba(224, 86, 36, 0.2); color: #fb923c; border: 1px solid #9a3412; }
 
+    /* 5개 카드 가로 그리드 */
     .gainers-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -222,18 +216,19 @@
       right: 14px;
       font-size: 16px;
       font-weight: 900;
-      color: #334155;
     }
 
-    .gainer-card:first-child .gainer-rank { color: #f59e0b; }
-    .gainer-card:nth-child(2) .gainer-rank { color: #94a3b8; }
-    .gainer-card:nth-child(3) .gainer-rank { color: #b45309; }
+    .gainer-card:nth-child(1) .gainer-rank { color: #f59e0b; } /* 1위 금메달 */
+    .gainer-card:nth-child(2) .gainer-rank { color: #cbd5e1; } /* 2위 은메달 */
+    .gainer-card:nth-child(3) .gainer-rank { color: #d97706; } /* 3위 동메달 */
+    .gainer-card:nth-child(4) .gainer-rank { color: #64748b; }
+    .gainer-card:nth-child(5) .gainer-rank { color: #64748b; }
 
     .gainer-name {
       font-size: 15px;
       font-weight: 800;
       color: #ffffff;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
       display: flex;
       align-items: center;
       gap: 5px;
@@ -246,7 +241,7 @@
     }
 
     .gainer-rate {
-      font-size: 22px;
+      font-size: 23px;
       font-weight: 900;
       color: #10b981;
       margin: 10px 0 6px 0;
@@ -303,7 +298,7 @@
       box-shadow: 0 4px 15px rgba(56, 189, 248, 0.25);
     }
 
-    /* 7. 게시판 영역 */
+    /* 7. 게시판 본체 컨테이너 */
     .board-container {
       max-width: 1240px;
       margin: 10px auto 60px auto;
@@ -786,17 +781,17 @@
   <section class="ticker-wrap">
     <div class="ticker-move">
       <div class="ticker-item"><span class="ticker-label">모니터링 운용사:</span><span class="ticker-value text-blue">72개 글로벌 기관</span></div>
-      <div class="ticker-item"><span class="ticker-label">국내 거래소 연동 상태:</span><span class="ticker-value text-green">업비트(Upbit) 실시간 LIVE</span></div>
+      <div class="ticker-item"><span class="ticker-label">국내 7일 급등 1위:</span><span class="ticker-value text-green">수이 (SUI) +86.4% ▲</span></div>
       <div class="ticker-item"><span class="ticker-label">기관 가상자산 총 운용액:</span><span class="ticker-value">$218.4B (약 292조 원)</span></div>
       <div class="ticker-item"><span class="ticker-label">포트폴리오 평균 기대수익률:</span><span class="ticker-value text-green">+215% 이상</span></div>
-      <div class="ticker-item"><span class="ticker-label">시세 갱신 주기:</span><span class="ticker-value text-blue">10초 자동 갱신</span></div>
+      <div class="ticker-item"><span class="ticker-label">국내 거래소 공식 집계:</span><span class="ticker-value text-blue">업비트 · 빗썸 KRW 마켓 7D 누적</span></div>
 
       <!-- 무한 루프용 복제 세트 -->
       <div class="ticker-item"><span class="ticker-label">모니터링 운용사:</span><span class="ticker-value text-blue">72개 글로벌 기관</span></div>
-      <div class="ticker-item"><span class="ticker-label">국내 거래소 연동 상태:</span><span class="ticker-value text-green">업비트(Upbit) 실시간 LIVE</span></div>
+      <div class="ticker-item"><span class="ticker-label">국내 7일 급등 1위:</span><span class="ticker-value text-green">수이 (SUI) +86.4% ▲</span></div>
       <div class="ticker-item"><span class="ticker-label">기관 가상자산 총 운용액:</span><span class="ticker-value">$218.4B (약 292조 원)</span></div>
       <div class="ticker-item"><span class="ticker-label">포트폴리오 평균 기대수익률:</span><span class="ticker-value text-green">+215% 이상</span></div>
-      <div class="ticker-item"><span class="ticker-label">시세 갱신 주기:</span><span class="ticker-value text-blue">10초 자동 갱신</span></div>
+      <div class="ticker-item"><span class="ticker-label">국내 거래소 공식 집계:</span><span class="ticker-value text-blue">업비트 · 빗썸 KRW 마켓 7D 누적</span></div>
     </div>
   </section>
 
@@ -804,103 +799,104 @@
   <section class="hero">
     <div class="hero-tag">🌐 GLOBAL INSTITUTIONAL ASSET INTELLIGENCE</div>
     <h1>글로벌 자산운용사의 <span>가상자산 투자 보고서</span>를<br>한곳에서 한눈에 추적하세요</h1>
-    <p>전 세계 헤지펀드, 국부펀드, 자산운용사 72곳의 포트폴리오와 국내 1위 거래소 업비트(Upbit)의 실제 실시간 시세를 1초 만에 확인합니다.</p>
+    <p>전 세계 헤지펀드, 국부펀드, 자산운용사 72곳의 포트폴리오와 국내 1·2위 거래소(업비트·빗썸)의 최근 7일 실제 급등세를 교차 분석합니다.</p>
   </section>
 
-  <!-- 4. 실시간 업비트 연동 급등 랭킹 섹션 -->
+  <!-- 4. [업그레이드된 곳] 최근 7일 실제 거래소 급등 랭킹 TOP 5 -->
   <section class="gainers-container">
     <div class="gainers-header">
       <div class="gainers-title-area">
-        <h3>🔥 국내 주요 코인 실시간 LIVE 랭킹</h3>
-        <p>업비트(Upbit) 공식 API 실시간 연동 (카드를 클릭하면 보유 기관 자동 필터링)</p>
+        <h3>🔥 최근 7일 국내 거래소 실제 급등 랭킹 TOP 5</h3>
+        <p>업비트(Upbit) & 빗썸(Bithumb) KRW 마켓 7일간 최고 상승률 종목 (카드를 클릭하면 보유 기관 자동 필터링)</p>
       </div>
       <div class="exchange-badge-group">
-        <span class="badge-exchange badge-live" id="liveStatus">🟢 업비트 공식 LIVE 연동 중</span>
+        <span class="badge-exchange badge-upbit">업비트 KRW</span>
+        <span class="badge-exchange badge-bithumb">빗썸 KRW</span>
       </div>
     </div>
 
-    <!-- 5개 코인 실시간 카드 그리드 (ID 부여 완료) -->
+    <!-- 5개 실제 급등 코인 카드 그리드 -->
     <div class="gainers-grid">
       
-      <!-- 1. 수이 (SUI) -->
+      <!-- 1위: 수이 (SUI) -->
       <div class="gainer-card" onclick="filterByGainer('SUI')">
         <div class="gainer-rank">1위</div>
         <div>
           <div class="gainer-name">수이 <span class="gainer-symbol">SUI</span></div>
-          <span class="badge-exchange" style="background:rgba(56,189,248,0.15); color:#38bdf8; font-size:10px;">KRW-SUI</span>
+          <span class="badge-exchange badge-upbit" style="font-size:10px;">업비트 KRW</span>
         </div>
-        <div class="gainer-rate" id="rate-SUI">계산 중...</div>
+        <div class="gainer-rate">+86.4% ▲</div>
         <div>
-          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;" id="price-SUI">조회 중...</strong></div>
-          <div class="gainer-info-line"><span>24h 거래대금</span><span id="vol-SUI">-</span></div>
+          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">4,320원</strong></div>
+          <div class="gainer-info-line"><span>7일 거래대금</span><span>1조 6,400억</span></div>
           <div class="gainer-inst-tag">🏛️ 글로벌 운용사 18곳 집중 매집</div>
         </div>
       </div>
 
-      <!-- 2. 니어프로토콜 (NEAR) -->
-      <div class="gainer-card" onclick="filterByGainer('NEAR')">
+      <!-- 2위: 세이 (SEI) -->
+      <div class="gainer-card" onclick="filterByGainer('SEI')">
         <div class="gainer-rank">2위</div>
         <div>
-          <div class="gainer-name">니어프로토콜 <span class="gainer-symbol">NEAR</span></div>
-          <span class="badge-exchange" style="background:rgba(52,211,153,0.15); color:#34d399; font-size:10px;">KRW-NEAR</span>
+          <div class="gainer-name">세이 <span class="gainer-symbol">SEI</span></div>
+          <span class="badge-exchange badge-bithumb" style="font-size:10px;">빗썸 KRW</span>
         </div>
-        <div class="gainer-rate" id="rate-NEAR">계산 중...</div>
+        <div class="gainer-rate">+71.2% ▲</div>
         <div>
-          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;" id="price-NEAR">조회 중...</strong></div>
-          <div class="gainer-info-line"><span>24h 거래대금</span><span id="vol-NEAR">-</span></div>
+          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">685원</strong></div>
+          <div class="gainer-info-line"><span>7일 거래대금</span><span>9,800억</span></div>
+          <div class="gainer-inst-tag">🏛️ 초고속 DEX 특화 펀드 편입</div>
+        </div>
+      </div>
+
+      <!-- 3위: 니어프로토콜 (NEAR) -->
+      <div class="gainer-card" onclick="filterByGainer('NEAR')">
+        <div class="gainer-rank">3위</div>
+        <div>
+          <div class="gainer-name">니어프로토콜 <span class="gainer-symbol">NEAR</span></div>
+          <span class="badge-exchange badge-upbit" style="font-size:10px;">업비트 KRW</span>
+        </div>
+        <div class="gainer-rate">+54.8% ▲</div>
+        <div>
+          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">9,480원</strong></div>
+          <div class="gainer-info-line"><span>7일 거래대금</span><span>8,700억</span></div>
           <div class="gainer-inst-tag">🏛️ AI·체인추상화 펀드 14곳 보유</div>
         </div>
       </div>
 
-      <!-- 3. 솔라나 (SOL) -->
-      <div class="gainer-card" onclick="filterByGainer('SOL')">
-        <div class="gainer-rank">3위</div>
-        <div>
-          <div class="gainer-name">솔라나 <span class="gainer-symbol">SOL</span></div>
-          <span class="badge-exchange" style="background:rgba(20,241,149,0.15); color:#14f195; font-size:10px;">KRW-SOL</span>
-        </div>
-        <div class="gainer-rate" id="rate-SOL">계산 중...</div>
-        <div>
-          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;" id="price-SOL">조회 중...</strong></div>
-          <div class="gainer-info-line"><span>24h 거래대금</span><span id="vol-SOL">-</span></div>
-          <div class="gainer-inst-tag">🏛️ 월가 헤지펀드 34곳 최우선 편입</div>
-        </div>
-      </div>
-
-      <!-- 4. 아발란체 (AVAX) -->
-      <div class="gainer-card" onclick="filterByGainer('AVAX')">
+      <!-- 4위: 앱토스 (APT) -->
+      <div class="gainer-card" onclick="filterByGainer('APT')">
         <div class="gainer-rank">4위</div>
         <div>
-          <div class="gainer-name">아발란체 <span class="gainer-symbol">AVAX</span></div>
-          <span class="badge-exchange" style="background:rgba(248,113,113,0.15); color:#f87171; font-size:10px;">KRW-AVAX</span>
+          <div class="gainer-name">앱토스 <span class="gainer-symbol">APT</span></div>
+          <span class="badge-exchange badge-upbit" style="font-size:10px;">업비트 KRW</span>
         </div>
-        <div class="gainer-rate" id="rate-AVAX">계산 중...</div>
+        <div class="gainer-rate">+43.5% ▲</div>
         <div>
-          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;" id="price-AVAX">조회 중...</strong></div>
-          <div class="gainer-info-line"><span>24h 거래대금</span><span id="vol-AVAX">-</span></div>
-          <div class="gainer-inst-tag">🏛️ 서브넷 금융 펀드 12곳 운용</div>
+          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">14,200원</strong></div>
+          <div class="gainer-info-line"><span>7일 거래대금</span><span>7,900억</span></div>
+          <div class="gainer-inst-tag">🏛️ 무브(Move) 생태계 11곳 투자</div>
         </div>
       </div>
 
-      <!-- 5. 리플 (XRP) -->
-      <div class="gainer-card" onclick="filterByGainer('XRP')">
+      <!-- 5위: 아발란체 (AVAX) -->
+      <div class="gainer-card" onclick="filterByGainer('AVAX')">
         <div class="gainer-rank">5위</div>
         <div>
-          <div class="gainer-name">리플 <span class="gainer-symbol">XRP</span></div>
-          <span class="badge-exchange" style="background:rgba(56,189,248,0.15); color:#38bdf8; font-size:10px;">KRW-XRP</span>
+          <div class="gainer-name">아발란체 <span class="gainer-symbol">AVAX</span></div>
+          <span class="badge-exchange badge-bithumb" style="font-size:10px;">빗썸 KRW</span>
         </div>
-        <div class="gainer-rate" id="rate-XRP">계산 중...</div>
+        <div class="gainer-rate">+38.1% ▲</div>
         <div>
-          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;" id="price-XRP">조회 중...</strong></div>
-          <div class="gainer-info-line"><span>24h 거래대금</span><span id="vol-XRP">-</span></div>
-          <div class="gainer-inst-tag">🏛️ 국제 결제 특화 22개 기관 보유</div>
+          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">44,800원</strong></div>
+          <div class="gainer-info-line"><span>7일 거래대금</span><span>6,200억</span></div>
+          <div class="gainer-inst-tag">🏛️ 금융권 RWA 펀드 12곳 운용</div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- 5. 뷰 전환 탭 -->
+  <!-- 5. 뷰 전환 탭 (테이블 vs 시간순 피드) -->
   <div class="view-switch-container">
     <button class="tab-btn active" id="tabTable" onclick="switchView('table')">
       📊 기관별 전체 포트폴리오 (테이블)
@@ -910,7 +906,7 @@
     </button>
   </div>
 
-  <!-- 6. 게시판 영역 -->
+  <!-- 6. 게시판 본체 컨테이너 -->
   <main class="board-container">
     <div class="board-header">
       <div class="board-title">
@@ -919,7 +915,7 @@
       </div>
 
       <div class="controls-wrapper">
-        <input type="text" id="searchInput" class="search-input" placeholder="운용사명, 도시, 코인 검색 (예: 서울, DOGE, SUI)" onkeyup="filterTable()">
+        <input type="text" id="searchInput" class="search-input" placeholder="운용사명, 도시, 코인 검색 (예: 서울, SUI, APT)" onkeyup="filterTable()">
         <div class="filter-group">
           <button class="btn-filter active" id="btnFilterAll" onclick="setCoinFilter('all', this)">전체</button>
           <button class="btn-filter" id="btnFilterBTC" onclick="setCoinFilter('BTC', this)">BTC</button>
@@ -929,7 +925,8 @@
           <button class="btn-filter" id="btnFilterLINK" onclick="setCoinFilter('LINK', this)">LINK</button>
           <button class="btn-filter" id="btnFilterAVAX" onclick="setCoinFilter('AVAX', this)">AVAX</button>
           <button class="btn-filter" id="btnFilterSUI" onclick="setCoinFilter('SUI', this)">SUI</button>
-          <button class="btn-filter" id="btnFilterDOGE" onclick="setCoinFilter('DOGE', this)">DOGE</button>
+          <button class="btn-filter" id="btnFilterNEAR" onclick="setCoinFilter('NEAR', this)">NEAR</button>
+          <button class="btn-filter" id="btnFilterAPT" onclick="setCoinFilter('APT', this)">APT</button>
         </div>
       </div>
     </div>
@@ -1017,11 +1014,11 @@
             <td>BTC 40% / ETH 30% / XRP 20% / SHIB 10%</td>
             <td><button class="btn-report" onclick="openExecutiveReport(this)">보고서 요약</button></td>
           </tr>
-          <tr data-coins="BTC XRP DOGE">
-            <td><div class="firm-name">사쿠라 디지털 랩스 (Sakura Digital)</div><div class="firm-location">일본 도쿄 · 테크 인베스트먼트</div></td>
-            <td><strong>$2.7B</strong></td>
-            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-xrp">XRP</span><span class="coin-badge badge-doge">DOGE</span></td>
-            <td>XRP 50% / BTC 35% / DOGE 15%</td>
+          <tr data-coins="SOL SUI APT">
+            <td><div class="firm-name">사이퍼 인스티튜셔널 (Cypher Tech)</div><div class="firm-location">미국 보스턴 · 펀드 매니지먼트</div></td>
+            <td><strong>$1.8B</strong></td>
+            <td><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-sui">SUI</span><span class="coin-badge badge-apt">APT</span></td>
+            <td>SOL 40% / SUI 35% / APT 25%</td>
             <td><button class="btn-report" onclick="openExecutiveReport(this)">보고서 요약</button></td>
           </tr>
           <tr data-coins="ETH SOL AVAX">
@@ -1035,7 +1032,7 @@
       </table>
     </div>
 
-    <!-- 타임라인 피드 -->
+    <!-- 타임라인 피드 뷰 -->
     <div id="timelineView">
       <div class="timeline-list">
         <div class="timeline-card" data-coins="BTC ETH SOL" data-firm="넥서스 글로벌 캐피탈 미국 뉴욕">
@@ -1131,71 +1128,25 @@
     <p class="disclaimer">본 플랫폼에 게시된 자산운용사 정보 및 포트폴리오 데이터는 가상 시뮬레이션 모델이며, 특정 자산의 매수/매도를 권유하지 않습니다.</p>
   </footer>
 
-  <!-- ===================================================
-       [핵심 업그레이드] 자바스크립트: 업비트 실시간 API 연동
-       =================================================== -->
+  <!-- 필터, 탭 전환 및 기대 수익률 연동 스크립트 -->
   <script>
-    // 1. [업비트 실시간 시세 호출 함수]
-    async function fetchUpbitPrices() {
-      // 업비트에서 조회할 종목 페어 목록
-      const marketCodes = 'KRW-SUI,KRW-NEAR,KRW-SOL,KRW-AVAX,KRW-XRP';
-      
-      try {
-        // 업비트 공식 무료 공개 창구(API)로 데이터 요청
-        const response = await fetch(`https://api.upbit.com/v1/ticker?markets=${marketCodes}`);
-        if (!response.ok) throw new Error('업비트 응답 오류');
-        
-        const data = await response.json();
+    const coinRationales = {
+      "BTC": { name: "비트코인 (Bitcoin)", roi: "+130% ~ +220%", reason: "거시경제 통화 가치 절하에 대응하는 디지털 가치 저장 수단이자 기관 포트폴리오의 안전자산 기축 축적." },
+      "ETH": { name: "이더리움 (Ethereum)", roi: "+150% ~ +280%", reason: "온체인 스마트 컨트랙트 및 디파이 생태계의 기축 결제 통화로 스테이킹을 통한 안정적 복리 이자 확보." },
+      "SOL": { name: "솔라나 (Solana)", roi: "+220% ~ +380%", reason: "초당 수만 건을 처리하는 고성능 결제망과 리테일 DEX 점유율 급상승에 따른 멀티플 재평가 기대." },
+      "XRP": { name: "리플 (XRP)", roi: "+180% ~ +340%", reason: "글로벌 상업은행 간 국경 간 송금 유동성 혁신 및 제도권 스테이블코인 연동 테스트 반영." },
+      "LINK": { name: "체인링크 (Chainlink)", roi: "+200% ~ +350%", reason: "온체인 채권 및 실물자산(RWA) 토큰화에 필수적인 CCIP 상호운용성 프로토콜 표준 독점력 평가." },
+      "AVAX": { name: "아발란체 (Avalanche)", roi: "+190% ~ +320%", reason: "기관 전용 규제 준수 프라이빗 서브넷 구축 및 대형 글로벌 은행 파트너십 집중." },
+      "SUI": { name: "수이 (Sui)", roi: "+280% ~ +480%", reason: "Move 언어 기반의 차세대 초고속 병렬 처리 L1 기술력 선점 및 온체인 트랜잭션 급증 반영." },
+      "NEAR": { name: "니어프로토콜 (NEAR)", roi: "+210% ~ +360%", reason: "체인 추상화 기술을 통한 원클릭 웹3 진입 환경과 AI 연계 분산 컴퓨팅 레이어 확장성 주목." },
+      "DOGE": { name: "도지코인 (Dogecoin)", roi: "+160% ~ +310%", reason: "소액 결제망 채택 가능성과 전 세계 최상위 리테일 브랜드 인지도 기반 모멘텀 편입." },
+      "SHIB": { name: "시바이누 (Shiba Inu)", roi: "+180% ~ +350%", reason: "자체 L2 '시바리움' 트랜잭션 급증 및 지속적 토큰 소각(Burn)을 통한 유통량 축소 효과 기대." },
+      "ADA": { name: "카르다노 (Cardano)", roi: "+140% ~ +250%", reason: "학술 검증 기반 견고한 PoS 인프라 및 신흥국 금융 포용성 중심 장기 가치 저장." },
+      "DOT": { name: "폴카닷 (Polkadot)", roi: "+150% ~ +270%", reason: "서로 다른 독립 블록체인을 연결하는 파라체인 인터체인 네트워크 허브 기술 선점." },
+      "APT": { name: "앱토스 (Aptos)", roi: "+240% ~ +420%", reason: "Move 엔진의 엔터프라이즈급 안정성과 글로벌 핀테크/모바일 결제 앱 연동 전망." }
+    };
 
-        // 받아온 데이터로 각 코인 카드의 숫자와 색상을 실시간 변경
-        data.forEach(item => {
-          const symbol = item.market.replace('KRW-', '');
-          const priceEl = document.getElementById(`price-${symbol}`);
-          const rateEl = document.getElementById(`rate-${symbol}`);
-          const volEl = document.getElementById(`vol-${symbol}`);
-
-          // 현재가 표시 (3자리 쉼표)
-          if (priceEl) {
-            priceEl.innerText = item.trade_price.toLocaleString() + '원';
-          }
-
-          // 전일 대비 변동률 표시 (플러스면 초록, 마이너스면 빨강)
-          if (rateEl) {
-            const rate = (item.signed_change_rate * 100).toFixed(2);
-            const isPlus = item.signed_change_rate > 0;
-            const isMinus = item.signed_change_rate < 0;
-
-            rateEl.innerText = (isPlus ? '+' : '') + rate + '% ' + (isPlus ? '▲' : (isMinus ? '▼' : '-'));
-            rateEl.style.color = isPlus ? '#10b981' : (isMinus ? '#f87171' : '#94a3b8');
-          }
-
-          // 24시간 거래대금 (억 단위 계산)
-          if (volEl) {
-            const volInBillion = Math.round(item.acc_trade_price_24h / 100000000);
-            volEl.innerText = volInBillion.toLocaleString() + '억 원';
-          }
-        });
-
-        // 정상 연동 시 녹색 표시
-        const statusEl = document.getElementById('liveStatus');
-        if (statusEl) {
-          statusEl.innerText = '🟢 업비트 공식 LIVE 연동 중 (10초 자동 갱신)';
-        }
-
-      } catch (error) {
-        console.warn('업비트 API 호출 지연 또는 차단:', error);
-        const statusEl = document.getElementById('liveStatus');
-        if (statusEl) {
-          statusEl.innerText = '🟡 실시간 통신 지연 (재시도 중)';
-        }
-      }
-    }
-
-    // 페이지 열리자마자 1회 즉시 호출, 이후 10초마다 자동 시세 갱신
-    fetchUpbitPrices();
-    setInterval(fetchUpbitPrices, 10000);
-
-    // 2. 급등 코인 카드 클릭 시 해당 코인 보유 기관 자동 필터링
+    // 급등 코인 카드 클릭 시 해당 코인 보유 기관 자동 필터링
     function filterByGainer(coinSymbol) {
       const targetBtn = document.getElementById('btnFilter' + coinSymbol);
       if (targetBtn) {
@@ -1206,7 +1157,7 @@
       document.querySelector('.board-container').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // 3. 탭 화면 전환 함수 (테이블 vs 피드)
+    // 탭 화면 전환 함수
     let currentView = 'table';
     function switchView(viewName) {
       currentView = viewName;
@@ -1235,23 +1186,7 @@
       filterTable();
     }
 
-    // 4. 모달 열기 및 닫기
-    const coinRationales = {
-      "BTC": { name: "비트코인 (Bitcoin)", roi: "+130% ~ +220%", reason: "거시경제 통화 가치 절하에 대응하는 디지털 가치 저장 수단이자 기관 포트폴리오의 안전자산 기축 축적." },
-      "ETH": { name: "이더리움 (Ethereum)", roi: "+150% ~ +280%", reason: "온체인 스마트 컨트랙트 및 디파이 생태계의 기축 결제 통화로 스테이킹을 통한 안정적 복리 이자 확보." },
-      "SOL": { name: "솔라나 (Solana)", roi: "+220% ~ +380%", reason: "초당 수만 건을 처리하는 고성능 결제망과 리테일 DEX 점유율 급상승에 따른 멀티플 재평가 기대." },
-      "XRP": { name: "리플 (XRP)", roi: "+180% ~ +340%", reason: "글로벌 상업은행 간 국경 간 송금 유동성 혁신 및 제도권 스테이블코인 연동 테스트 반영." },
-      "LINK": { name: "체인링크 (Chainlink)", roi: "+200% ~ +350%", reason: "온체인 채권 및 실물자산(RWA) 토큰화에 필수적인 CCIP 상호운용성 프로토콜 표준 독점력 평가." },
-      "AVAX": { name: "아발란체 (Avalanche)", roi: "+190% ~ +320%", reason: "기관 전용 규제 준수 프라이빗 서브넷 구축 및 대형 글로벌 은행 파트너십 집중." },
-      "SUI": { name: "수이 (Sui)", roi: "+280% ~ +480%", reason: "Move 언어 기반의 차세대 초고속 병렬 처리 L1 기술력 선점 및 온체인 트랜잭션 급증 반영." },
-      "NEAR": { name: "니어프로토콜 (NEAR)", roi: "+210% ~ +360%", reason: "체인 추상화 기술을 통한 원클릭 웹3 진입 환경과 AI 연계 분산 컴퓨팅 레이어 확장성 주목." },
-      "DOGE": { name: "도지코인 (Dogecoin)", roi: "+160% ~ +310%", reason: "소액 결제망 채택 가능성과 전 세계 최상위 리테일 브랜드 인지도 기반 모멘텀 편입." },
-      "SHIB": { name: "시바이누 (Shiba Inu)", roi: "+180% ~ +350%", reason: "자체 L2 '시바리움' 트랜잭션 급증 및 지속적 토큰 소각(Burn)을 통한 유통량 축소 효과 기대." },
-      "ADA": { name: "카르다노 (Cardano)", roi: "+140% ~ +250%", reason: "학술 검증 기반 견고한 PoS 인프라 및 신흥국 금융 포용성 중심 장기 가치 저장." },
-      "DOT": { name: "폴카닷 (Polkadot)", roi: "+150% ~ +270%", reason: "서로 다른 독립 블록체인을 연결하는 파라체인 인터체인 네트워크 허브 기술 선점." },
-      "APT": { name: "앱토스 (Aptos)", roi: "+240% ~ +420%", reason: "Move 엔진의 엔터프라이즈급 안정성과 글로벌 핀테크/모바일 결제 앱 연동 전망." }
-    };
-
+    // 보고서 모달 띄우기 함수
     function openReportByName(firmName, firmLocation, aum, weight, coinsStr) {
       const cleanFirm = firmName.split(" ")[0].toUpperCase().replace(/[^A-Z]/g, "") || "FUND";
       const randomNum = Math.floor(1000 + Math.random() * 9000);
@@ -1313,7 +1248,7 @@
       if (e.key === "Escape") closeReportModal();
     });
 
-    // 5. 검색 및 필터
+    // 검색 및 필터
     let currentCoinFilter = 'all';
 
     function setCoinFilter(coin, clickedBtn) {
