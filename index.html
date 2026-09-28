@@ -185,10 +185,11 @@
       -webkit-text-fill-color: transparent;
     }
 
+    /* [수정됨] 괄호 속 (JMC1016) 문구가 깔끔하게 제거되었습니다 */
     .hero p {
       font-size: 15.5px;
       color: #94a3b8;
-      max-width: 720px;
+      max-width: 740px;
       margin: 0 auto;
       line-height: 1.7;
     }
@@ -455,6 +456,45 @@
 
     .firm-location { font-size: 12px; color: #64748b; }
 
+    /* ===================================================
+       [핵심 신규 스타일] 비로그인 시 코인명 & 비중 블러 처리
+       =================================================== */
+    /* 로그인 안 했을 때 표의 3열(코인뱃지), 4열(비중), 피드의 코인뱃지를 블러 처리 */
+    body:not(.is-logged-in) #fundTable td:nth-child(3),
+    body:not(.is-logged-in) #fundTable td:nth-child(4),
+    body:not(.is-logged-in) .timeline-meta-tags .coin-badge,
+    body:not(.is-logged-in) .blur-target {
+      filter: blur(6.5px);
+      user-select: none;
+      -webkit-user-select: none;
+      cursor: pointer;
+      transition: filter 0.2s ease;
+    }
+
+    /* 비로그인 시 블러 영역에 마우스를 올리면 잠금 안내 표시 */
+    body:not(.is-logged-in) #fundTable td:nth-child(3):hover,
+    body:not(.is-logged-in) #fundTable td:nth-child(4):hover,
+    body:not(.is-logged-in) .timeline-meta-tags .coin-badge:hover {
+      filter: blur(4px);
+    }
+
+    /* 표 헤더에 비로그인 시 '🔒 비공개' 딱지 표시 */
+    .lock-pill {
+      display: none;
+      font-size: 11px;
+      color: #f87171;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 5px;
+      font-weight: 700;
+    }
+
+    body:not(.is-logged-in) .lock-pill {
+      display: inline-block;
+    }
+
     /* 타임라인 피드 스타일 */
     #timelineView { display: none; }
 
@@ -478,7 +518,6 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.25);
     }
 
-    /* 선취매 강조 카드 배경 */
     .timeline-card.spotlight-card {
       border-left-color: #10b981;
       background: radial-gradient(circle at 10% 50%, #11283d 0%, #0b172a 80%);
@@ -1060,23 +1099,23 @@
       <div class="ticker-item"><span class="ticker-label">모니터링 운용사:</span><span class="ticker-value text-blue">72개 글로벌 기관</span></div>
       <div class="ticker-item"><span class="ticker-label">국내 1개월 급등 1위:</span><span class="ticker-value text-green">수이 (SUI) +148.5% ▲</span></div>
       <div class="ticker-item"><span class="ticker-label">기관 가상자산 총 운용액:</span><span class="ticker-value">$218.4B (약 292조 원)</span></div>
-      <div class="ticker-item"><span class="ticker-label">보고서 열람 자격:</span><span class="ticker-value text-blue" id="tickerAccessStatus">전문 트레이더 면허 검증 필요</span></div>
+      <div class="ticker-item"><span class="ticker-label">포트폴리오 보안 등급:</span><span class="ticker-value text-blue" id="tickerAccessStatus">비회원 코인명 블러 암호화</span></div>
       <div class="ticker-item"><span class="ticker-label">최신 선취매 공시:</span><span class="ticker-value text-green">2026.09.28 발할라(SEI) 신규 반영</span></div>
 
       <!-- 무한 루프용 복제 세트 -->
       <div class="ticker-item"><span class="ticker-label">모니터링 운용사:</span><span class="ticker-value text-blue">72개 글로벌 기관</span></div>
       <div class="ticker-item"><span class="ticker-label">국내 1개월 급등 1위:</span><span class="ticker-value text-green">수이 (SUI) +148.5% ▲</span></div>
       <div class="ticker-item"><span class="ticker-label">기관 가상자산 총 운용액:</span><span class="ticker-value">$218.4B (약 292조 원)</span></div>
-      <div class="ticker-item"><span class="ticker-label">보고서 열람 자격:</span><span class="ticker-value text-blue">전문 트레이더 면허 검증 필요</span></div>
+      <div class="ticker-item"><span class="ticker-label">포트폴리오 보안 등급:</span><span class="ticker-value text-blue">비회원 코인명 블러 암호화</span></div>
       <div class="ticker-item"><span class="ticker-label">최신 선취매 공시:</span><span class="ticker-value text-green">2026.09.28 발할라(SEI) 신규 반영</span></div>
     </div>
   </section>
 
-  <!-- 3. 메인 배너 -->
+  <!-- 3. 메인 배너: (JMC1016) 문구가 노출되지 않도록 수정 완료 -->
   <section class="hero">
     <div class="hero-tag">🌐 GLOBAL INSTITUTIONAL ASSET INTELLIGENCE</div>
     <h1>글로벌 자산운용사의 <span>가상자산 투자 보고서</span>를<br>한곳에서 한눈에 추적하세요</h1>
-    <p>전 세계 헤지펀드 72곳의 포트폴리오를 분석합니다. 최근 선취매 완료 보고서(최소 기대수익률 +150%~300%)와 사후 감사 내역은 인가된 보안 코드(JMC1016) 보유자만 열람할 수 있습니다.</p>
+    <p>전 세계 헤지펀드 72곳의 포트폴리오를 분석합니다. 최근 선취매 완료 보고서(최소 기대수익률 +150%~300%)와 사후 감사 내역은 인가된 보안 코드 보유자만 열람할 수 있습니다.</p>
   </section>
 
   <!-- 4. 최근 1개월(30일) 실제 거래소 급등 랭킹 TOP 5 -->
@@ -1204,19 +1243,19 @@
       </div>
     </div>
 
-    <!-- 테이블 뷰 -->
+    <!-- 테이블 뷰: 비로그인 시 3열과 4열에 자동 블러 및 비공개 뱃지 적용 -->
     <div class="table-wrapper" id="tableView">
       <table id="fundTable">
         <thead>
           <tr>
             <th>자산운용사명</th>
             <th>운용 자산(AUM)</th>
-            <th>주요 편입 가상자산</th>
-            <th>포트폴리오 비중</th>
+            <th>주요 편입 가상자산 <span class="lock-pill">🔒 비공개</span></th>
+            <th>포트폴리오 비중 <span class="lock-pill">🔒 비공개</span></th>
             <th>공시 보고서</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody onclick="handleBlurredClick(event)">
           <!-- 1. 발할라 인베스트먼트 (SEI 최근 선취매) -->
           <tr data-coins="BTC ETH SEI">
             <td><div class="firm-name">발할라 인베스트먼트 (Valhalla Fund)</div><div class="firm-location">스위스 취리히 · 프라이빗 뱅크</div></td>
@@ -1285,13 +1324,11 @@
       </table>
     </div>
 
-    <!-- ===================================================
-         타임라인 피드: 최신 선취매 공시 모음 (시간순)
-         =================================================== -->
+    <!-- 타임라인 피드 -->
     <div id="timelineView">
       <div class="timeline-list">
         
-        <!-- [신규 1] 발할라 인베스트먼트 - 2026.09.28 (SEI 선취매) -->
+        <!-- [신규 1] 발할라 인베스트먼트 - 2026.09.28 -->
         <div class="timeline-card spotlight-card" data-coins="BTC ETH SEI" data-firm="발할라 인베스트먼트 스위스 취리히">
           <div>
             <div class="timeline-date-badge badge-pre-rally">🎯 [최신 선취매 공시] 2026.09.28 심의 완료</div>
@@ -1312,7 +1349,7 @@
           </div>
         </div>
 
-        <!-- [신규 2] 한양 크립토 파트너스 - 2026.09.27 (APT 선취매) -->
+        <!-- [신규 2] 한양 크립토 파트너스 - 2026.09.27 -->
         <div class="timeline-card spotlight-card" data-coins="BTC ETH APT SUI" data-firm="한양 크립토 파트너스 대한민국 서울">
           <div>
             <div class="timeline-date-badge badge-pre-rally">🎯 [최신 선취매 공시] 2026.09.27 심의 완료</div>
@@ -1333,7 +1370,7 @@
           </div>
         </div>
 
-        <!-- [신규 3] 사쿠라 디지털 랩스 - 2026.09.25 (RENDER 선취매) -->
+        <!-- [신규 3] 사쿠라 디지털 랩스 - 2026.09.25 -->
         <div class="timeline-card spotlight-card" data-coins="BTC XRP RNDR" data-firm="사쿠라 디지털 랩스 일본 도쿄">
           <div>
             <div class="timeline-date-badge badge-pre-rally">🎯 [최신 선취매 공시] 2026.09.25 심의 완료</div>
@@ -1354,7 +1391,7 @@
           </div>
         </div>
 
-        <!-- 기존 1. 수이 (SUI) - 크로노스 디지털 -->
+        <!-- 1. 수이 (SUI) - 크로노스 디지털 -->
         <div class="timeline-card spotlight-card" data-coins="ETH SOL SUI" data-firm="크로노스 디지털 에셋 싱가포르">
           <div>
             <div class="timeline-date-badge badge-pre-rally">🎯 [선취매 공시] 2026.07.24 심의 ➔ 09.24 성과 실현</div>
@@ -1375,7 +1412,7 @@
           </div>
         </div>
 
-        <!-- 기존 2. 에테나 (ENA) - 오리온 퀀트 -->
+        <!-- 2. 에테나 (ENA) - 오리온 퀀트 -->
         <div class="timeline-card spotlight-card" data-coins="BTC SOL ENA" data-firm="오리온 퀀트 매니지먼트 미국 시카고">
           <div>
             <div class="timeline-date-badge badge-pre-rally">🎯 [선취매 공시] 2026.08.05 심의 ➔ 09.22 성과 실현</div>
@@ -1556,6 +1593,7 @@
     const MASTER_SECURITY_CODE = "JMC1016";
     let pendingReportRow = null;
 
+    // 헤더 상태 및 바디 블러 제어 함수
     function updateAuthUI() {
       const loggedUser = JSON.parse(localStorage.getItem("matrix_logged_user") || "null");
       const headerAuthBtn = document.getElementById("headerAuthBtn");
@@ -1565,6 +1603,8 @@
       const tickerAccessStatus = document.getElementById("tickerAccessStatus");
 
       if (loggedUser) {
+        // [로그인 상태] 블러 해제!
+        document.body.classList.add("is-logged-in");
         headerAuthBtn.style.display = "none";
         headerUserProfile.style.display = "flex";
         headerUserName.innerText = loggedUser.name;
@@ -1574,11 +1614,24 @@
           tickerAccessStatus.className = "ticker-value text-green";
         }
       } else {
+        // [비로그인 상태] 블러 적용!
+        document.body.classList.remove("is-logged-in");
         headerAuthBtn.style.display = "inline-flex";
         headerUserProfile.style.display = "none";
         if (tickerAccessStatus) {
-          tickerAccessStatus.innerText = "전문 트레이더 면허 검증 필요";
+          tickerAccessStatus.innerText = "비회원 코인명 블러 암호화";
           tickerAccessStatus.className = "ticker-value text-blue";
+        }
+      }
+    }
+
+    // 비로그인 상태에서 블러 처리된 표를 클릭했을 때 로그인 유도
+    function handleBlurredClick(event) {
+      const loggedUser = JSON.parse(localStorage.getItem("matrix_logged_user") || "null");
+      if (!loggedUser) {
+        const targetTd = event.target.closest("td:nth-child(3), td:nth-child(4)");
+        if (targetTd) {
+          openAuthModal('blur');
         }
       }
     }
@@ -1586,7 +1639,9 @@
     function openAuthModal(reason) {
       const noticeBox = document.getElementById("authNoticeText");
       if (reason === 'report') {
-        noticeBox.innerHTML = "🔒 <strong>전문 운용역 한정 비공개 보고서입니다.</strong><br>기관 보안 코드(JMC1016) 및 전문 자격을 인증하신 후 즉시 전체 열람이 가능합니다.";
+        noticeBox.innerHTML = "🔒 <strong>전문 운용역 한정 비공개 보고서입니다.</strong><br>기관 보안 코드 및 전문 자격을 인증하신 후 즉시 전체 열람이 가능합니다.";
+      } else if (reason === 'blur') {
+        noticeBox.innerHTML = "🔒 <strong>기관별 편입 코인 및 비중은 보안 암호화 상태입니다.</strong><br>인가된 전문 트레이더 로그인 후 실시간 잠금이 해제됩니다.";
       } else {
         noticeBox.innerHTML = "글로벌 자산운용사 전문 리서치 허브에 오신 것을 환영합니다.";
       }
@@ -1657,7 +1712,7 @@
 
       localStorage.setItem("matrix_logged_user", JSON.stringify({ id, name, license }));
 
-      alert(`✅ [자격 심사 승인 완료]\n\n환영합니다, ${name} 트레이더님!\n자격 구분: [${license}]\n\n글로벌 72개 자산운용사 보고서 열람 권한이 부여되었습니다.`);
+      alert(`✅ [자격 심사 승인 완료]\n\n환영합니다, ${name} 트레이더님!\n자격 구분: [${license}]\n\n포트폴리오 코인명 블러가 해제되었으며, 보고서 열람 권한이 부여되었습니다.`);
       closeAuthModal();
       updateAuthUI();
 
@@ -1692,7 +1747,7 @@
     }
 
     function handleLogout() {
-      if (confirm("보안 세션을 종료하고 로그아웃하시겠습니까?")) {
+      if (confirm("보안 세션을 종료하고 로그아웃하시겠습니까? (로그아웃 시 코인명이 다시 블러 처리됩니다)")) {
         localStorage.removeItem("matrix_logged_user");
         updateAuthUI();
         alert("안전하게 로그아웃되었습니다.");
@@ -1721,11 +1776,8 @@
       openReportByName(firmName, firmLocation, aum, weight, coinsStr);
     }
 
-    // ===================================================
-    // 선취매 기관별 상세 데이터 (신규 최신 3곳 + 기존 포함)
-    // ===================================================
+    // 선취매 기관별 데이터
     const spotlightData = {
-      // 1. 발할라 인베스트먼트 (2026.09.28 신규 SEI)
       "valhalla": {
         firmName: "발할라 인베스트먼트 (Valhalla Fund)",
         firmLocation: "스위스 취리히 · 프라이빗 뱅크",
@@ -1743,7 +1795,6 @@
           desc: "매집 완료 직후 병렬 EVM 기술 검증에 따른 기관 매수세가 유입되며 단기 +120% 상승세를 기록 중임. 최종 목표 수익률(+180%~+320%) 도달 시까지 분할 매도 없이 장기 보유하며, 1차 목표가 도달 시 30% 원금 회수 예정임."
         }
       },
-      // 2. 한양 크립토 파트너스 (2026.09.27 신규 APT)
       "hanyang": {
         firmName: "한양 크립토 파트너스 (Hanyang Partners)",
         firmLocation: "대한민국 서울 · 블록체인 펀드",
@@ -1761,7 +1812,6 @@
           desc: "발표 직전 선취매 완료 후 국내외 거래소에서 거래대금이 급증하며 $14.20을 터치함. 현재 +82% 평가익을 기록 중이며, 최종 목표 기대치인 +160%~+290% 구간까지 락업을 유지하며 모바일 실사용 트랜잭션을 모니터링 중임."
         }
       },
-      // 3. 사쿠라 디지털 랩스 (2026.09.25 신규 RENDER)
       "sakura": {
         firmName: "사쿠라 디지털 랩스 (Sakura Digital)",
         firmLocation: "일본 도쿄 · 테크 인베스트먼트",
@@ -1779,7 +1829,6 @@
           desc: "엔터프라이즈 AI 연산 공급 호재가 가시화되며 $8.90까지 반등 성공. 포트폴리오의 중장기 목표치인 +150%~+280% 도달 전까지 전량 홀딩하며, 솔라나 기반 노드 인센티브 복리 재투자를 진행 중임."
         }
       },
-      // 기존 크로노스
       "chronos": {
         firmName: "크로노스 디지털 에셋 (Chronos Asset)",
         firmLocation: "싱가포르 · 블록체인 전문 펀드",
@@ -1797,7 +1846,6 @@
           desc: "7월 선취매 이후 9월 대형 랠리가 완벽히 적중함. 최고가 $4.32 도달 시점에 투자 원금의 100%를 장외 블록딜로 청산하여 원금을 전액 회수 완료함. 잔여 순이익 물량은 온체인 검증인 노드 스테이킹으로 전환하여 연 7.2%의 복리 현금흐름을 창출 중임."
         }
       },
-      // 기존 오리온 퀀트
       "orion": {
         firmName: "오리온 퀀트 매니지먼트 (Orion Quant)",
         firmLocation: "미국 시카고 · 퀀트 트레이딩",
@@ -1856,7 +1904,6 @@
         }
       });
 
-      // 사후 성과 추적 박스 데이터 주입
       document.getElementById("modalUpdateBox").style.display = "block";
       document.getElementById("updateDate").innerText = item.update.date;
       document.getElementById("updateEntryPrice").innerText = item.update.entry;
@@ -1871,7 +1918,6 @@
       document.body.style.overflow = "hidden";
     }
 
-    // 일반 보고서 오픈 함수
     const coinRationales = {
       "SEI": { name: "세이 (Sei)", roi: "+180% ~ +320%", reason: "[병렬 EVM 가동 전 선취매] 초고속 병렬 EVM v2 업그레이드 및 아시아 주요 거래소 DEX 유동성 유입에 주목한 $0.30대 바닥 매집." },
       "APT": { name: "앱토스 (Aptos)", roi: "+160% ~ +290%", reason: "[모바일 결제망 제휴 전 선취매] 글로벌 핀테크 대기업의 Move 기반 온체인 결제 솔루션 공식 발표 전 장외(OTC) 분할 매집." },
