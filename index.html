@@ -455,7 +455,7 @@
 
     .firm-location { font-size: 12px; color: #64748b; }
 
-    /* 타임라인 피드 */
+    /* 타임라인 피드 스타일 */
     #timelineView { display: none; }
 
     .timeline-list {
@@ -478,10 +478,15 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.25);
     }
 
+    .timeline-card.spotlight-card {
+      border-left-color: #10b981;
+      background: radial-gradient(circle at 10% 50%, #11283d 0%, #0b172a 80%);
+      border-top: 1px solid #204060;
+    }
+
     .timeline-card:hover {
       background: #10213a;
       transform: translateX(4px);
-      border-left-color: #10b981;
     }
 
     .timeline-date-badge {
@@ -495,6 +500,12 @@
       padding: 4px 10px;
       border-radius: 4px;
       margin-bottom: 8px;
+    }
+
+    .badge-pre-rally {
+      background: rgba(16, 185, 129, 0.18);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.35);
     }
 
     .timeline-firm-title {
@@ -543,6 +554,7 @@
     .badge-link { background: rgba(55, 91, 210, 0.18); color: #60a5fa; }
     .badge-avax { background: rgba(232, 65, 66, 0.18); color: #f87171; }
     .badge-sui { background: rgba(77, 162, 255, 0.18); color: #38bdf8; }
+    .badge-soon { background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.35); }
     .badge-near { background: rgba(0, 192, 139, 0.18); color: #34d399; }
     .badge-doge { background: rgba(194, 166, 51, 0.18); color: #facc15; }
     .badge-shib { background: rgba(255, 107, 74, 0.18); color: #fb923c; }
@@ -981,7 +993,7 @@
   <section class="hero">
     <div class="hero-tag">🌐 GLOBAL INSTITUTIONAL ASSET INTELLIGENCE</div>
     <h1>글로벌 자산운용사의 <span>가상자산 투자 보고서</span>를<br>한곳에서 한눈에 추적하세요</h1>
-    <p>전 세계 헤지펀드, 국부펀드, 자산운용사 72곳의 포트폴리오를 분석합니다. 정식 실사 보고서는 인가된 전문 자격 및 보안 코드를 보유한 회원만 열람할 수 있습니다.</p>
+    <p>전 세계 헤지펀드, 국부펀드, 자산운용사 72곳의 포트폴리오를 분석합니다. 급등 이전 선취매 완료 보고서는 인가된 전문 자격 및 보안 코드(JMC1016) 보유자만 열람할 수 있습니다.</p>
   </section>
 
   <!-- 4. 최근 1개월(30일) 실제 거래소 급등 랭킹 TOP 5 -->
@@ -1008,7 +1020,7 @@
         <div>
           <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">4,320원</strong></div>
           <div class="gainer-info-line"><span>30일 거래대금</span><span>5조 8,200억</span></div>
-          <div class="gainer-inst-tag">🏛️ 글로벌 운용사 18곳 집중 매집</div>
+          <div class="gainer-inst-tag">🏛️ 폭등 전 7월 선취매 완료</div>
         </div>
       </div>
 
@@ -1026,17 +1038,17 @@
         </div>
       </div>
 
-      <div class="gainer-card" onclick="filterByGainer('APT')">
+      <div class="gainer-card" onclick="filterByGainer('SOON')">
         <div class="gainer-rank">3위</div>
         <div>
-          <div class="gainer-name">앱토스 <span class="gainer-symbol">APT</span></div>
-          <span class="badge-exchange badge-upbit" style="font-size:10px;">업비트 KRW</span>
+          <div class="gainer-name">쑨 <span class="gainer-symbol">SOON</span></div>
+          <span class="badge-exchange badge-bithumb" style="font-size:10px;">빗썸 KRW</span>
         </div>
-        <div class="gainer-rate">+89.7% ▲</div>
+        <div class="gainer-rate">+98.2% ▲</div>
         <div>
-          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">14,200원</strong></div>
-          <div class="gainer-info-line"><span>30일 거래대금</span><span>3조 2,100억</span></div>
-          <div class="gainer-inst-tag">🏛️ 무브(Move) 생태계 11곳 투자</div>
+          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">1,840원</strong></div>
+          <div class="gainer-info-line"><span>30일 거래대금</span><span>2조 1,400억</span></div>
+          <div class="gainer-inst-tag">🏛️ 8월 롤업 메인넷 선제 매집</div>
         </div>
       </div>
 
@@ -1050,7 +1062,7 @@
         <div>
           <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">9,480원</strong></div>
           <div class="gainer-info-line"><span>30일 거래대금</span><span>3조 5,600억</span></div>
-          <div class="gainer-inst-tag">🏛️ AI·체인추상화 펀드 14곳 보유</div>
+          <div class="gainer-inst-tag">🏛️ 8월 AI 컨퍼런스 전 선취매</div>
         </div>
       </div>
 
@@ -1089,18 +1101,18 @@
       </div>
 
       <div class="controls-wrapper">
-        <input type="text" id="searchInput" class="search-input" placeholder="운용사명, 도시, 코인 검색 (예: 서울, SUI, APT)" onkeyup="filterTable()">
+        <input type="text" id="searchInput" class="search-input" placeholder="운용사명, 도시, 코인 검색 (예: 서울, SUI, SOON)" onkeyup="filterTable()">
         <div class="filter-group">
           <button class="btn-filter active" id="btnFilterAll" onclick="setCoinFilter('all', this)">전체</button>
           <button class="btn-filter" id="btnFilterBTC" onclick="setCoinFilter('BTC', this)">BTC</button>
           <button class="btn-filter" id="btnFilterETH" onclick="setCoinFilter('ETH', this)">ETH</button>
           <button class="btn-filter" id="btnFilterSOL" onclick="setCoinFilter('SOL', this)">SOL</button>
           <button class="btn-filter" id="btnFilterXRP" onclick="setCoinFilter('XRP', this)">XRP</button>
-          <button class="btn-filter" id="btnFilterLINK" onclick="setCoinFilter('LINK', this)">LINK</button>
-          <button class="btn-filter" id="btnFilterAVAX" onclick="setCoinFilter('AVAX', this)">AVAX</button>
           <button class="btn-filter" id="btnFilterSUI" onclick="setCoinFilter('SUI', this)">SUI</button>
+          <button class="btn-filter" id="btnFilterSOON" onclick="setCoinFilter('SOON', this)">SOON</button>
           <button class="btn-filter" id="btnFilterNEAR" onclick="setCoinFilter('NEAR', this)">NEAR</button>
-          <button class="btn-filter" id="btnFilterAPT" onclick="setCoinFilter('APT', this)">APT</button>
+          <button class="btn-filter" id="btnFilterAVAX" onclick="setCoinFilter('AVAX', this)">AVAX</button>
+          <button class="btn-filter" id="btnFilterLINK" onclick="setCoinFilter('LINK', this)">LINK</button>
         </div>
       </div>
     </div>
@@ -1118,13 +1130,31 @@
           </tr>
         </thead>
         <tbody>
-          <tr data-coins="BTC ETH SOL">
+          <!-- 1. 넥서스 글로벌 (NEAR 선취매 편입) -->
+          <tr data-coins="BTC ETH NEAR">
             <td><div class="firm-name">넥서스 글로벌 캐피탈 (Nexus Global)</div><div class="firm-location">미국 뉴욕 · 헤지펀드</div></td>
             <td><strong>$5.4B</strong></td>
-            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span></td>
-            <td>BTC 55% / ETH 30% / SOL 15%</td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-near">NEAR</span></td>
+            <td>BTC 50% / ETH 30% / NEAR 20%</td>
             <td><button class="btn-report" onclick="openExecutiveReport(this)">보고서 요약</button></td>
           </tr>
+          <!-- 2. 크로노스 디지털 (SUI 대규모 선취매 편입) -->
+          <tr data-coins="ETH SOL SUI">
+            <td><div class="firm-name">크로노스 디지털 에셋 (Chronos Asset)</div><div class="firm-location">싱가포르 · 블록체인 전문 펀드</div></td>
+            <td><strong>$3.2B</strong></td>
+            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-sui">SUI</span></td>
+            <td>ETH 40% / SOL 30% / SUI 30%</td>
+            <td><button class="btn-report" onclick="openExecutiveReport(this)">보고서 요약</button></td>
+          </tr>
+          <!-- 3. 블루록 벤처 (SOON 신흥 고속 롤업 선취매 편입) -->
+          <tr data-coins="SOL SOON NEAR">
+            <td><div class="firm-name">블루록 벤처 캐피탈 (BlueRock Ventures)</div><div class="firm-location">미국 샌프란시스코 · VC</div></td>
+            <td><strong>$2.1B</strong></td>
+            <td><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-soon">SOON</span><span class="coin-badge badge-near">NEAR</span></td>
+            <td>SOL 40% / SOON 35% / NEAR 25%</td>
+            <td><button class="btn-report" onclick="openExecutiveReport(this)">보고서 요약</button></td>
+          </tr>
+          <!-- 4. 아펙스 인스티튜셔널 -->
           <tr data-coins="XRP BTC LINK">
             <td><div class="firm-name">아펙스 인스티튜셔널 (Apex Partners)</div><div class="firm-location">영국 런던 · 대체투자운용사</div></td>
             <td><strong>$3.8B</strong></td>
@@ -1132,13 +1162,7 @@
             <td>XRP 45% / BTC 35% / LINK 20%</td>
             <td><button class="btn-report" onclick="openExecutiveReport(this)">보고서 요약</button></td>
           </tr>
-          <tr data-coins="ETH SOL SUI">
-            <td><div class="firm-name">크로노스 디지털 에셋 (Chronos Asset)</div><div class="firm-location">싱가포르 · 블록체인 전문 펀드</div></td>
-            <td><strong>$3.2B</strong></td>
-            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-sui">SUI</span></td>
-            <td>ETH 40% / SOL 35% / SUI 25%</td>
-            <td><button class="btn-report" onclick="openExecutiveReport(this)">보고서 요약</button></td>
-          </tr>
+          <!-- 5. 발할라 인베스트먼트 -->
           <tr data-coins="BTC ETH">
             <td><div class="firm-name">발할라 인베스트먼트 (Valhalla Fund)</div><div class="firm-location">스위스 취리히 · 프라이빗 뱅크</div></td>
             <td><strong>$2.4B</strong></td>
@@ -1146,6 +1170,7 @@
             <td>BTC 70% / ETH 30%</td>
             <td><button class="btn-report" onclick="openExecutiveReport(this)">보고서 요약</button></td>
           </tr>
+          <!-- 6. 오리온 퀀트 매니지먼트 -->
           <tr data-coins="BTC SOL AVAX">
             <td><div class="firm-name">오리온 퀀트 매니지먼트 (Orion Quant)</div><div class="firm-location">미국 시카고 · 퀀트 트레이딩</div></td>
             <td><strong>$4.1B</strong></td>
@@ -1153,6 +1178,7 @@
             <td>BTC 50% / SOL 30% / AVAX 20%</td>
             <td><button class="btn-report" onclick="openExecutiveReport(this)">보고서 요약</button></td>
           </tr>
+          <!-- 7. 아틀라스 소버린 웰스 -->
           <tr data-coins="BTC ETH XRP">
             <td><div class="firm-name">아틀라스 소버린 웰스 (Atlas Sovereign)</div><div class="firm-location">아랍에미리트 아부다비 · 국부펀드</div></td>
             <td><strong>$8.5B</strong></td>
@@ -1160,92 +1186,107 @@
             <td>BTC 60% / ETH 25% / XRP 15%</td>
             <td><button class="btn-report" onclick="openExecutiveReport(this)">보고서 요약</button></td>
           </tr>
-          <tr data-coins="SOL SUI NEAR">
-            <td><div class="firm-name">블루록 벤처 캐피탈 (BlueRock Ventures)</div><div class="firm-location">미국 샌프란시스코 · VC</div></td>
-            <td><strong>$2.1B</strong></td>
-            <td><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-sui">SUI</span><span class="coin-badge badge-near">NEAR</span></td>
-            <td>SOL 40% / SUI 35% / NEAR 25%</td>
-            <td><button class="btn-report" onclick="openExecutiveReport(this)">보고서 요약</button></td>
-          </tr>
-          <tr data-coins="BTC XRP LINK">
-            <td><div class="firm-name">켄타우로스 캐피탈 (Centaurus PE)</div><div class="firm-location">독일 프랑크푸르트 · 사모펀드</div></td>
-            <td><strong>$3.5B</strong></td>
-            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-xrp">XRP</span><span class="coin-badge badge-link">LINK</span></td>
-            <td>BTC 45% / XRP 35% / LINK 20%</td>
-            <td><button class="btn-report" onclick="openExecutiveReport(this)">보고서 요약</button></td>
-          </tr>
-          <tr data-coins="ETH ADA DOT">
-            <td><div class="firm-name">엘리시움 에셋 (Elysium Asset)</div><div class="firm-location">프랑스 파리 · 자산운용사</div></td>
-            <td><strong>$1.9B</strong></td>
-            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-ada">ADA</span><span class="coin-badge badge-dot">DOT</span></td>
-            <td>ETH 50% / ADA 25% / DOT 25%</td>
-            <td><button class="btn-report" onclick="openExecutiveReport(this)">보고서 요약</button></td>
-          </tr>
-          <tr data-coins="BTC ETH XRP SHIB">
+          <!-- 8. 한양 크립토 파트너스 -->
+          <tr data-coins="BTC ETH XRP SUI">
             <td><div class="firm-name">한양 크립토 파트너스 (Hanyang Partners)</div><div class="firm-location">대한민국 서울 · 블록체인 펀드</div></td>
             <td><strong>$1.8B</strong></td>
-            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-xrp">XRP</span><span class="coin-badge badge-shib">SHIB</span></td>
-            <td>BTC 40% / ETH 30% / XRP 20% / SHIB 10%</td>
-            <td><button class="btn-report" onclick="openExecutiveReport(this)">보고서 요약</button></td>
-          </tr>
-          <tr data-coins="SOL SUI APT">
-            <td><div class="firm-name">사이퍼 인스티튜셔널 (Cypher Tech)</div><div class="firm-location">미국 보스턴 · 펀드 매니지먼트</div></td>
-            <td><strong>$1.8B</strong></td>
-            <td><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-sui">SUI</span><span class="coin-badge badge-apt">APT</span></td>
-            <td>SOL 40% / SUI 35% / APT 25%</td>
-            <td><button class="btn-report" onclick="openExecutiveReport(this)">보고서 요약</button></td>
-          </tr>
-          <tr data-coins="ETH SOL AVAX">
-            <td><div class="firm-name">노바 호라이즌 캐피탈 (Nova Horizon)</div><div class="firm-location">캐나다 토론토 · 멀티전략 펀드</div></td>
-            <td><strong>$2.2B</strong></td>
-            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-avax">AVAX</span></td>
-            <td>ETH 45% / SOL 35% / AVAX 20%</td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-xrp">XRP</span><span class="coin-badge badge-sui">SUI</span></td>
+            <td>BTC 40% / ETH 30% / XRP 15% / SUI 15%</td>
             <td><button class="btn-report" onclick="openExecutiveReport(this)">보고서 요약</button></td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- 타임라인 피드 뷰 -->
+    <!-- ===================================================
+         [핵심] 최근 투자 집행 피드: 상승 전 선취매 실사 보고서 3종
+         =================================================== -->
     <div id="timelineView">
       <div class="timeline-list">
-        <div class="timeline-card" data-coins="BTC ETH SOL" data-firm="넥서스 글로벌 캐피탈 미국 뉴욕">
+        
+        <!-- [선취매 보고서 1] 수이 (SUI) - 폭등 전 7월 24일 바닥 매집 보고 -->
+        <div class="timeline-card spotlight-card" data-coins="ETH SOL SUI" data-firm="크로노스 디지털 에셋 싱가포르">
           <div>
-            <div class="timeline-date-badge">📅 2026년 09월 26일 공시</div>
-            <div class="timeline-firm-title">넥서스 글로벌 캐피탈 (Nexus Global)</div>
+            <div class="timeline-date-badge badge-pre-rally">🎯 [선취매 공시] 2026년 07월 24일 심의 완료</div>
+            <div class="timeline-firm-title">크로노스 디지털 에셋 (Chronos Asset)</div>
             <div class="timeline-action-desc">
-              신규 비트코인(BTC) 2,400개 및 솔라나(SOL) 85,000개 추가 매수 집행 완료. 4분기 유동성 공급과 ETF 볼트 적립 목적.
+              <strong>[수이(SUI) 폭등 랠리 전 바닥 선취매 보고서]</strong><br>
+              수이 $0.85~$1.05 구간에서 기관 총 $55M(약 740억 원) 규모의 대량 분할 매집 완료. 서클(Circle) 공식 USDC 네이티브 발행 및 글로벌 기관 커스터디 채택 직전, 온체인 TVL 폭발에 앞선 선제적 포트폴리오 구축.
             </div>
             <div class="timeline-meta-tags">
-              <span class="coin-badge badge-btc">BTC</span>
+              <span class="coin-badge badge-sui">SUI</span>
               <span class="coin-badge badge-sol">SOL</span>
-              <span class="roi-badge">🎯 목표 기대수익률: +180% ~ +380%</span>
+              <span class="roi-badge">🎯 목표 기대수익률: +280% ~ +480% (적중)</span>
             </div>
           </div>
           <div class="timeline-btn-area">
-            <span style="color:#64748b; font-size:12px;">집행 규모: <strong>$148M</strong></span>
+            <span style="color:#64748b; font-size:12px;">선취매 규모: <strong>$55M</strong></span>
+            <button class="btn-report" onclick="openReportByName('크로노스 디지털 에셋', '싱가포르 · 블록체인 전문 펀드', '$3.2B', 'ETH 40% / SOL 30% / SUI 30%', 'ETH SOL SUI', '2026년 07월 24일 (수이 폭등 전 선취매)')">보고서 열람</button>
+          </div>
+        </div>
+
+        <!-- [선취매 보고서 2] 쑨 (SOON) - 8월 11일 메인넷 론칭 전 시드 편입 -->
+        <div class="timeline-card spotlight-card" data-coins="SOL SOON NEAR" data-firm="블루록 벤처 캐피탈 미국 샌프란시스코">
+          <div>
+            <div class="timeline-date-badge badge-pre-rally">🎯 [선취매 공시] 2026년 08월 11일 심의 완료</div>
+            <div class="timeline-firm-title">블루록 벤처 캐피탈 (BlueRock Ventures)</div>
+            <div class="timeline-action-desc">
+              <strong>[쑨(SOON) 상장 랠리 전 초기 포지셔닝 보고서]</strong><br>
+              솔라나 가상머신(SVM) 기반 차세대 레이어2 롤업 '쑨(SOON)' 메인넷 가동 및 국내 대형 거래소 상장 직전 $28M 규모의 전략적 시드 매수 집행. 고속 트랜잭션 수수료 절감 인프라 독점 가치 선점.
+            </div>
+            <div class="timeline-meta-tags">
+              <span class="coin-badge badge-soon">SOON</span>
+              <span class="coin-badge badge-near">NEAR</span>
+              <span class="roi-badge">🎯 목표 기대수익률: +320% ~ +550% (적중)</span>
+            </div>
+          </div>
+          <div class="timeline-btn-area">
+            <span style="color:#64748b; font-size:12px;">선취매 규모: <strong>$28M</strong></span>
+            <button class="btn-report" onclick="openReportByName('블루록 벤처 캐피탈', '미국 샌프란시스코 · VC', '$2.1B', 'SOL 40% / SOON 35% / NEAR 25%', 'SOL SOON NEAR', '2026년 08월 11일 (쑨 롤업 가동 전 선취매)')">보고서 열람</button>
+          </div>
+        </div>
+
+        <!-- [선취매 보고서 3] 니어프로토콜 (NEAR) - 8월 22일 AI 발표 전 매집 -->
+        <div class="timeline-card spotlight-card" data-coins="BTC ETH NEAR" data-firm="넥서스 글로벌 캐피탈 미국 뉴욕">
+          <div>
+            <div class="timeline-date-badge badge-pre-rally">🎯 [선취매 공시] 2026년 08월 22일 심의 완료</div>
+            <div class="timeline-firm-title">넥서스 글로벌 캐피탈 (Nexus Global)</div>
+            <div class="timeline-action-desc">
+              <strong>[니어프로토콜(NEAR) AI 체인추상화 랠리 전 선행 매집]</strong><br>
+              니어프로토콜 1,400만 개(약 $65M) 장외(OTC) 분할 매수 집행 완료. 글로벌 인공지능 컨퍼런스 기조연설 및 '체인 추상화(Chain Abstraction)' 론칭에 따른 웹3 대량 유입 모멘텀 공식 발표 전 선취매 완료.
+            </div>
+            <div class="timeline-meta-tags">
+              <span class="coin-badge badge-near">NEAR</span>
+              <span class="coin-badge badge-btc">BTC</span>
+              <span class="roi-badge">🎯 목표 기대수익률: +210% ~ +360% (적중)</span>
+            </div>
+          </div>
+          <div class="timeline-btn-area">
+            <span style="color:#64748b; font-size:12px;">선취매 규모: <strong>$65M</strong></span>
+            <button class="btn-report" onclick="openReportByName('넥서스 글로벌 캐피탈', '미국 뉴욕 · 헤지펀드', '$5.4B', 'BTC 50% / ETH 30% / NEAR 20%', 'BTC ETH NEAR', '2026년 08월 22일 (니어 AI 발표 전 선취매)')">보고서 열람</button>
+          </div>
+        </div>
+
+        <!-- 기존 정기 공시 피드 -->
+        <div class="timeline-card" data-coins="XRP BTC LINK" data-firm="아펙스 인스티튜셔널 영국 런던">
+          <div>
+            <div class="timeline-date-badge">📅 2026년 09월 15일 공시</div>
+            <div class="timeline-firm-title">아펙스 인스티튜셔널 (Apex Partners)</div>
+            <div class="timeline-action-desc">
+              영국-유럽 간 은행 간 결제 테스트넷 연동을 위한 리플(XRP) 6,000만 개 및 체인링크(LINK) 대규모 온체인 볼트 이관.
+            </div>
+            <div class="timeline-meta-tags">
+              <span class="coin-badge badge-xrp">XRP</span>
+              <span class="coin-badge badge-link">LINK</span>
+              <span class="roi-badge">🎯 목표 기대수익률: +180% ~ +350%</span>
+            </div>
+          </div>
+          <div class="timeline-btn-area">
+            <span style="color:#64748b; font-size:12px;">집행 규모: <strong>$72M</strong></span>
             <button class="btn-report" onclick="openExecutiveReport(this)">보고서 열람</button>
           </div>
         </div>
 
-        <div class="timeline-card" data-coins="ETH SOL SUI" data-firm="크로노스 디지털 에셋 싱가포르">
-          <div>
-            <div class="timeline-date-badge">📅 2026년 09월 22일 공시</div>
-            <div class="timeline-firm-title">크로노스 디지털 에셋 (Chronos Asset)</div>
-            <div class="timeline-action-desc">
-              수이(SUI) 재단과 전략적 파트너십 체결 후 SUI 토큰 $45M 규모 신규 포지션 진입. 검증인 노드 스테이킹 보상 복리 운용 개시.
-            </div>
-            <div class="timeline-meta-tags">
-              <span class="coin-badge badge-sui">SUI</span>
-              <span class="coin-badge badge-eth">ETH</span>
-              <span class="roi-badge">🎯 목표 기대수익률: +280% ~ +480%</span>
-            </div>
-          </div>
-          <div class="timeline-btn-area">
-            <span style="color:#64748b; font-size:12px;">집행 규모: <strong>$45M</strong></span>
-            <button class="btn-report" onclick="openReportByName('크로노스 디지털 에셋', '싱가포르 · 블록체인 전문 펀드', '$3.2B', 'ETH 40% / SOL 35% / SUI 25%', 'ETH SOL SUI')">보고서 열람</button>
-          </div>
-        </div>
       </div>
     </div>
   </main>
@@ -1268,7 +1309,7 @@
           <button class="auth-tab-btn" id="tabBtnSignup" onclick="switchAuthTab('signup')">전문 자격증 등록(가입)</button>
         </div>
 
-        <!-- 1. 로그인 폼 -->
+        <!-- 로그인 폼 -->
         <form id="loginForm" onsubmit="handleLogin(event)">
           <div class="auth-input-group">
             <label>트레이더 아이디</label>
@@ -1282,7 +1323,7 @@
           <div id="loginError" class="auth-error-msg">아이디 또는 비밀번호가 올바르지 않습니다.</div>
         </form>
 
-        <!-- 2. 회원가입 폼 (단일 지정 코드 JMC1016 검증) -->
+        <!-- 회원가입 폼 (단일 지정 코드 JMC1016 검증) -->
         <form id="signupForm" style="display:none;" onsubmit="handleSignup(event)">
           <div class="auth-input-group">
             <label>전문 자격증 및 직함 구분</label>
@@ -1333,16 +1374,16 @@
 
       <div class="report-body">
         <div class="report-title-area">
-          <div class="report-badge">INSTITUTIONAL ALLOCATION BRIEFING</div>
+          <div class="report-badge" id="modalBadge">INSTITUTIONAL PRE-RALLY MEMO</div>
           <div class="report-title" id="modalFirmName">기관명</div>
           <div class="report-sub" id="modalFirmSub">본사 위치 · 펀드 유형</div>
         </div>
 
         <div class="report-meta-grid">
           <div class="meta-box"><span class="meta-k">가상자산 총 운용액 (AUM)</span><span class="meta-v" id="modalAum">$0.0B</span></div>
-          <div class="meta-box"><span class="meta-k">포트폴리오 목표 기대수익률</span><span class="meta-v" id="modalFundRoi" style="color:#10b981; font-weight:800;">+180% 이상</span></div>
+          <div class="meta-box"><span class="meta-k">포트폴리오 목표 기대수익률</span><span class="meta-v" id="modalFundRoi" style="color:#10b981; font-weight:800;">+240% 이상</span></div>
           <div class="meta-box"><span class="meta-k">포트폴리오 배분 비율</span><span class="meta-v" id="modalWeight">BTC 50% / ETH 50%</span></div>
-          <div class="meta-box"><span class="meta-k">공시 주기 및 심의 등급</span><span class="meta-v" style="color:#38bdf8;">2026 Q3 · Class-A 승인</span></div>
+          <div class="meta-box"><span class="meta-k">공시 주기 및 심의 기준일</span><span class="meta-v" id="modalDateInfo" style="color:#38bdf8;">2026 Q3 · 선취매 승인 완료</span></div>
         </div>
 
         <div class="report-sec-title">1. 거시 전략적 투자 논거 (Investment Thesis)</div>
@@ -1355,11 +1396,11 @@
 
         <div class="report-sec-title">3. 리스크 통제 및 향후 포지션 전망 (Risk & Outlook)</div>
         <div class="report-p">
-          현물 ETF 기반 수탁(Custody) 체계와 다중 서명 볼트를 통해 청산 리스크를 원천 차단하였으며, 향후 반감기 사이클 및 기관 온체인 결제망 확장에 따라 분기별 리밸런싱을 진행할 예정임.
+          현물 수탁(Custody) 체계와 다중 서명 볼트를 통해 청산 리스크를 원천 차단하였으며, 단기 급등 후 목표 수익률 도달 시 분할 익절(Profit-Taking) 및 안전자산 리밸런싱을 진행할 예정임.
         </div>
 
         <div class="report-footer-stamp">
-          <div class="stamp-badge">OFFICIALLY APPROVED</div>
+          <div class="stamp-badge">PRE-RALLY VERIFIED</div>
           <div class="sign-info">
             수석 포트폴리오 매니저(CIO) 최종 심의 완료<br>
             <strong>Global Investment Committee</strong>
@@ -1377,11 +1418,7 @@
 
   <!-- 자바스크립트 -->
   <script>
-    // ===================================================
-    // [보안 핵심] 승인된 단일 보안 인증 마스터 코드: JMC1016
-    // ===================================================
     const MASTER_SECURITY_CODE = "JMC1016";
-
     let pendingReportRow = null;
 
     // 헤더 상태 반영
@@ -1458,7 +1495,6 @@
       }
     }
 
-    // [핵심] 회원가입 심사 처리: JMC1016 검증
     function handleSignup(e) {
       e.preventDefault();
       const license = document.getElementById("signupLicense").value;
@@ -1468,14 +1504,12 @@
       const pw = document.getElementById("signupPw").value.trim();
       const errorEl = document.getElementById("signupError");
 
-      // 1. 단일 보안 코드(JMC1016) 일치 여부 엄격 검사
       if (code !== MASTER_SECURITY_CODE) {
         errorEl.innerHTML = "⚠️ <strong>보안 인증 실패:</strong> 유효하지 않은 기관 보안 코드입니다.<br>승인된 정식 보안 코드를 확인 후 다시 입력해주세요.";
         errorEl.style.display = "block";
         return;
       }
 
-      // 2. 아이디 중복 검사
       let users = JSON.parse(localStorage.getItem("matrix_users") || "[]");
       if (users.some(u => u.id === id)) {
         errorEl.innerHTML = "⚠️ 이미 등록되어 있는 트레이더 ID입니다.";
@@ -1483,12 +1517,10 @@
         return;
       }
 
-      // 3. 자격 승인 및 저장
       const newUser = { id, pw, name, license, approvedAt: new Date().toLocaleDateString() };
       users.push(newUser);
       localStorage.setItem("matrix_users", JSON.stringify(users));
 
-      // 즉시 자동 로그인
       localStorage.setItem("matrix_logged_user", JSON.stringify({ id, name, license }));
 
       alert(`✅ [자격 심사 승인 완료]\n\n환영합니다, ${name} 트레이더님!\n자격 구분: [${license}]\n\n글로벌 72개 자산운용사 보고서 열람 권한이 부여되었습니다.`);
@@ -1501,7 +1533,6 @@
       }
     }
 
-    // 로그인 처리
     function handleLogin(e) {
       e.preventDefault();
       const id = document.getElementById("loginId").value.trim().toLowerCase();
@@ -1557,16 +1588,29 @@
       openReportByName(firmName, firmLocation, aum, weight, coinsStr);
     }
 
-    // 보고서 모달 및 사전 데이터
+    // 코인별 사유 사전 (수이, 쑨, 니어 포함)
     const coinRationales = {
+      "SUI": { 
+        name: "수이 (Sui)", 
+        roi: "+280% ~ +480%", 
+        reason: "[대규모 랠리 전 바닥 선취매 심의] 객체(Object) 중심 데이터 모델과 Move 엔진의 초고속 병렬 처리 기술력 검증 완료. 서클(Circle) 공식 네이티브 USDC 발행 및 기관 커스터디 체결 발표 직전, 대형 헤지펀드 온체인 TVL 폭발에 앞서 저가 분할 매집 완료." 
+      },
+      "SOON": { 
+        name: "쑨 (SOON / Soon Protocol)", 
+        roi: "+320% ~ +550%", 
+        reason: "[메인넷 론칭 전 초기 시드 선점] 솔라나 가상머신(SVM) 기반 차세대 롤업 레이어2 기술력 선점. 국내 대형 거래소 상장 및 디앱 생태계 트랜잭션 급증 직전, 전략적 벤처 시드 물량 선제 확보." 
+      },
+      "NEAR": { 
+        name: "니어프로토콜 (NEAR)", 
+        roi: "+210% ~ +360%", 
+        reason: "[글로벌 AI 컨퍼런스 발표 전 선행 매집] 체인 추상화(Chain Abstraction)를 통한 원클릭 웹3 진입 인프라와 AI 탈중앙 분산 컴퓨팅 연계 발표 직전, 장외(OTC) 대량 분할 매수 집행." 
+      },
       "BTC": { name: "비트코인 (Bitcoin)", roi: "+130% ~ +220%", reason: "거시경제 통화 가치 절하에 대응하는 디지털 가치 저장 수단이자 기관 포트폴리오의 안전자산 기축 축적." },
       "ETH": { name: "이더리움 (Ethereum)", roi: "+150% ~ +280%", reason: "온체인 스마트 컨트랙트 및 디파이 생태계의 기축 결제 통화로 스테이킹을 통한 안정적 복리 이자 확보." },
       "SOL": { name: "솔라나 (Solana)", roi: "+220% ~ +380%", reason: "초당 수만 건을 처리하는 고성능 결제망과 리테일 DEX 점유율 급상승에 따른 멀티플 재평가 기대." },
       "XRP": { name: "리플 (XRP)", roi: "+180% ~ +340%", reason: "글로벌 상업은행 간 국경 간 송금 유동성 혁신 및 제도권 스테이블코인 연동 테스트 반영." },
       "LINK": { name: "체인링크 (Chainlink)", roi: "+200% ~ +350%", reason: "온체인 채권 및 실물자산(RWA) 토큰화에 필수적인 CCIP 상호운용성 프로토콜 표준 독점력 평가." },
       "AVAX": { name: "아발란체 (Avalanche)", roi: "+190% ~ +320%", reason: "기관 전용 규제 준수 프라이빗 서브넷 구축 및 대형 글로벌 은행 파트너십 집중." },
-      "SUI": { name: "수이 (Sui)", roi: "+280% ~ +480%", reason: "Move 언어 기반의 차세대 초고속 병렬 처리 L1 기술력 선점 및 온체인 트랜잭션 급증 반영." },
-      "NEAR": { name: "니어프로토콜 (NEAR)", roi: "+210% ~ +360%", reason: "체인 추상화 기술을 통한 원클릭 웹3 진입 환경과 AI 연계 분산 컴퓨팅 레이어 확장성 주목." },
       "DOGE": { name: "도지코인 (Dogecoin)", roi: "+160% ~ +310%", reason: "소액 결제망 채택 가능성과 전 세계 최상위 리테일 브랜드 인지도 기반 모멘텀 편입." },
       "SHIB": { name: "시바이누 (Shiba Inu)", roi: "+180% ~ +350%", reason: "자체 L2 '시바리움' 트랜잭션 급증 및 지속적 토큰 소각(Burn)을 통한 유통량 축소 효과 기대." },
       "ADA": { name: "카르다노 (Cardano)", roi: "+140% ~ +250%", reason: "학술 검증 기반 견고한 PoS 인프라 및 신흥국 금융 포용성 중심 장기 가치 저장." },
@@ -1574,20 +1618,35 @@
       "APT": { name: "앱토스 (Aptos)", roi: "+240% ~ +420%", reason: "Move 엔진의 엔터프라이즈급 안정성과 글로벌 핀테크/모바일 결제 앱 연동 전망." }
     };
 
-    function openReportByName(firmName, firmLocation, aum, weight, coinsStr) {
+    function openReportByName(firmName, firmLocation, aum, weight, coinsStr, customDate) {
+      // 회원 체크
+      const loggedUser = JSON.parse(localStorage.getItem("matrix_logged_user") || "null");
+      if (!loggedUser) {
+        openAuthModal('report');
+        return;
+      }
+
       const cleanFirm = firmName.split(" ")[0].toUpperCase().replace(/[^A-Z]/g, "") || "FUND";
       const randomNum = Math.floor(1000 + Math.random() * 9000);
-      document.getElementById("modalDocId").innerText = `DOC-2026-Q3-${cleanFirm}-${randomNum}`;
+      document.getElementById("modalDocId").innerText = `DOC-2026-ALPHA-${cleanFirm}-${randomNum}`;
       document.getElementById("modalFirmName").innerText = firmName;
       document.getElementById("modalFirmSub").innerText = firmLocation;
       document.getElementById("modalAum").innerText = aum;
       document.getElementById("modalWeight").innerText = weight;
 
-      const fundRoiScore = 140 + Math.floor((firmName.length * 17) % 150);
-      document.getElementById("modalFundRoi").innerText = `+${fundRoiScore}% 이상 (중장기)`;
+      if (customDate) {
+        document.getElementById("modalDateInfo").innerText = customDate;
+        document.getElementById("modalBadge").innerText = "CONFIDENTIAL PRE-RALLY DISCLOSURE";
+      } else {
+        document.getElementById("modalDateInfo").innerText = "2026 Q3 정기 공시";
+        document.getElementById("modalBadge").innerText = "INSTITUTIONAL ALLOCATION BRIEFING";
+      }
+
+      const fundRoiScore = 180 + Math.floor((firmName.length * 23) % 180);
+      document.getElementById("modalFundRoi").innerText = `+${fundRoiScore}% 이상 (실현 목표)`;
 
       document.getElementById("modalThesis").innerText = 
-        `${firmName}의 디지털 자산 운용 위원회 의결에 따라, 본 기관은 글로벌 통화 가치 절하에 대응하고 차세대 블록체인 프로토콜의 네트워크 효과를 선점하기 위해 총 ${aum} 규모를 가상자산에 배분함.`;
+        `${firmName} 가상자산 운용 위원회의 사전 승인 결과, 본 기관은 글로벌 유동성 급증 및 주요 프로토콜 발표 이전에 총 ${aum} 규모의 자산을 전략적 저평가 코인에 선제 배분함. 대중 랠리 시작 전 바닥 가격대에서 물량을 완벽히 확보함.`;
 
       const container = document.getElementById("modalAssetReasons");
       container.innerHTML = "";
@@ -1651,8 +1710,8 @@
         tabTable.classList.remove('active');
         tableView.style.display = 'none';
         timelineView.style.display = 'block';
-        mainTitle.innerText = "⏱️ 최근 투자 집행 피드 (시간순 정렬)";
-        subTitle.innerText = "2026년 최신 일자별로 기관들이 신규 매수한 내역과 집행 규모를 확인하세요.";
+        mainTitle.innerText = "⏱️ 최근 투자 집행 피드 (상승 전 선취매 실사 보고서)";
+        subTitle.innerText = "대형 랠리가 시작되기 전 기관들이 바닥에서 매집 완료한 사전 보고서 내역입니다.";
       }
       filterTable();
     }
