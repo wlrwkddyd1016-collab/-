@@ -6,6 +6,7 @@
   <title>JPMorgan Chase & Co. 스타일 웹사이트</title>
   
   <style>
+    /* 1. 기본 여백 초기화 및 깔끔한 시스템 폰트 설정 */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -16,8 +17,12 @@
     body {
       background-color: #f7f9fa;
       color: #111;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* 화면 전체 높이를 채우도록 설정 */
     }
 
+    /* 2. 상단 네이비 헤더 */
     header {
       background-color: #0a1e36;
       color: #ffffff;
@@ -38,22 +43,24 @@
       text-decoration: none;
       margin-left: 24px;
       font-size: 15px;
+      transition: color 0.2s ease;
     }
 
     nav a:hover {
-      color: #ffffff;
+      color: #ffffff; /* 마우스를 올리면 글자가 밝아집니다 */
     }
 
+    /* 3. 메인 배너 (Hero Section) */
     .hero {
       background: linear-gradient(135deg, #0a1e36 0%, #16365c 100%);
       color: #ffffff;
-      padding: 100px 40px;
+      padding: 90px 40px;
       text-align: center;
     }
 
     .hero h1 {
-      font-size: 42px;
-      margin-bottom: 20px;
+      font-size: 40px;
+      margin-bottom: 18px;
       font-weight: 700;
     }
 
@@ -69,18 +76,25 @@
       display: inline-block;
       background-color: #ffffff;
       color: #0a1e36;
-      padding: 14px 32px;
+      padding: 13px 30px;
       font-weight: 600;
       text-decoration: none;
       border-radius: 4px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 
+    .btn-main:hover {
+      background-color: #f1f5f9;
+    }
+
+    /* 4. 카드 영역 */
     .cards-container {
       max-width: 1100px;
-      margin: -40px auto 60px auto;
+      margin: -35px auto 60px auto;
       padding: 0 20px;
       display: flex;
       gap: 20px;
+      flex: 1; /* 푸터가 바닥에 머물도록 공간 확보 */
     }
 
     .card {
@@ -88,7 +102,8 @@
       border-radius: 8px;
       padding: 30px;
       flex: 1;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+      border-top: 4px solid #0a1e36; /* 상단에 네이비 포인트 선 */
     }
 
     .card h3 {
@@ -99,13 +114,38 @@
 
     .card p {
       color: #555;
-      line-height: 1.5;
+      line-height: 1.6;
       font-size: 15px;
+    }
+
+    /* 5. [새로 추가된 곳] 하단 푸터 (Footer) */
+    footer {
+      background-color: #061322; /* 헤더보다 살짝 더 짙은 네이비 블랙 */
+      color: #8899a6;
+      padding: 35px 40px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    footer a {
+      color: #cbd5e1;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-links {
+      margin-bottom: 12px;
     }
   </style>
 </head>
 <body>
 
+  <!-- 1. 헤더: 회사 로고와 상단 메뉴 -->
   <header>
     <div class="logo">JPMORGAN CHASE & CO.</div>
     <nav>
@@ -115,26 +155,39 @@
     </nav>
   </header>
 
+  <!-- 2. 메인 배너: 시선을 사로잡는 타이틀 -->
   <section class="hero">
-    <h1>글로벌 금융을 선도하는 혁신</h1>
-    <p>우리는 지속 가능한 성장과 혁신적인 금융 솔루션을 통해 고객과 지역 사회의 더 나은 미래를 만듭니다.</p>
-    <a href="#explore" class="btn-main">자세히 알아보기</a>
+    <h1>미래를 움직이는 금융과 기술</h1>
+    <p>데이터 기반의 인사이트와 지속 가능한 투자 전략으로 고객의 새로운 내일을 함께 설계합니다.</p>
+    <a href="#explore" class="btn-main">프로젝트 둘러보기</a>
   </section>
 
+  <!-- 3. 카드 영역: 3가지 핵심 강점 -->
   <section class="cards-container">
     <div class="card">
-      <h3>자산 관리</h3>
-      <p>개인 및 기관 고객을 위한 맞춤형 글로벌 투자 포트폴리오를 제공합니다.</p>
+      <h3>자산 관리 솔루션</h3>
+      <p>안정성과 수익률을 균형 있게 고려한 맞춤형 글로벌 포트폴리오를 제공합니다.</p>
     </div>
     <div class="card">
-      <h3>기업 금융</h3>
-      <p>글로벌 비즈니스의 성장과 확장을 지원하는 최적의 자본 솔루션입니다.</p>
+      <h3>디지털 혁신</h3>
+      <p>최신 웹 기술과 데이터 시스템을 융합하여 금융 서비스의 효율성을 극대화합니다.</p>
     </div>
     <div class="card">
-      <h3>지속 가능성</h3>
-      <p>환경과 사회에 긍정적인 영향을 미치는 지속 가능한 투자 전략을 실천합니다.</p>
+      <h3>글로벌 네트워크</h3>
+      <p>전 세계 시장과의 실시간 연결을 통해 신뢰할 수 있는 투자 파트너십을 구축합니다.</p>
     </div>
   </section>
+
+  <!-- 4. [새로 추가된 곳] 푸터: 하단 저작권 및 링크 -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">개인정보처리방침</a> | 
+      <a href="#">이용약관</a> | 
+      <a href="#">보안센터</a> | 
+      <a href="#">문의하기</a>
+    </div>
+    <p>© 2026 JPMorgan Chase & Co. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
