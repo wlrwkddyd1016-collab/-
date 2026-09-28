@@ -185,7 +185,6 @@
       -webkit-text-fill-color: transparent;
     }
 
-    /* [수정됨] 괄호 속 (JMC1016) 문구가 깔끔하게 제거되었습니다 */
     .hero p {
       font-size: 15.5px;
       color: #94a3b8;
@@ -197,7 +196,7 @@
     /* 5. 최근 1개월 급등 랭킹 */
     .gainers-container {
       max-width: 1240px;
-      margin: 10px auto 35px auto;
+      margin: 10px auto 30px auto;
       padding: 0 20px;
       width: 100%;
     }
@@ -315,7 +314,225 @@
       font-weight: 600;
     }
 
-    /* 6. 뷰 전환 탭 */
+    /* ===================================================
+       [새로 추가된 곳] 6. 전문가 & 유튜버 실사용 분석 리뷰 섹션
+       =================================================== */
+    .pro-reviews-container {
+      max-width: 1240px;
+      margin: 10px auto 45px auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    .pro-reviews-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-bottom: 1px solid #1a2a44;
+      padding-bottom: 12px;
+    }
+
+    .pro-reviews-title h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pro-reviews-title p {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    .privacy-notice-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #f87171;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .review-card {
+      background: #0b172a;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .review-card:hover {
+      border-color: #38bdf8;
+      transform: translateY(-3px);
+      background: #0d1e34;
+    }
+
+    /* 상단 프로필 영역 (흐림 처리) */
+    .reviewer-profile-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    /* 얼굴/아바타 블러 처리 */
+    .reviewer-avatar-wrap {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e3a8a 0%, #0369a1 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid #2a4365;
+    }
+
+    .reviewer-avatar-blurred {
+      filter: blur(4.5px);
+      user-select: none;
+    }
+
+    .reviewer-info-wrap {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* 채널명 / 이름 블러 처리 */
+    .reviewer-name-blurred {
+      font-size: 14px;
+      font-weight: 800;
+      color: #ffffff;
+      filter: blur(4px);
+      user-select: none;
+      display: inline-block;
+      margin-bottom: 2px;
+    }
+
+    .reviewer-badge-role {
+      font-size: 11px;
+      color: #38bdf8;
+      font-weight: 700;
+      display: block;
+    }
+
+    /* 가상 유튜브 영상 카드 스타일 */
+    .yt-preview-box {
+      background: #060d18;
+      border: 1px solid #16263d;
+      border-radius: 6px;
+      padding: 10px;
+      margin-bottom: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .yt-thumb-simulated {
+      height: 90px;
+      background: radial-gradient(circle at center, #1b3558 0%, #091322 100%);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .yt-thumb-simulated::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(4px);
+      background: rgba(3, 7, 18, 0.45);
+    }
+
+    .yt-play-icon {
+      position: relative;
+      z-index: 2;
+      width: 32px;
+      height: 24px;
+      background: #ef4444;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 11px;
+    }
+
+    .yt-title-blurred {
+      position: relative;
+      z-index: 2;
+      font-size: 11px;
+      font-weight: 700;
+      color: #f1f5f9;
+      filter: blur(3.5px);
+      user-select: none;
+      text-align: center;
+      padding: 0 8px;
+    }
+
+    .review-quote-text {
+      font-size: 13.5px;
+      color: #cbd5e1;
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .review-quote-text strong {
+      color: #38bdf8;
+      font-weight: 700;
+    }
+
+    .review-footer-tag {
+      font-size: 11px;
+      color: #64748b;
+      border-top: 1px dashed #1a2a44;
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .verified-check-tag {
+      color: #10b981;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* 7. 뷰 전환 탭 */
     .view-switch-container {
       max-width: 1240px;
       margin: 15px auto 10px auto;
@@ -348,7 +565,7 @@
       box-shadow: 0 4px 15px rgba(56, 189, 248, 0.25);
     }
 
-    /* 7. 게시판 본체 컨테이너 */
+    /* 8. 게시판 본체 컨테이너 */
     .board-container {
       max-width: 1240px;
       margin: 10px auto 60px auto;
@@ -456,10 +673,7 @@
 
     .firm-location { font-size: 12px; color: #64748b; }
 
-    /* ===================================================
-       [핵심 신규 스타일] 비로그인 시 코인명 & 비중 블러 처리
-       =================================================== */
-    /* 로그인 안 했을 때 표의 3열(코인뱃지), 4열(비중), 피드의 코인뱃지를 블러 처리 */
+    /* 비로그인 시 코인명 & 비중 블러 처리 */
     body:not(.is-logged-in) #fundTable td:nth-child(3),
     body:not(.is-logged-in) #fundTable td:nth-child(4),
     body:not(.is-logged-in) .timeline-meta-tags .coin-badge,
@@ -471,14 +685,12 @@
       transition: filter 0.2s ease;
     }
 
-    /* 비로그인 시 블러 영역에 마우스를 올리면 잠금 안내 표시 */
     body:not(.is-logged-in) #fundTable td:nth-child(3):hover,
     body:not(.is-logged-in) #fundTable td:nth-child(4):hover,
     body:not(.is-logged-in) .timeline-meta-tags .coin-badge:hover {
       filter: blur(4px);
     }
 
-    /* 표 헤더에 비로그인 시 '🔒 비공개' 딱지 표시 */
     .lock-pill {
       display: none;
       font-size: 11px;
@@ -491,9 +703,7 @@
       font-weight: 700;
     }
 
-    body:not(.is-logged-in) .lock-pill {
-      display: inline-block;
-    }
+    body:not(.is-logged-in) .lock-pill { display: inline-block; }
 
     /* 타임라인 피드 스타일 */
     #timelineView { display: none; }
@@ -599,8 +809,6 @@
     .badge-ena { background: rgba(244, 63, 94, 0.2); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.35); }
     .badge-lsk { background: rgba(14, 165, 233, 0.2); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.35); }
     .badge-near { background: rgba(0, 192, 139, 0.18); color: #34d399; }
-    .badge-avax { background: rgba(232, 65, 66, 0.18); color: #f87171; }
-    .badge-link { background: rgba(55, 91, 210, 0.18); color: #60a5fa; }
 
     .btn-report {
       background-color: #1e293b;
@@ -620,7 +828,7 @@
       color: #08101e;
     }
 
-    /* 8. 보고서 모달 스타일 */
+    /* 9. 보고서 모달 스타일 */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -915,7 +1123,7 @@
       text-align: right;
     }
 
-    /* 9. 전문 트레이더 회원가입 / 로그인 모달 */
+    /* 10. 전문 트레이더 회원가입 / 로그인 모달 */
     .auth-modal {
       background: #0f1d34;
       border: 1px solid #2a3e5c;
@@ -1053,6 +1261,10 @@
       margin-top: 6px;
     }
 
+    @media (max-width: 1050px) {
+      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     @media (max-width: 900px) {
       .gainers-grid { grid-template-columns: repeat(2, 1fr); }
       .update-stats-grid { grid-template-columns: 1fr; }
@@ -1062,7 +1274,7 @@
       header { flex-direction: column; gap: 12px; padding: 16px; }
       nav { flex-wrap: wrap; justify-content: center; }
       .hero h1 { font-size: 26px; }
-      .gainers-grid { grid-template-columns: 1fr; }
+      .gainers-grid, .reviews-grid { grid-template-columns: 1fr; }
       .controls-wrapper, .search-input { width: 100%; }
       .report-meta-grid { grid-template-columns: 1fr; }
       .timeline-card { flex-direction: column; align-items: flex-start; }
@@ -1100,18 +1312,18 @@
       <div class="ticker-item"><span class="ticker-label">국내 1개월 급등 1위:</span><span class="ticker-value text-green">수이 (SUI) +148.5% ▲</span></div>
       <div class="ticker-item"><span class="ticker-label">기관 가상자산 총 운용액:</span><span class="ticker-value">$218.4B (약 292조 원)</span></div>
       <div class="ticker-item"><span class="ticker-label">포트폴리오 보안 등급:</span><span class="ticker-value text-blue" id="tickerAccessStatus">비회원 코인명 블러 암호화</span></div>
-      <div class="ticker-item"><span class="ticker-label">최신 선취매 공시:</span><span class="ticker-value text-green">2026.09.28 발할라(SEI) 신규 반영</span></div>
+      <div class="ticker-item"><span class="ticker-label">전문가 실사용자:</span><span class="ticker-value text-green">국내외 트레이더 & 크리에이터 840+</span></div>
 
       <!-- 무한 루프용 복제 세트 -->
       <div class="ticker-item"><span class="ticker-label">모니터링 운용사:</span><span class="ticker-value text-blue">72개 글로벌 기관</span></div>
       <div class="ticker-item"><span class="ticker-label">국내 1개월 급등 1위:</span><span class="ticker-value text-green">수이 (SUI) +148.5% ▲</span></div>
       <div class="ticker-item"><span class="ticker-label">기관 가상자산 총 운용액:</span><span class="ticker-value">$218.4B (약 292조 원)</span></div>
       <div class="ticker-item"><span class="ticker-label">포트폴리오 보안 등급:</span><span class="ticker-value text-blue">비회원 코인명 블러 암호화</span></div>
-      <div class="ticker-item"><span class="ticker-label">최신 선취매 공시:</span><span class="ticker-value text-green">2026.09.28 발할라(SEI) 신규 반영</span></div>
+      <div class="ticker-item"><span class="ticker-label">전문가 실사용자:</span><span class="ticker-value text-green">국내외 트레이더 & 크리에이터 840+</span></div>
     </div>
   </section>
 
-  <!-- 3. 메인 배너: (JMC1016) 문구가 노출되지 않도록 수정 완료 -->
+  <!-- 3. 메인 배너 -->
   <section class="hero">
     <div class="hero-tag">🌐 GLOBAL INSTITUTIONAL ASSET INTELLIGENCE</div>
     <h1>글로벌 자산운용사의 <span>가상자산 투자 보고서</span>를<br>한곳에서 한눈에 추적하세요</h1>
@@ -1132,7 +1344,6 @@
     </div>
 
     <div class="gainers-grid">
-      <!-- 1위: 수이 -->
       <div class="gainer-card" onclick="filterByGainer('SUI')">
         <div class="gainer-rank">1위</div>
         <div>
@@ -1147,7 +1358,6 @@
         </div>
       </div>
 
-      <!-- 2위: 세이 -->
       <div class="gainer-card" onclick="filterByGainer('SEI')">
         <div class="gainer-rank">2위</div>
         <div>
@@ -1162,7 +1372,6 @@
         </div>
       </div>
 
-      <!-- 3위: 에테나 -->
       <div class="gainer-card" onclick="filterByGainer('ENA')">
         <div class="gainer-rank">3위</div>
         <div>
@@ -1177,7 +1386,6 @@
         </div>
       </div>
 
-      <!-- 4위: 쑨 -->
       <div class="gainer-card" onclick="filterByGainer('SOON')">
         <div class="gainer-rank">4위</div>
         <div>
@@ -1192,7 +1400,6 @@
         </div>
       </div>
 
-      <!-- 5위: 니어프로토콜 -->
       <div class="gainer-card" onclick="filterByGainer('NEAR')">
         <div class="gainer-rank">5위</div>
         <div>
@@ -1209,7 +1416,135 @@
     </div>
   </section>
 
-  <!-- 5. 뷰 전환 탭 -->
+  <!-- ===================================================
+       [새로 추가된 곳] 5. 전문 트레이더 & 유튜버 실사용 분석 리뷰
+       =================================================== -->
+  <section class="pro-reviews-container">
+    <div class="pro-reviews-header">
+      <div class="pro-reviews-title">
+        <h3>🎙️ 금융 전문가 & 코인 분석 유튜버 실사용 리뷰</h3>
+        <p>전직 펀드매니저, 전업 퀀트 트레이더, 30만 구독자 크립토 크리에이터들의 실제 모니터링 후기</p>
+      </div>
+      <div class="privacy-notice-badge">
+        🔒 보안 규정상 프로필·채널명 블라인드 보호 조치 완료
+      </div>
+    </div>
+
+    <!-- 4인 전문가 리뷰 그리드 -->
+    <div class="reviews-grid">
+      
+      <!-- 리뷰 1: 코인 전문 유튜버 (유튜브 플레이어 프리뷰 형태) -->
+      <div class="review-card">
+        <div>
+          <div class="reviewer-profile-box">
+            <div class="reviewer-avatar-wrap">
+              <span class="reviewer-avatar-blurred">👨‍💻</span>
+            </div>
+            <div class="reviewer-info-wrap">
+              <span class="reviewer-name-blurred">크립토 시황 *** TV</span>
+              <span class="reviewer-badge-role">구독자 38만 코인 유튜버</span>
+            </div>
+          </div>
+
+          <!-- 유튜브 영상 브리핑 프레임 -->
+          <div class="yt-preview-box">
+            <div class="yt-thumb-simulated">
+              <div class="yt-play-icon">▶</div>
+              <div class="yt-title-blurred">[긴급] 글로벌 고래들이 8월에 몰래 쓸어담은 코인 3가지 공개합니다</div>
+            </div>
+          </div>
+
+          <div class="review-quote-text">
+            "매일 아침 라이브 방송 켜기 전에 <strong>무조건 1순위로 확인하는 터미널</strong>입니다. 크로노스의 수이 선취매 보고서 덕분에 8월 저점 매수를 구독자들에게 정확히 짚어드릴 수 있었습니다."
+          </div>
+        </div>
+        <div class="review-footer-tag">
+          <span>인증 일시: 2026.09</span>
+          <span class="verified-check-tag">✓ 방송 활용 검증</span>
+        </div>
+      </div>
+
+      <!-- 리뷰 2: 사모펀드 퀀트 트레이더 -->
+      <div class="review-card">
+        <div>
+          <div class="reviewer-profile-box">
+            <div class="reviewer-avatar-wrap" style="background: linear-gradient(135deg, #065f46 0%, #047857 100%);">
+              <span class="reviewer-avatar-blurred">📊</span>
+            </div>
+            <div class="reviewer-info-wrap">
+              <span class="reviewer-name-blurred">여의도 *** 파트너스 K***</span>
+              <span class="reviewer-badge-role">헤지펀드 수석 퀀트 트레이더</span>
+            </div>
+          </div>
+
+          <div class="review-quote-text" style="margin-top: 10px;">
+            "개별 거래소 호가창만 봐서는 절대 알 수 없는 <strong>'글로벌 펀드들의 AUM 배분율과 장외 OTC 매집 시점'</strong>이 한눈에 잡힙니다. 델타 뉴트럴 차익거래 포지션을 잡을 때 승률이 비약적으로 올랐습니다."
+          </div>
+        </div>
+        <div class="review-footer-tag">
+          <span>인증 구분: Class-A CIM</span>
+          <span class="verified-check-tag">✓ 운용역 인증</span>
+        </div>
+      </div>
+
+      <!-- 리뷰 3: 테크 전문 크립토 인플루언서 -->
+      <div class="review-card">
+        <div>
+          <div class="reviewer-profile-box">
+            <div class="reviewer-avatar-wrap" style="background: linear-gradient(135deg, #6b21a8 0%, #7e22ce 100%);">
+              <span class="reviewer-avatar-blurred">🎬</span>
+            </div>
+            <div class="reviewer-info-wrap">
+              <span class="reviewer-name-blurred">코인 인사이트 ***</span>
+              <span class="reviewer-badge-role">구독자 24만 테크 유튜버</span>
+            </div>
+          </div>
+
+          <!-- 유튜브 영상 브리핑 프레임 -->
+          <div class="yt-preview-box">
+            <div class="yt-thumb-simulated">
+              <div class="yt-play-icon">▶</div>
+              <div class="yt-title-blurred">월가 헤지펀드 비밀 문서 유출? 상승 전 선취매 실사 보고서 분석</div>
+            </div>
+          </div>
+
+          <div class="review-quote-text">
+            "단순한 가격 예측 찌라시가 아니라, <strong>실제 기관 투자 심의회 양식과 사후 실현 수익률 감사 메모</strong>까지 투명하게 공개되는 플랫폼은 국내에서 여기가 유일합니다. 영상 제작 레퍼런스로 최고입니다."
+          </div>
+        </div>
+        <div class="review-footer-tag">
+          <span>인증 일시: 2026.09</span>
+          <span class="verified-check-tag">✓ 영상 리뷰 채택</span>
+        </div>
+      </div>
+
+      <!-- 리뷰 4: 글로벌 대체투자 애널리스트 -->
+      <div class="review-card">
+        <div>
+          <div class="reviewer-profile-box">
+            <div class="reviewer-avatar-wrap" style="background: linear-gradient(135deg, #991b1b 0%, #b91c1c 100%);">
+              <span class="reviewer-avatar-blurred">🏛️</span>
+            </div>
+            <div class="reviewer-info-wrap">
+              <span class="reviewer-name-blurred">싱가포르계 *** 에셋 P***</span>
+              <span class="reviewer-badge-role">대체자산 수석 리서치 애널리스트</span>
+            </div>
+          </div>
+
+          <div class="review-quote-text" style="margin-top: 10px;">
+            "국내 1개월 급등 종목과 전 세계 72개 펀드의 선취매 히스토리를 대조해 보는 기능이 매우 강력합니다. <strong>VIP 고객용 가상자산 주간 브리핑 작성 시간</strong>이 절반 이하로 줄어들었습니다."
+          </div>
+        </div>
+        <div class="review-footer-tag">
+          <span>인증 구분: CFA 정회원</span>
+          <span class="verified-check-tag">✓ 기관 애널리스트</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. 뷰 전환 탭 -->
   <div class="view-switch-container">
     <button class="tab-btn active" id="tabTable" onclick="switchView('table')">
       📊 기관별 전체 포트폴리오 (테이블)
@@ -1219,7 +1554,7 @@
     </button>
   </div>
 
-  <!-- 6. 게시판 본체 컨테이너 -->
+  <!-- 7. 게시판 본체 컨테이너 -->
   <main class="board-container">
     <div class="board-header">
       <div class="board-title">
@@ -1243,7 +1578,7 @@
       </div>
     </div>
 
-    <!-- 테이블 뷰: 비로그인 시 3열과 4열에 자동 블러 및 비공개 뱃지 적용 -->
+    <!-- 테이블 뷰 -->
     <div class="table-wrapper" id="tableView">
       <table id="fundTable">
         <thead>
@@ -1256,7 +1591,7 @@
           </tr>
         </thead>
         <tbody onclick="handleBlurredClick(event)">
-          <!-- 1. 발할라 인베스트먼트 (SEI 최근 선취매) -->
+          <!-- 1. 발할라 인베스트먼트 -->
           <tr data-coins="BTC ETH SEI">
             <td><div class="firm-name">발할라 인베스트먼트 (Valhalla Fund)</div><div class="firm-location">스위스 취리히 · 프라이빗 뱅크</div></td>
             <td><strong>$2.4B</strong></td>
@@ -1264,7 +1599,7 @@
             <td>BTC 50% / ETH 30% / SEI 20%</td>
             <td><button class="btn-report" onclick="openExecutiveReport(this)">보고서 요약</button></td>
           </tr>
-          <!-- 2. 한양 크립토 파트너스 (APT 최근 선취매) -->
+          <!-- 2. 한양 크립토 파트너스 -->
           <tr data-coins="BTC ETH APT SUI">
             <td><div class="firm-name">한양 크립토 파트너스 (Hanyang Partners)</div><div class="firm-location">대한민국 서울 · 블록체인 펀드</div></td>
             <td><strong>$1.8B</strong></td>
@@ -1272,7 +1607,7 @@
             <td>BTC 40% / ETH 25% / APT 20% / SUI 15%</td>
             <td><button class="btn-report" onclick="openExecutiveReport(this)">보고서 요약</button></td>
           </tr>
-          <!-- 3. 사쿠라 디지털 랩스 (RENDER 최근 선취매) -->
+          <!-- 3. 사쿠라 디지털 랩스 -->
           <tr data-coins="BTC XRP RNDR">
             <td><div class="firm-name">사쿠라 디지털 랩스 (Sakura Digital)</div><div class="firm-location">일본 도쿄 · 테크 인베스트먼트</div></td>
             <td><strong>$2.7B</strong></td>
@@ -1543,7 +1878,6 @@
           현물 수탁(Custody) 체계와 다중 서명 볼트를 통해 청산 리스크를 원천 차단하였으며, 랠리 도달 시 단계적 분할 익절(Profit-Taking)을 통해 원금을 최우선 회수하도록 설계됨.
         </div>
 
-        <!-- 사후 성과 추적 업데이트 박스 -->
         <div id="modalUpdateBox" class="report-update-container">
           <div class="update-header-line">
             <span class="update-title-tag">📈 4. [성과 추적 업데이트] 투자 실현 결과 보고</span>
@@ -1570,7 +1904,6 @@
           </div>
         </div>
 
-        <!-- 하단 심의 승인 도장 -->
         <div class="report-footer-stamp">
           <div class="stamp-badge verified-stamp" id="modalStamp">AUDIT VERIFIED</div>
           <div class="sign-info">
@@ -1593,7 +1926,6 @@
     const MASTER_SECURITY_CODE = "JMC1016";
     let pendingReportRow = null;
 
-    // 헤더 상태 및 바디 블러 제어 함수
     function updateAuthUI() {
       const loggedUser = JSON.parse(localStorage.getItem("matrix_logged_user") || "null");
       const headerAuthBtn = document.getElementById("headerAuthBtn");
@@ -1603,7 +1935,6 @@
       const tickerAccessStatus = document.getElementById("tickerAccessStatus");
 
       if (loggedUser) {
-        // [로그인 상태] 블러 해제!
         document.body.classList.add("is-logged-in");
         headerAuthBtn.style.display = "none";
         headerUserProfile.style.display = "flex";
@@ -1614,7 +1945,6 @@
           tickerAccessStatus.className = "ticker-value text-green";
         }
       } else {
-        // [비로그인 상태] 블러 적용!
         document.body.classList.remove("is-logged-in");
         headerAuthBtn.style.display = "inline-flex";
         headerUserProfile.style.display = "none";
@@ -1625,7 +1955,6 @@
       }
     }
 
-    // 비로그인 상태에서 블러 처리된 표를 클릭했을 때 로그인 유도
     function handleBlurredClick(event) {
       const loggedUser = JSON.parse(localStorage.getItem("matrix_logged_user") || "null");
       if (!loggedUser) {
@@ -1776,7 +2105,6 @@
       openReportByName(firmName, firmLocation, aum, weight, coinsStr);
     }
 
-    // 선취매 기관별 데이터
     const spotlightData = {
       "valhalla": {
         firmName: "발할라 인베스트먼트 (Valhalla Fund)",
@@ -2005,7 +2333,6 @@
       }
     });
 
-    // 뷰 전환
     let currentView = 'table';
     function switchView(viewName) {
       currentView = viewName;
