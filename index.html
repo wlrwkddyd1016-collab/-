@@ -48,17 +48,65 @@
 
     .logo span { color: #38bdf8; }
 
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
     nav a {
       color: #94a3b8;
       text-decoration: none;
-      margin-left: 20px;
       font-size: 14px;
       transition: color 0.2s ease;
     }
 
     nav a:hover, nav a.active { color: #38bdf8; }
 
-    /* 3. 무한 롤링 전광판 (1개월 집계 반영) */
+    /* [새로 추가] 헤더 로그인/회원가입 버튼 및 회원 프로필 */
+    .auth-btn {
+      background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.2s ease;
+    }
+
+    .auth-btn:hover { opacity: 0.9; }
+
+    .user-profile {
+      display: none; /* 로그인 시 표시 */
+      align-items: center;
+      gap: 12px;
+      background: #0f1d32;
+      border: 1px solid #1e293b;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+    }
+
+    .user-greeting strong { color: #38bdf8; }
+
+    .btn-logout {
+      background: none;
+      border: none;
+      color: #94a3b8;
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0;
+    }
+
+    .btn-logout:hover { color: #f87171; }
+
+    /* 3. 무한 롤링 전광판 */
     .ticker-wrap {
       background: #0d1b30;
       border-bottom: 1px solid #1a2942;
@@ -136,9 +184,7 @@
       line-height: 1.7;
     }
 
-    /* ===================================================
-       5. [업그레이드된 곳] 최근 1개월(30일) 거래소 급등 랭킹 섹션
-       =================================================== */
+    /* 5. 최근 1개월 급등 랭킹 섹션 */
     .gainers-container {
       max-width: 1240px;
       margin: 10px auto 35px auto;
@@ -170,10 +216,7 @@
       margin-top: 4px;
     }
 
-    .exchange-badge-group {
-      display: flex;
-      gap: 6px;
-    }
+    .exchange-badge-group { display: flex; gap: 6px; }
 
     .badge-exchange {
       font-size: 11px;
@@ -184,7 +227,6 @@
     .badge-upbit { background: rgba(9, 54, 137, 0.4); color: #60a5fa; border: 1px solid #1e3a8a; }
     .badge-bithumb { background: rgba(224, 86, 36, 0.2); color: #fb923c; border: 1px solid #9a3412; }
 
-    /* 5개 카드 가로 그리드 */
     .gainers-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -220,9 +262,9 @@
       font-weight: 900;
     }
 
-    .gainer-card:nth-child(1) .gainer-rank { color: #f59e0b; } /* 1위 골드 */
-    .gainer-card:nth-child(2) .gainer-rank { color: #cbd5e1; } /* 2위 실버 */
-    .gainer-card:nth-child(3) .gainer-rank { color: #d97706; } /* 3위 브론즈 */
+    .gainer-card:nth-child(1) .gainer-rank { color: #f59e0b; }
+    .gainer-card:nth-child(2) .gainer-rank { color: #cbd5e1; }
+    .gainer-card:nth-child(3) .gainer-rank { color: #d97706; }
     .gainer-card:nth-child(4) .gainer-rank { color: #64748b; }
     .gainer-card:nth-child(5) .gainer-rank { color: #64748b; }
 
@@ -236,11 +278,7 @@
       gap: 5px;
     }
 
-    .gainer-symbol {
-      font-size: 12px;
-      color: #64748b;
-      font-weight: 600;
-    }
+    .gainer-symbol { font-size: 12px; color: #64748b; font-weight: 600; }
 
     .gainer-rate {
       font-size: 23px;
@@ -735,6 +773,127 @@
       text-align: right;
     }
 
+    /* ===================================================
+       [새로 추가] 9. 회원가입 / 로그인 전용 모달 스타일
+       =================================================== */
+    .auth-modal {
+      background: #0f1d34;
+      border: 1px solid #2a3e5c;
+      width: 100%;
+      max-width: 440px;
+      border-radius: 12px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+      animation: modalFadeIn 0.25s ease-out;
+    }
+
+    .auth-header {
+      background: #091322;
+      padding: 18px 24px;
+      border-bottom: 1px solid #1a2a44;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .auth-header h3 {
+      font-size: 17px;
+      color: #ffffff;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .auth-body {
+      padding: 24px;
+    }
+
+    .auth-notice-box {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #38bdf8;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .auth-tabs {
+      display: flex;
+      border-bottom: 1px solid #1e293b;
+      margin-bottom: 20px;
+    }
+
+    .auth-tab-btn {
+      flex: 1;
+      padding: 10px;
+      background: none;
+      border: none;
+      color: #94a3b8;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .auth-tab-btn.active {
+      color: #38bdf8;
+      border-bottom-color: #38bdf8;
+    }
+
+    .auth-input-group {
+      margin-bottom: 16px;
+    }
+
+    .auth-input-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #94a3b8;
+      margin-bottom: 6px;
+    }
+
+    .auth-input {
+      width: 100%;
+      padding: 10px 14px;
+      background: #091322;
+      border: 1px solid #1e293b;
+      border-radius: 6px;
+      color: #ffffff;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .auth-input:focus { border-color: #38bdf8; }
+
+    .btn-auth-submit {
+      width: 100%;
+      padding: 12px;
+      background: #38bdf8;
+      color: #070e1b;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: opacity 0.2s ease;
+    }
+
+    .btn-auth-submit:hover { opacity: 0.9; }
+
+    .auth-error-msg {
+      color: #f87171;
+      font-size: 12px;
+      margin-top: 10px;
+      text-align: center;
+      display: none;
+    }
+
     footer {
       background-color: #050a14;
       border-top: 1px solid #1a2942;
@@ -757,6 +916,7 @@
 
     @media (max-width: 768px) {
       header { flex-direction: column; gap: 12px; padding: 16px; }
+      nav { flex-wrap: wrap; justify-content: center; }
       .hero h1 { font-size: 26px; }
       .gainers-grid { grid-template-columns: 1fr; }
       .controls-wrapper, .search-input { width: 100%; }
@@ -768,7 +928,7 @@
 </head>
 <body>
 
-  <!-- 1. 헤더 -->
+  <!-- 1. 헤더: 회원 프로필 및 로그인/회원가입 버튼 -->
   <header>
     <a href="index.html" class="logo">
       🏛️ CRYPTO<span>FUND</span> MATRIX
@@ -776,6 +936,17 @@
     <nav>
       <a href="index.html" class="active">운용사별 포트폴리오</a>
       <a href="about.html">플랫폼 소개</a>
+      
+      <!-- 비로그인 상태일 때 보이는 버튼 -->
+      <button id="headerAuthBtn" class="auth-btn" onclick="openAuthModal('menu')">
+        🔑 로그인 / 회원가입
+      </button>
+
+      <!-- 로그인 완료 시 보이는 회원 프로필 바 -->
+      <div id="headerUserProfile" class="user-profile">
+        <span class="user-greeting">👤 <strong id="headerUserName">회원</strong>님 (Class-A)</span>
+        <button class="btn-logout" onclick="handleLogout()">로그아웃</button>
+      </div>
     </nav>
   </header>
 
@@ -785,14 +956,14 @@
       <div class="ticker-item"><span class="ticker-label">모니터링 운용사:</span><span class="ticker-value text-blue">72개 글로벌 기관</span></div>
       <div class="ticker-item"><span class="ticker-label">국내 1개월 급등 1위:</span><span class="ticker-value text-green">수이 (SUI) +148.5% ▲</span></div>
       <div class="ticker-item"><span class="ticker-label">기관 가상자산 총 운용액:</span><span class="ticker-value">$218.4B (약 292조 원)</span></div>
-      <div class="ticker-item"><span class="ticker-label">포트폴리오 평균 기대수익률:</span><span class="ticker-value text-green">+215% 이상</span></div>
+      <div class="ticker-item"><span class="ticker-label">보고서 열람 권한:</span><span class="ticker-value text-blue" id="tickerAccessStatus">정회원 인증 필요</span></div>
       <div class="ticker-item"><span class="ticker-label">국내 거래소 공식 집계:</span><span class="ticker-value text-blue">업비트 · 빗썸 KRW 마켓 30D 누적</span></div>
 
       <!-- 무한 루프용 복제 세트 -->
       <div class="ticker-item"><span class="ticker-label">모니터링 운용사:</span><span class="ticker-value text-blue">72개 글로벌 기관</span></div>
       <div class="ticker-item"><span class="ticker-label">국내 1개월 급등 1위:</span><span class="ticker-value text-green">수이 (SUI) +148.5% ▲</span></div>
       <div class="ticker-item"><span class="ticker-label">기관 가상자산 총 운용액:</span><span class="ticker-value">$218.4B (약 292조 원)</span></div>
-      <div class="ticker-item"><span class="ticker-label">포트폴리오 평균 기대수익률:</span><span class="ticker-value text-green">+215% 이상</span></div>
+      <div class="ticker-item"><span class="ticker-label">보고서 열람 권한:</span><span class="ticker-value text-blue">정회원 인증 필요</span></div>
       <div class="ticker-item"><span class="ticker-label">국내 거래소 공식 집계:</span><span class="ticker-value text-blue">업비트 · 빗썸 KRW 마켓 30D 누적</span></div>
     </div>
   </section>
@@ -801,10 +972,10 @@
   <section class="hero">
     <div class="hero-tag">🌐 GLOBAL INSTITUTIONAL ASSET INTELLIGENCE</div>
     <h1>글로벌 자산운용사의 <span>가상자산 투자 보고서</span>를<br>한곳에서 한눈에 추적하세요</h1>
-    <p>전 세계 헤지펀드, 국부펀드, 자산운용사 72곳의 포트폴리오와 국내 1·2위 거래소(업비트·빗썸)의 최근 1개월(30일) 실제 급등세를 교차 분석합니다.</p>
+    <p>전 세계 헤지펀드, 국부펀드, 자산운용사 72곳의 포트폴리오와 국내 거래소 1개월 급등세를 교차 분석합니다. 정식 투자 심의 보고서는 회원 인증 후 열람 가능합니다.</p>
   </section>
 
-  <!-- 4. [업그레이드된 곳] 최근 1개월(30일) 실제 거래소 급등 랭킹 TOP 5 -->
+  <!-- 4. 최근 1개월(30일) 실제 거래소 급등 랭킹 TOP 5 -->
   <section class="gainers-container">
     <div class="gainers-header">
       <div class="gainers-title-area">
@@ -819,8 +990,6 @@
 
     <!-- 5개 1개월 급등 코인 카드 그리드 -->
     <div class="gainers-grid">
-      
-      <!-- 1위: 수이 (SUI) -->
       <div class="gainer-card" onclick="filterByGainer('SUI')">
         <div class="gainer-rank">1위</div>
         <div>
@@ -835,7 +1004,6 @@
         </div>
       </div>
 
-      <!-- 2위: 세이 (SEI) -->
       <div class="gainer-card" onclick="filterByGainer('SEI')">
         <div class="gainer-rank">2위</div>
         <div>
@@ -850,7 +1018,6 @@
         </div>
       </div>
 
-      <!-- 3위: 앱토스 (APT) -->
       <div class="gainer-card" onclick="filterByGainer('APT')">
         <div class="gainer-rank">3위</div>
         <div>
@@ -865,7 +1032,6 @@
         </div>
       </div>
 
-      <!-- 4위: 니어프로토콜 (NEAR) -->
       <div class="gainer-card" onclick="filterByGainer('NEAR')">
         <div class="gainer-rank">4위</div>
         <div>
@@ -880,7 +1046,6 @@
         </div>
       </div>
 
-      <!-- 5위: 솔라나 (SOL) -->
       <div class="gainer-card" onclick="filterByGainer('SOL')">
         <div class="gainer-rank">5위</div>
         <div>
@@ -894,7 +1059,6 @@
           <div class="gainer-inst-tag">🏛️ 월가 헤지펀드 34곳 최우선 편입</div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -1052,7 +1216,7 @@
           </div>
           <div class="timeline-btn-area">
             <span style="color:#64748b; font-size:12px;">집행 규모: <strong>$148M</strong></span>
-            <button class="btn-report" onclick="openReportByName('넥서스 글로벌 캐피탈', '미국 뉴욕 · 헤지펀드', '$5.4B', 'BTC 55% / ETH 30% / SOL 15%', 'BTC ETH SOL')">보고서 열람</button>
+            <button class="btn-report" onclick="openExecutiveReport(this)">보고서 열람</button>
           </div>
         </div>
 
@@ -1071,12 +1235,67 @@
           </div>
           <div class="timeline-btn-area">
             <span style="color:#64748b; font-size:12px;">집행 규모: <strong>$45M</strong></span>
-            <button class="btn-report" onclick="openReportByName('크로노스 디지털 에셋', '싱가포르 · 블록체인 전문 펀드', '$3.2B', 'ETH 40% / SOL 35% / SUI 25%', 'ETH SOL SUI')">보고서 열람</button>
+            <button class="btn-report" onclick="openExecutiveReport(this)">보고서 열람</button>
           </div>
         </div>
       </div>
     </div>
   </main>
+
+  <!-- ===================================================
+       [새로 추가] 회원가입 / 로그인 팝업 모달
+       =================================================== -->
+  <div id="authModalOverlay" class="modal-overlay" onclick="closeAuthModalOnOverlay(event)">
+    <div class="auth-modal">
+      <div class="auth-header">
+        <h3 id="authModalHeaderTitle">🔑 멤버십 로그인</h3>
+        <button class="btn-close-modal" onclick="closeAuthModal()">✕</button>
+      </div>
+
+      <div class="auth-body">
+        <div class="auth-notice-box" id="authNoticeText">
+          정식 가상자산 투자 실사 보고서는 <strong>무료 회원가입</strong> 후 즉시 열람하실 수 있습니다.
+        </div>
+
+        <div class="auth-tabs">
+          <button class="auth-tab-btn active" id="tabBtnLogin" onclick="switchAuthTab('login')">로그인</button>
+          <button class="auth-tab-btn" id="tabBtnSignup" onclick="switchAuthTab('signup')">회원가입</button>
+        </div>
+
+        <!-- 로그인 폼 -->
+        <form id="loginForm" onsubmit="handleLogin(event)">
+          <div class="auth-input-group">
+            <label>아이디 또는 이메일</label>
+            <input type="text" id="loginId" class="auth-input" placeholder="아이디 입력" required>
+          </div>
+          <div class="auth-input-group">
+            <label>비밀번호</label>
+            <input type="password" id="loginPw" class="auth-input" placeholder="비밀번호 입력" required>
+          </div>
+          <button type="submit" class="btn-auth-submit">로그인하고 보고서 열람하기</button>
+          <div id="loginError" class="auth-error-msg">아이디 또는 비밀번호가 올바르지 않습니다.</div>
+        </form>
+
+        <!-- 회원가입 폼 -->
+        <form id="signupForm" style="display:none;" onsubmit="handleSignup(event)">
+          <div class="auth-input-group">
+            <label>회원 이름 (닉네임)</label>
+            <input type="text" id="signupName" class="auth-input" placeholder="예: 크립토마스터" required>
+          </div>
+          <div class="auth-input-group">
+            <label>사용할 아이디</label>
+            <input type="text" id="signupId" class="auth-input" placeholder="아이디 (영문/숫자)" required>
+          </div>
+          <div class="auth-input-group">
+            <label>비밀번호</label>
+            <input type="password" id="signupPw" class="auth-input" placeholder="비밀번호 설정" required>
+          </div>
+          <button type="submit" class="btn-auth-submit">무료 회원가입 완료</button>
+          <div id="signupError" class="auth-error-msg">이미 존재하는 아이디입니다.</div>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- 보고서 모달 팝업 구조 -->
   <div id="reportModalOverlay" class="modal-overlay" onclick="closeModalOnOverlay(event)">
@@ -1130,8 +1349,180 @@
     <p class="disclaimer">본 플랫폼에 게시된 자산운용사 정보 및 포트폴리오 데이터는 가상 시뮬레이션 모델이며, 특정 자산의 매수/매도를 권유하지 않습니다.</p>
   </footer>
 
-  <!-- 필터, 탭 전환 및 기대 수익률 연동 스크립트 -->
+  <!-- 스크립트 -->
   <script>
+    // ===================================================
+    // [핵심] 회원가입 / 로그인 시스템 (localStorage 기반)
+    // ===================================================
+    let pendingReportRow = null; // 로그인 후 열어줄 대기 보고서
+
+    // 1. 현재 로그인 여부 확인 및 UI 업데이트
+    function updateAuthUI() {
+      const loggedUser = JSON.parse(localStorage.getItem("matrix_logged_user") || "null");
+      const headerAuthBtn = document.getElementById("headerAuthBtn");
+      const headerUserProfile = document.getElementById("headerUserProfile");
+      const headerUserName = document.getElementById("headerUserName");
+      const tickerAccessStatus = document.getElementById("tickerAccessStatus");
+
+      if (loggedUser) {
+        headerAuthBtn.style.display = "none";
+        headerUserProfile.style.display = "flex";
+        headerUserName.innerText = loggedUser.name;
+        if (tickerAccessStatus) {
+          tickerAccessStatus.innerText = "정회원 승인 완료 (전체 열람 가능)";
+          tickerAccessStatus.className = "ticker-value text-green";
+        }
+      } else {
+        headerAuthBtn.style.display = "inline-flex";
+        headerUserProfile.style.display = "none";
+        if (tickerAccessStatus) {
+          tickerAccessStatus.innerText = "정회원 인증 필요";
+          tickerAccessStatus.className = "ticker-value text-blue";
+        }
+      }
+    }
+
+    // 2. 인증 모달 열기/닫기
+    function openAuthModal(reason) {
+      const noticeBox = document.getElementById("authNoticeText");
+      if (reason === 'report') {
+        noticeBox.innerHTML = "🔒 <strong>회원 전용 보고서입니다.</strong><br>로그인 또는 10초 무료 회원가입 후 즉시 열람하실 수 있습니다.";
+      } else {
+        noticeBox.innerHTML = "글로벌 기관 가상자산 보고서 허브에 오신 것을 환영합니다.";
+      }
+      document.getElementById("authModalOverlay").style.display = "flex";
+      document.body.style.overflow = "hidden";
+      switchAuthTab('login');
+    }
+
+    function closeAuthModal() {
+      document.getElementById("authModalOverlay").style.display = "none";
+      document.body.style.overflow = "";
+      pendingReportRow = null;
+    }
+
+    function closeAuthModalOnOverlay(event) {
+      if (event.target.id === "authModalOverlay") closeAuthModal();
+    }
+
+    function switchAuthTab(tab) {
+      const tabBtnLogin = document.getElementById("tabBtnLogin");
+      const tabBtnSignup = document.getElementById("tabBtnSignup");
+      const loginForm = document.getElementById("loginForm");
+      const signupForm = document.getElementById("signupForm");
+      const modalTitle = document.getElementById("authModalHeaderTitle");
+      document.getElementById("loginError").style.display = "none";
+      document.getElementById("signupError").style.display = "none";
+
+      if (tab === 'login') {
+        tabBtnLogin.classList.add("active");
+        tabBtnSignup.classList.remove("active");
+        loginForm.style.display = "block";
+        signupForm.style.display = "none";
+        modalTitle.innerText = "🔑 멤버십 로그인";
+      } else {
+        tabBtnSignup.classList.add("active");
+        tabBtnLogin.classList.remove("active");
+        loginForm.style.display = "none";
+        signupForm.style.display = "block";
+        modalTitle.innerText = "📝 무료 회원가입";
+      }
+    }
+
+    // 3. 회원가입 처리
+    function handleSignup(e) {
+      e.preventDefault();
+      const name = document.getElementById("signupName").value.trim();
+      const id = document.getElementById("signupId").value.trim().toLowerCase();
+      const pw = document.getElementById("signupPw").value.trim();
+
+      let users = JSON.parse(localStorage.getItem("matrix_users") || "[]");
+      if (users.some(u => u.id === id)) {
+        document.getElementById("signupError").style.display = "block";
+        return;
+      }
+
+      const newUser = { id, pw, name };
+      users.push(newUser);
+      localStorage.setItem("matrix_users", JSON.stringify(users));
+
+      // 가입 즉시 자동 로그인
+      localStorage.setItem("matrix_logged_user", JSON.stringify({ id, name }));
+      alert(`🎉 축하합니다, ${name}님!\n무료 정회원 가입이 완료되어 보고서 열람 권한이 부여되었습니다.`);
+      closeAuthModal();
+      updateAuthUI();
+
+      // 만약 보고서를 누르고 들어왔다면 즉시 보고서 열어주기
+      if (pendingReportRow) {
+        showReportInternal(pendingReportRow);
+        pendingReportRow = null;
+      }
+    }
+
+    // 4. 로그인 처리
+    function handleLogin(e) {
+      e.preventDefault();
+      const id = document.getElementById("loginId").value.trim().toLowerCase();
+      const pw = document.getElementById("loginPw").value.trim();
+
+      const users = JSON.parse(localStorage.getItem("matrix_users") || "[]");
+      const user = users.find(u => u.id === id && u.pw === pw);
+
+      if (!user) {
+        document.getElementById("loginError").style.display = "block";
+        return;
+      }
+
+      localStorage.setItem("matrix_logged_user", JSON.stringify({ id: user.id, name: user.name }));
+      alert(`반갑습니다, ${user.name} 회원님!`);
+      closeAuthModal();
+      updateAuthUI();
+
+      if (pendingReportRow) {
+        showReportInternal(pendingReportRow);
+        pendingReportRow = null;
+      }
+    }
+
+    // 5. 로그아웃 처리
+    function handleLogout() {
+      if (confirm("로그아웃 하시겠습니까?")) {
+        localStorage.removeItem("matrix_logged_user");
+        updateAuthUI();
+        alert("안전하게 로그아웃되었습니다.");
+      }
+    }
+
+    // ===================================================
+    // [수문장] 보고서 열람 제어 (비회원 잠금)
+    // ===================================================
+    function openExecutiveReport(button) {
+      const loggedUser = JSON.parse(localStorage.getItem("matrix_logged_user") || "null");
+
+      // 비회원이면 잠그고 회원가입/로그인 모달창을 띄웁니다!
+      if (!loggedUser) {
+        pendingReportRow = button.closest("tr") || button.closest(".timeline-card");
+        openAuthModal('report');
+        return;
+      }
+
+      // 회원이면 바로 보고서를 열어줍니다.
+      const row = button.closest("tr") || button.closest(".timeline-card");
+      showReportInternal(row);
+    }
+
+    function showReportInternal(row) {
+      const firmName = row.querySelector(".firm-name, .timeline-firm-title").innerText;
+      const firmLocation = (row.querySelector(".firm-location")) ? row.querySelector(".firm-location").innerText : "글로벌 대체투자 헤지펀드";
+      const aum = (row.querySelector("td:nth-child(2)")) ? row.querySelector("td:nth-child(2)").innerText : "$3.5B";
+      const weight = (row.querySelector("td:nth-child(4)")) ? row.querySelector("td:nth-child(4)").innerText : "주요 포트폴리오 분산";
+      const coinsStr = row.getAttribute("data-coins") || "";
+      openReportByName(firmName, firmLocation, aum, weight, coinsStr);
+    }
+
+    // ===================================================
+    // 보고서 모달 및 사전 데이터
+    // ===================================================
     const coinRationales = {
       "BTC": { name: "비트코인 (Bitcoin)", roi: "+130% ~ +220%", reason: "거시경제 통화 가치 절하에 대응하는 디지털 가치 저장 수단이자 기관 포트폴리오의 안전자산 기축 축적." },
       "ETH": { name: "이더리움 (Ethereum)", roi: "+150% ~ +280%", reason: "온체인 스마트 컨트랙트 및 디파이 생태계의 기축 결제 통화로 스테이킹을 통한 안정적 복리 이자 확보." },
@@ -1148,47 +1539,6 @@
       "APT": { name: "앱토스 (Aptos)", roi: "+240% ~ +420%", reason: "Move 엔진의 엔터프라이즈급 안정성과 글로벌 핀테크/모바일 결제 앱 연동 전망." }
     };
 
-    // 급등 코인 카드 클릭 시 해당 코인 보유 기관 자동 필터링
-    function filterByGainer(coinSymbol) {
-      const targetBtn = document.getElementById('btnFilter' + coinSymbol);
-      if (targetBtn) {
-        setCoinFilter(coinSymbol, targetBtn);
-      } else {
-        setCoinFilter(coinSymbol, null);
-      }
-      document.querySelector('.board-container').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // 탭 화면 전환 함수 (테이블 vs 피드)
-    let currentView = 'table';
-    function switchView(viewName) {
-      currentView = viewName;
-      const tabTable = document.getElementById('tabTable');
-      const tabTimeline = document.getElementById('tabTimeline');
-      const tableView = document.getElementById('tableView');
-      const timelineView = document.getElementById('timelineView');
-      const mainTitle = document.getElementById('boardMainTitle');
-      const subTitle = document.getElementById('boardSubTitle');
-
-      if (viewName === 'table') {
-        tabTable.classList.add('active');
-        tabTimeline.classList.remove('active');
-        tableView.style.display = 'block';
-        timelineView.style.display = 'none';
-        mainTitle.innerText = "기관별 가상자산 편입 현황 (72개 기관)";
-        subTitle.innerText = "검색창에 기관명 또는 도시를 입력하거나 관심 코인 버튼을 클릭하세요.";
-      } else {
-        tabTimeline.classList.add('active');
-        tabTable.classList.remove('active');
-        tableView.style.display = 'none';
-        timelineView.style.display = 'block';
-        mainTitle.innerText = "⏱️ 최근 투자 집행 피드 (시간순 정렬)";
-        subTitle.innerText = "2026년 최신 일자별로 기관들이 신규 매수한 내역과 집행 규모를 확인하세요.";
-      }
-      filterTable();
-    }
-
-    // 보고서 모달 띄우기 함수
     function openReportByName(firmName, firmLocation, aum, weight, coinsStr) {
       const cleanFirm = firmName.split(" ")[0].toUpperCase().replace(/[^A-Z]/g, "") || "FUND";
       const randomNum = Math.floor(1000 + Math.random() * 9000);
@@ -1227,16 +1577,6 @@
       document.body.style.overflow = "hidden";
     }
 
-    function openExecutiveReport(button) {
-      const row = button.closest("tr");
-      const firmName = row.querySelector(".firm-name").innerText;
-      const firmLocation = row.querySelector(".firm-location").innerText;
-      const aum = row.querySelector("td:nth-child(2)").innerText;
-      const weight = row.querySelector("td:nth-child(4)").innerText;
-      const coinsStr = row.getAttribute("data-coins") || "";
-      openReportByName(firmName, firmLocation, aum, weight, coinsStr);
-    }
-
     function closeReportModal() {
       document.getElementById("reportModalOverlay").style.display = "none";
       document.body.style.overflow = "";
@@ -1246,11 +1586,47 @@
       if (event.target.id === "reportModalOverlay") closeReportModal();
     }
 
-    window.addEventListener("keydown", function(e) {
-      if (e.key === "Escape") closeReportModal();
-    });
+    // 급등 코인 필터 연동
+    function filterByGainer(coinSymbol) {
+      const targetBtn = document.getElementById('btnFilter' + coinSymbol);
+      if (targetBtn) {
+        setCoinFilter(coinSymbol, targetBtn);
+      } else {
+        setCoinFilter(coinSymbol, null);
+      }
+      document.querySelector('.board-container').scrollIntoView({ behavior: 'smooth' });
+    }
 
-    // 5. 검색 및 필터
+    // 뷰 전환
+    let currentView = 'table';
+    function switchView(viewName) {
+      currentView = viewName;
+      const tabTable = document.getElementById('tabTable');
+      const tabTimeline = document.getElementById('tabTimeline');
+      const tableView = document.getElementById('tableView');
+      const timelineView = document.getElementById('timelineView');
+      const mainTitle = document.getElementById('boardMainTitle');
+      const subTitle = document.getElementById('boardSubTitle');
+
+      if (viewName === 'table') {
+        tabTable.classList.add('active');
+        tabTimeline.classList.remove('active');
+        tableView.style.display = 'block';
+        timelineView.style.display = 'none';
+        mainTitle.innerText = "기관별 가상자산 편입 현황 (72개 기관)";
+        subTitle.innerText = "검색창에 기관명 또는 도시를 입력하거나 관심 코인 버튼을 클릭하세요.";
+      } else {
+        tabTimeline.classList.add('active');
+        tabTable.classList.remove('active');
+        tableView.style.display = 'none';
+        timelineView.style.display = 'block';
+        mainTitle.innerText = "⏱️ 최근 투자 집행 피드 (시간순 정렬)";
+        subTitle.innerText = "2026년 최신 일자별로 기관들이 신규 매수한 내역과 집행 규모를 확인하세요.";
+      }
+      filterTable();
+    }
+
+    // 검색 및 필터
     let currentCoinFilter = 'all';
 
     function setCoinFilter(coin, clickedBtn) {
@@ -1282,6 +1658,16 @@
         card.style.display = (matchesCoin && matchesKeyword) ? 'flex' : 'none';
       });
     }
+
+    window.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        closeReportModal();
+        closeAuthModal();
+      }
+    });
+
+    // 페이지 진입 시 로그인 상태 초기화
+    updateAuthUI();
   </script>
 
 </body>
