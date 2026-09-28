@@ -94,7 +94,7 @@
 
     /* 4. 메인 배너 */
     .hero {
-      padding: 60px 20px 40px 20px;
+      padding: 55px 20px 35px 20px;
       text-align: center;
       background: radial-gradient(circle at 50% 10%, #152d4e 0%, #070e1b 75%);
     }
@@ -110,15 +110,15 @@
       border-radius: 20px;
       font-size: 13px;
       font-weight: 600;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .hero h1 {
-      font-size: 36px;
+      font-size: 35px;
       font-weight: 800;
       color: #ffffff;
       line-height: 1.35;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       letter-spacing: -0.5px;
     }
 
@@ -129,17 +129,147 @@
     }
 
     .hero p {
-      font-size: 16px;
+      font-size: 15.5px;
       color: #94a3b8;
       max-width: 720px;
       margin: 0 auto;
       line-height: 1.7;
     }
 
-    /* 5. 뷰 전환 탭 (테이블 보기 vs 시간순 피드 보기) */
+    /* ===================================================
+       [새로 추가된 곳] 5. 최근 7일 급등 랭킹 (업비트·빗썸) 섹션
+       =================================================== */
+    .gainers-container {
+      max-width: 1240px;
+      margin: 10px auto 35px auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    .gainers-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .gainers-title-area h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .gainers-title-area p {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    .exchange-badge-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    .badge-exchange {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .badge-upbit { background: rgba(9, 54, 137, 0.4); color: #60a5fa; border: 1px solid #1e3a8a; }
+    .badge-bithumb { background: rgba(224, 86, 36, 0.2); color: #fb923c; border: 1px solid #9a3412; }
+
+    /* 5개 카드 가로 그리드 */
+    .gainers-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .gainer-card {
+      background: #0b172a;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 16px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .gainer-card:hover {
+      transform: translateY(-4px);
+      border-color: #10b981;
+      background: #0f2238;
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.15);
+    }
+
+    .gainer-rank {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      font-size: 16px;
+      font-weight: 900;
+      color: #334155;
+    }
+
+    .gainer-card:first-child .gainer-rank { color: #f59e0b; } /* 1위 골드 */
+    .gainer-card:nth-child(2) .gainer-rank { color: #94a3b8; } /* 2위 실버 */
+    .gainer-card:nth-child(3) .gainer-rank { color: #b45309; } /* 3위 브론즈 */
+
+    .gainer-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .gainer-symbol {
+      font-size: 12px;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .gainer-rate {
+      font-size: 22px;
+      font-weight: 900;
+      color: #10b981;
+      margin: 12px 0 6px 0;
+      letter-spacing: -0.5px;
+    }
+
+    .gainer-info-line {
+      font-size: 12px;
+      color: #94a3b8;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 4px;
+    }
+
+    .gainer-inst-tag {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed #1e293b;
+      font-size: 11px;
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    /* 6. 뷰 전환 탭 */
     .view-switch-container {
       max-width: 1240px;
-      margin: 20px auto 10px auto;
+      margin: 15px auto 10px auto;
       padding: 0 20px;
       display: flex;
       gap: 12px;
@@ -169,7 +299,7 @@
       box-shadow: 0 4px 15px rgba(56, 189, 248, 0.25);
     }
 
-    /* 6. 게시판 본체 컨테이너 */
+    /* 7. 게시판 본체 컨테이너 */
     .board-container {
       max-width: 1240px;
       margin: 10px auto 60px auto;
@@ -277,12 +407,8 @@
 
     .firm-location { font-size: 12px; color: #64748b; }
 
-    /* ===================================================
-       [새로 추가된 곳] 7. 시간순 게시물 피드 (Timeline View) 스타일
-       =================================================== */
-    #timelineView {
-      display: none; /* 기본은 테이블 뷰 */
-    }
+    /* 타임라인 피드 */
+    #timelineView { display: none; }
 
     .timeline-list {
       display: flex;
@@ -394,7 +520,7 @@
       color: #08101e;
     }
 
-    /* 8. 정식 실사 보고서 모달 스타일 */
+    /* 8. 보고서 모달 스타일 */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -492,10 +618,7 @@
       margin-bottom: 6px;
     }
 
-    .report-sub {
-      font-size: 13px;
-      color: #64748b;
-    }
+    .report-sub { font-size: 13px; color: #64748b; }
 
     .report-meta-grid {
       display: grid;
@@ -627,9 +750,14 @@
       margin-top: 6px;
     }
 
+    @media (max-width: 900px) {
+      .gainers-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     @media (max-width: 768px) {
       header { flex-direction: column; gap: 12px; padding: 16px; }
       .hero h1 { font-size: 26px; }
+      .gainers-grid { grid-template-columns: 1fr; }
       .controls-wrapper, .search-input { width: 100%; }
       .report-meta-grid { grid-template-columns: 1fr; }
       .timeline-card { flex-direction: column; align-items: flex-start; }
@@ -654,17 +782,17 @@
   <section class="ticker-wrap">
     <div class="ticker-move">
       <div class="ticker-item"><span class="ticker-label">모니터링 운용사:</span><span class="ticker-value text-blue">72개 글로벌 기관</span></div>
+      <div class="ticker-item"><span class="ticker-label">국내 7일 급등 1위:</span><span class="ticker-value text-green">수이 (SUI) +84.2%</span></div>
       <div class="ticker-item"><span class="ticker-label">기관 가상자산 총 운용액:</span><span class="ticker-value">$218.4B (약 292조 원)</span></div>
-      <div class="ticker-item"><span class="ticker-label">최대 비중 자산:</span><span class="ticker-value text-green">Bitcoin (48.2%)</span></div>
       <div class="ticker-item"><span class="ticker-label">포트폴리오 평균 기대수익률:</span><span class="ticker-value text-green">+215% 이상</span></div>
-      <div class="ticker-item"><span class="ticker-label">최근 투자 집행일:</span><span class="ticker-value text-blue">2026.09.26 (실시간 갱신)</span></div>
+      <div class="ticker-item"><span class="ticker-label">국내 거래소 연동:</span><span class="ticker-value text-blue">업비트 · 빗썸 KRW 기준</span></div>
 
       <!-- 무한 루프용 복제 세트 -->
       <div class="ticker-item"><span class="ticker-label">모니터링 운용사:</span><span class="ticker-value text-blue">72개 글로벌 기관</span></div>
+      <div class="ticker-item"><span class="ticker-label">국내 7일 급등 1위:</span><span class="ticker-value text-green">수이 (SUI) +84.2%</span></div>
       <div class="ticker-item"><span class="ticker-label">기관 가상자산 총 운용액:</span><span class="ticker-value">$218.4B (약 292조 원)</span></div>
-      <div class="ticker-item"><span class="ticker-label">최대 비중 자산:</span><span class="ticker-value text-green">Bitcoin (48.2%)</span></div>
       <div class="ticker-item"><span class="ticker-label">포트폴리오 평균 기대수익률:</span><span class="ticker-value text-green">+215% 이상</span></div>
-      <div class="ticker-item"><span class="ticker-label">최근 투자 집행일:</span><span class="ticker-value text-blue">2026.09.26 (실시간 갱신)</span></div>
+      <div class="ticker-item"><span class="ticker-label">국내 거래소 연동:</span><span class="ticker-value text-blue">업비트 · 빗썸 KRW 기준</span></div>
     </div>
   </section>
 
@@ -672,10 +800,106 @@
   <section class="hero">
     <div class="hero-tag">🌐 GLOBAL INSTITUTIONAL ASSET INTELLIGENCE</div>
     <h1>글로벌 자산운용사의 <span>가상자산 투자 보고서</span>를<br>한곳에서 한눈에 추적하세요</h1>
-    <p>전 세계 헤지펀드, 국부펀드, 자산운용사 72곳의 실제 상장 코인 포트폴리오와 분기별 신규 매수 내역을 시간순으로 추적합니다.</p>
+    <p>전 세계 헤지펀드, 국부펀드, 자산운용사 72곳의 포트폴리오와 국내 주요 거래소(업비트·빗썸)의 최근 7일 급등세를 실시간으로 비교 분석합니다.</p>
   </section>
 
-  <!-- [새로 추가된 곳] 4. 뷰 전환 탭 (테이블 vs 시간순 피드) -->
+  <!-- ===================================================
+       [새로 추가된 곳] 4. 최근 7일 국내 거래소 급등 랭킹 TOP 5
+       =================================================== -->
+  <section class="gainers-container">
+    <div class="gainers-header">
+      <div class="gainers-title-area">
+        <h3>🔥 최근 7일 거래소 급등 랭킹 TOP 5</h3>
+        <p>업비트(Upbit) & 빗썸(Bithumb) KRW 마켓 7일간 최고 상승률 종목 (카드를 누르면 보유 기관 자동 필터)</p>
+      </div>
+      <div class="exchange-badge-group">
+        <span class="badge-exchange badge-upbit">업비트 KRW</span>
+        <span class="badge-exchange badge-bithumb">빗썸 KRW</span>
+      </div>
+    </div>
+
+    <!-- 5개 급등 코인 카드 그리드 -->
+    <div class="gainers-grid">
+      
+      <!-- 1위: 수이 (SUI) -->
+      <div class="gainer-card" onclick="filterByGainer('SUI')">
+        <div class="gainer-rank">1위</div>
+        <div>
+          <div class="gainer-name">수이 <span class="gainer-symbol">SUI</span></div>
+          <span class="badge-exchange badge-upbit" style="font-size:10px;">업비트 KRW</span>
+        </div>
+        <div class="gainer-rate">+84.2% ▲</div>
+        <div>
+          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">4,280원</strong></div>
+          <div class="gainer-info-line"><span>7일 거래대금</span><span>1조 4,200억</span></div>
+          <div class="gainer-inst-tag">🏛️ 글로벌 운용사 18곳 집중 매집</div>
+        </div>
+      </div>
+
+      <!-- 2위: 니어프로토콜 (NEAR) -->
+      <div class="gainer-card" onclick="filterByGainer('NEAR')">
+        <div class="gainer-rank">2위</div>
+        <div>
+          <div class="gainer-name">니어프로토콜 <span class="gainer-symbol">NEAR</span></div>
+          <span class="badge-exchange badge-bithumb" style="font-size:10px;">빗썸 KRW</span>
+        </div>
+        <div class="gainer-rate">+61.5% ▲</div>
+        <div>
+          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">9,640원</strong></div>
+          <div class="gainer-info-line"><span>7일 거래대금</span><span>8,900억</span></div>
+          <div class="gainer-inst-tag">🏛️ AI·체인추상화 펀드 14곳 보유</div>
+        </div>
+      </div>
+
+      <!-- 3위: 솔라나 (SOL) -->
+      <div class="gainer-card" onclick="filterByGainer('SOL')">
+        <div class="gainer-rank">3위</div>
+        <div>
+          <div class="gainer-name">솔라나 <span class="gainer-symbol">SOL</span></div>
+          <span class="badge-exchange badge-upbit" style="font-size:10px;">업비트 KRW</span>
+        </div>
+        <div class="gainer-rate">+44.8% ▲</div>
+        <div>
+          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">284,500원</strong></div>
+          <div class="gainer-info-line"><span>7일 거래대금</span><span>2조 8,500억</span></div>
+          <div class="gainer-inst-tag">🏛️ 월가 헤지펀드 34곳 최우선 편입</div>
+        </div>
+      </div>
+
+      <!-- 4위: 아발란체 (AVAX) -->
+      <div class="gainer-card" onclick="filterByGainer('AVAX')">
+        <div class="gainer-rank">4위</div>
+        <div>
+          <div class="gainer-name">아발란체 <span class="gainer-symbol">AVAX</span></div>
+          <span class="badge-exchange badge-upbit" style="font-size:10px;">업비트 KRW</span>
+        </div>
+        <div class="gainer-rate">+36.2% ▲</div>
+        <div>
+          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">46,200원</strong></div>
+          <div class="gainer-info-line"><span>7일 거래대금</span><span>5,400억</span></div>
+          <div class="gainer-inst-tag">🏛️ 서브넷 금융 펀드 12곳 운용</div>
+        </div>
+      </div>
+
+      <!-- 5위: 리플 (XRP) -->
+      <div class="gainer-card" onclick="filterByGainer('XRP')">
+        <div class="gainer-rank">5위</div>
+        <div>
+          <div class="gainer-name">리플 <span class="gainer-symbol">XRP</span></div>
+          <span class="badge-exchange badge-bithumb" style="font-size:10px;">빗썸 KRW</span>
+        </div>
+        <div class="gainer-rate">+28.7% ▲</div>
+        <div>
+          <div class="gainer-info-line"><span>현재가</span><strong style="color:#ffffff;">875원</strong></div>
+          <div class="gainer-info-line"><span>7일 거래대금</span><span>1조 9,200억</span></div>
+          <div class="gainer-inst-tag">🏛️ 국제 결제 특화 22개 기관 보유</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. 뷰 전환 탭 (테이블 vs 시간순 피드) -->
   <div class="view-switch-container">
     <button class="tab-btn active" id="tabTable" onclick="switchView('table')">
       📊 기관별 전체 포트폴리오 (테이블)
@@ -685,10 +909,10 @@
     </button>
   </div>
 
-  <!-- 5. 게시판 영역 -->
+  <!-- 6. 게시판 영역 -->
   <main class="board-container">
     
-    <!-- 컨트롤 바: 검색창 + 코인 필터 -->
+    <!-- 컨트롤 바 -->
     <div class="board-header">
       <div class="board-title">
         <h2 id="boardMainTitle">기관별 가상자산 편입 현황 (72개 기관)</h2>
@@ -698,20 +922,20 @@
       <div class="controls-wrapper">
         <input type="text" id="searchInput" class="search-input" placeholder="운용사명, 도시, 코인 검색 (예: 서울, DOGE, SUI)" onkeyup="filterTable()">
         <div class="filter-group">
-          <button class="btn-filter active" onclick="setCoinFilter('all', this)">전체</button>
-          <button class="btn-filter" onclick="setCoinFilter('BTC', this)">BTC</button>
-          <button class="btn-filter" onclick="setCoinFilter('ETH', this)">ETH</button>
-          <button class="btn-filter" onclick="setCoinFilter('SOL', this)">SOL</button>
-          <button class="btn-filter" onclick="setCoinFilter('XRP', this)">XRP</button>
-          <button class="btn-filter" onclick="setCoinFilter('LINK', this)">LINK</button>
-          <button class="btn-filter" onclick="setCoinFilter('AVAX', this)">AVAX</button>
-          <button class="btn-filter" onclick="setCoinFilter('SUI', this)">SUI</button>
-          <button class="btn-filter" onclick="setCoinFilter('DOGE', this)">DOGE</button>
+          <button class="btn-filter active" id="btnFilterAll" onclick="setCoinFilter('all', this)">전체</button>
+          <button class="btn-filter" id="btnFilterBTC" onclick="setCoinFilter('BTC', this)">BTC</button>
+          <button class="btn-filter" id="btnFilterETH" onclick="setCoinFilter('ETH', this)">ETH</button>
+          <button class="btn-filter" id="btnFilterSOL" onclick="setCoinFilter('SOL', this)">SOL</button>
+          <button class="btn-filter" id="btnFilterXRP" onclick="setCoinFilter('XRP', this)">XRP</button>
+          <button class="btn-filter" id="btnFilterLINK" onclick="setCoinFilter('LINK', this)">LINK</button>
+          <button class="btn-filter" id="btnFilterAVAX" onclick="setCoinFilter('AVAX', this)">AVAX</button>
+          <button class="btn-filter" id="btnFilterSUI" onclick="setCoinFilter('SUI', this)">SUI</button>
+          <button class="btn-filter" id="btnFilterDOGE" onclick="setCoinFilter('DOGE', this)">DOGE</button>
         </div>
       </div>
     </div>
 
-    <!-- [뷰 1] 기존 72개 글로벌 운용사 테이블 -->
+    <!-- [뷰 1] 72개 글로벌 운용사 테이블 -->
     <div class="table-wrapper" id="tableView">
       <table id="fundTable">
         <thead>
@@ -795,6 +1019,8 @@
             <td>BTC 40% / ETH 30% / XRP 20% / SHIB 10%</td>
             <td><button class="btn-report" onclick="openExecutiveReport(this)">보고서 요약</button></td>
           </tr>
+
+          <!-- 11 ~ 20 -->
           <tr data-coins="BTC XRP DOGE">
             <td><div class="firm-name">사쿠라 디지털 랩스 (Sakura Digital)</div><div class="firm-location">일본 도쿄 · 테크 인베스트먼트</div></td>
             <td><strong>$2.7B</strong></td>
@@ -869,11 +1095,11 @@
       </table>
     </div>
 
-    <!-- [새로 추가된 곳] [뷰 2] 시간순 투자 집행 게시물 피드 -->
+    <!-- [뷰 2] 시간순 투자 집행 게시물 피드 -->
     <div id="timelineView">
       <div class="timeline-list">
         
-        <!-- 피드 1 (최신: 2026.09.26) -->
+        <!-- 피드 1 (2026.09.26) -->
         <div class="timeline-card" data-coins="BTC ETH SOL" data-firm="넥서스 글로벌 캐피탈 미국 뉴욕">
           <div>
             <div class="timeline-date-badge">📅 2026년 09월 26일 공시</div>
@@ -939,7 +1165,7 @@
             <div class="timeline-date-badge">📅 2026년 09월 05일 공시</div>
             <div class="timeline-firm-title">한양 크립토 파트너스 (Hanyang Partners)</div>
             <div class="timeline-action-desc">
-              국내 원화 거래소 유동성 공급과 레이어2 시바리움(Shibarium) 생태계 펀드 조성을 위해 비트코인 및 알트코인 분할 매수.
+              국내 원화 거래소 유동성 공급과 레이어2 시바리움 생태계 펀드 조성을 위해 비트코인 및 알트코인 분할 매수.
             </div>
             <div class="timeline-meta-tags">
               <span class="coin-badge badge-btc">BTC</span>
@@ -953,50 +1179,11 @@
           </div>
         </div>
 
-        <!-- 피드 5 (2026.08.28) -->
-        <div class="timeline-card" data-coins="BTC SOL AVAX" data-firm="오리온 퀀트 매니지먼트 미국 시카고">
-          <div>
-            <div class="timeline-date-badge">📅 2026년 08월 28일 공시</div>
-            <div class="timeline-firm-title">오리온 퀀트 매니지먼트 (Orion Quant)</div>
-            <div class="timeline-action-desc">
-              서브넷 고빈도 매매 알고리즘 가동을 위한 아발란체(AVAX) $25M 매수 및 파생상품 델타 중립 차익거래 개시.
-            </div>
-            <div class="timeline-meta-tags">
-              <span class="coin-badge badge-avax">AVAX</span>
-              <span class="coin-badge badge-sol">SOL</span>
-              <span class="roi-badge">🎯 목표 기대수익률: +190% ~ +320%</span>
-            </div>
-          </div>
-          <div class="timeline-btn-area">
-            <span style="color:#64748b; font-size:12px;">집행 규모: <strong>$55M</strong></span>
-            <button class="btn-report" onclick="openReportByName('오리온 퀀트 매니지먼트', '미국 시카고 · 퀀트 트레이딩', '$4.1B', 'BTC 50% / SOL 30% / AVAX 20%', 'BTC SOL AVAX')">보고서 열람</button>
-          </div>
-        </div>
-
-        <!-- 피드 6 (2026.08.14) -->
-        <div class="timeline-card" data-coins="BTC ETH" data-firm="발할라 인베스트먼트 스위스 취리히">
-          <div>
-            <div class="timeline-date-badge">📅 2026년 08월 14일 공시</div>
-            <div class="timeline-firm-title">발할라 인베스트먼트 (Valhalla Fund)</div>
-            <div class="timeline-action-desc">
-              스위스 프라이빗 뱅크 VVIP 고객 패밀리 오피스 계좌를 위한 비트코인 3,500개 스위스 알프스 벙커 콜드볼트 입고 완료.
-            </div>
-            <div class="timeline-meta-tags">
-              <span class="coin-badge badge-btc">BTC</span>
-              <span class="roi-badge">🎯 목표 기대수익률: +130% ~ +220%</span>
-            </div>
-          </div>
-          <div class="timeline-btn-area">
-            <span style="color:#64748b; font-size:12px;">집행 규모: <strong>$210M</strong></span>
-            <button class="btn-report" onclick="openReportByName('발할라 인베스트먼트', '스위스 취리히 · 프라이빗 뱅크', '$2.4B', 'BTC 70% / ETH 30%', 'BTC ETH')">보고서 열람</button>
-          </div>
-        </div>
-
       </div>
     </div>
   </main>
 
-  <!-- 보고서 모달 팝업 구조 -->
+  <!-- 8. 정식 실사 보고서 모달 팝업 구조 -->
   <div id="reportModalOverlay" class="modal-overlay" onclick="closeModalOnOverlay(event)">
     <div class="report-modal">
       <div class="report-header">
@@ -1066,7 +1253,21 @@
       "APT": { name: "앱토스 (Aptos)", roi: "+240% ~ +420%", reason: "Move 엔진의 엔터프라이즈급 안정성과 글로벌 핀테크/모바일 결제 앱 연동 전망." }
     };
 
-    // [새로 추가된 곳] 탭 화면 전환 함수
+    // [급등 코인 카드를 클릭하면 해당 코인 보유 기관을 자동으로 필터링하는 함수]
+    function filterByGainer(coinSymbol) {
+      // 1. 해당 코인 버튼을 찾아 활성화
+      const targetBtn = document.getElementById('btnFilter' + coinSymbol);
+      if (targetBtn) {
+        setCoinFilter(coinSymbol, targetBtn);
+      } else {
+        setCoinFilter(coinSymbol, null);
+      }
+
+      // 2. 화면을 아래 게시판으로 부드럽게 스크롤 이동
+      document.querySelector('.board-container').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 탭 화면 전환 함수
     let currentView = 'table';
     function switchView(viewName) {
       currentView = viewName;
@@ -1092,10 +1293,10 @@
         mainTitle.innerText = "⏱️ 최근 투자 집행 피드 (시간순 정렬)";
         subTitle.innerText = "2026년 최신 일자별로 기관들이 신규 매수한 내역과 집행 규모를 확인하세요.";
       }
-      filterTable(); // 뷰 전환 시 검색/필터 상태 유지
+      filterTable();
     }
 
-    // 보고서 모달 띄우기 공통 함수
+    // 보고서 모달 띄우기 함수
     function openReportByName(firmName, firmLocation, aum, weight, coinsStr) {
       const cleanFirm = firmName.split(" ")[0].toUpperCase().replace(/[^A-Z]/g, "") || "FUND";
       const randomNum = Math.floor(1000 + Math.random() * 9000);
@@ -1165,7 +1366,9 @@
       currentCoinFilter = coin;
       const buttons = document.querySelectorAll('.btn-filter');
       buttons.forEach(btn => btn.classList.remove('active'));
-      clickedBtn.classList.add('active');
+      if (clickedBtn) {
+        clickedBtn.classList.add('active');
+      }
       filterTable();
     }
 
@@ -1177,6 +1380,7 @@
       rows.forEach(row => {
         const rowText = row.innerText.toLowerCase();
         const rowCoins = row.getAttribute('data-coins');
+
         const matchesCoin = (currentCoinFilter === 'all' || rowCoins.includes(currentCoinFilter));
         const matchesKeyword = (keyword === '' || rowText.includes(keyword));
         row.style.display = (matchesCoin && matchesKeyword) ? '' : 'none';
@@ -1187,6 +1391,7 @@
       cards.forEach(card => {
         const cardText = card.innerText.toLowerCase();
         const cardCoins = card.getAttribute('data-coins');
+
         const matchesCoin = (currentCoinFilter === 'all' || cardCoins.includes(currentCoinFilter));
         const matchesKeyword = (keyword === '' || cardText.includes(keyword));
         card.style.display = (matchesCoin && matchesKeyword) ? 'flex' : 'none';
