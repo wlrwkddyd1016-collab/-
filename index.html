@@ -6,7 +6,7 @@
   <title>JPMorgan Chase & Co. 스타일 웹사이트</title>
   
   <style>
-    /* 1. 기본 초기화 */
+    /* 1. 기본 스타일 초기화 */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -20,6 +20,7 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      transition: background-color 0.3s ease, color 0.3s ease; /* 테마 변경 시 부드럽게 전환 */
     }
 
     /* 2. 상단 헤더 */
@@ -40,6 +41,11 @@
       letter-spacing: 1px;
     }
 
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
     nav a {
       color: #cbd5e1;
       text-decoration: none;
@@ -57,6 +63,24 @@
       font-weight: 700;
       border-bottom: 2px solid #ffffff;
       padding-bottom: 4px;
+    }
+
+    /* 다크 모드 토글 버튼 스타일 */
+    .theme-toggle-btn {
+      margin-left: 24px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 0.2s ease;
+    }
+
+    .theme-toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
     }
 
     /* 3. 메인 배너 */
@@ -118,7 +142,7 @@
       display: flex;
       flex-direction: column;
       cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     }
 
     .card:hover {
@@ -144,15 +168,17 @@
       font-size: 20px;
       margin-bottom: 12px;
       color: #0a1e36;
+      transition: color 0.3s ease;
     }
 
     .card-content p {
       color: #555;
       line-height: 1.6;
       font-size: 14px;
+      transition: color 0.3s ease;
     }
 
-    /* 5. [새로 추가된 곳] 자바스크립트 계산기 박스 디자인 */
+    /* 5. 계산기 박스 */
     .calc-section {
       max-width: 600px;
       margin: 20px auto 60px auto;
@@ -162,18 +188,21 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       text-align: center;
       border-top: 4px solid #0a1e36;
+      transition: background-color 0.3s ease;
     }
 
     .calc-section h2 {
       font-size: 22px;
       color: #0a1e36;
       margin-bottom: 10px;
+      transition: color 0.3s ease;
     }
 
     .calc-section p {
       color: #666;
       font-size: 14px;
       margin-bottom: 24px;
+      transition: color 0.3s ease;
     }
 
     .calc-input-group {
@@ -190,10 +219,6 @@
       border-radius: 6px;
       width: 65%;
       outline: none;
-    }
-
-    .calc-input:focus {
-      border-color: #0a1e36;
     }
 
     .btn-calc {
@@ -220,6 +245,7 @@
       padding: 12px;
       background-color: #f1f5f9;
       border-radius: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     /* 6. 푸터 */
@@ -239,7 +265,36 @@
       margin: 0 8px;
     }
 
-    /* 반응형 모바일 */
+    /* ===================================================
+       [새로 추가된 곳] 다크 모드 활성화 시 적용되는 야간 테마 색상
+       =================================================== */
+    body.dark-mode {
+      background-color: #0b1320; /* 짙은 네이비 블랙 배경 */
+      color: #e2e8f0;
+    }
+
+    body.dark-mode .card,
+    body.dark-mode .calc-section {
+      background-color: #132238; /* 카드와 계산기 상자 색상을 짙게 변경 */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    body.dark-mode .card-content h3,
+    body.dark-mode .calc-section h2 {
+      color: #60a5fa; /* 헤드라인을 세련된 밝은 파란색으로 변경 */
+    }
+
+    body.dark-mode .card-content p,
+    body.dark-mode .calc-section p {
+      color: #94a3b8;
+    }
+
+    body.dark-mode .calc-result {
+      background-color: #1e3a5f;
+      color: #ffffff;
+    }
+
+    /* 모바일 반응형 */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -271,13 +326,14 @@
 </head>
 <body>
 
-  <!-- 헤더 -->
+  <!-- 헤더: 다크 모드 토글 버튼 배치 -->
   <header>
     <div class="logo"><a href="index.html">JPMORGAN CHASE & CO.</a></div>
     <nav>
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About Us</a>
       <a href="#business">Our Businesses</a>
+      <button id="themeBtn" onclick="toggleTheme()" class="theme-toggle-btn">🌙 다크 모드</button>
     </nav>
   </header>
 
@@ -315,7 +371,7 @@
     </div>
   </section>
 
-  <!-- [새로 추가된 곳] 자바스크립트 계산기 영역 -->
+  <!-- 계산기 영역 -->
   <section class="calc-section">
     <h2>모의 자산 성장 시뮬레이터</h2>
     <p>연 5% 복리 수익률 기준 1년 뒤 예상 자산을 확인해 보세요.</p>
@@ -339,29 +395,36 @@
     <p>© 2026 JPMorgan Chase & Co. All rights reserved.</p>
   </footer>
 
-  <!-- ===================================================
-       [자바스크립트 코드] 실제 계산을 수행하는 두뇌 파트
-       =================================================== -->
+  <!-- 자바스크립트 -->
   <script>
+    // 1. 계산기 함수
     function calculateReturn() {
-      // 1. 입력창에 적힌 숫자를 가져옵니다.
       const input = document.getElementById("investAmount").value;
       const amount = Number(input);
 
-      // 2. 숫자를 입력하지 않았거나 0 이하일 때 안내 문구
       if (!input || amount <= 0) {
         document.getElementById("resultText").innerText = "⚠️ 올바른 금액을 숫자로 입력해주세요.";
         document.getElementById("resultText").style.color = "#dc2626";
         return;
       }
 
-      // 3. 연 5% 이자 계산 (원금 * 1.05)
       const expectedTotal = Math.round(amount * 1.05);
-
-      // 4. 보기 좋게 3자리마다 쉼표(,)를 찍어서 결과 화면에 표시
       document.getElementById("resultText").innerText = 
         "1년 후 예상 자산: 약 " + expectedTotal.toLocaleString() + "원 (+5%)";
-      document.getElementById("resultText").style.color = "#0a1e36";
+    }
+
+    // 2. [새로 추가된 곳] 다크 모드 토글 스위치 함수
+    function toggleTheme() {
+      // <body> 태그에 'dark-mode' 클래스를 꼈다 뺐다(toggle) 합니다
+      document.body.classList.toggle("dark-mode");
+
+      const btn = document.getElementById("themeBtn");
+      // 현재 다크 모드 상태에 따라 버튼의 글자와 아이콘을 바꿔줍니다
+      if (document.body.classList.contains("dark-mode")) {
+        btn.innerText = "☀️ 라이트 모드";
+      } else {
+        btn.innerText = "🌙 다크 모드";
+      }
     }
   </script>
 
