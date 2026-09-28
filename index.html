@@ -959,7 +959,7 @@
     </nav>
   </header>
 
-  <!-- 2. 무한 롤링 전광판 (최근 1개월 기준) -->
+  <!-- 2. 무한 롤링 전광판 -->
   <section class="ticker-wrap">
     <div class="ticker-move">
       <div class="ticker-item"><span class="ticker-label">모니터링 운용사:</span><span class="ticker-value text-blue">72개 글로벌 기관</span></div>
@@ -981,7 +981,7 @@
   <section class="hero">
     <div class="hero-tag">🌐 GLOBAL INSTITUTIONAL ASSET INTELLIGENCE</div>
     <h1>글로벌 자산운용사의 <span>가상자산 투자 보고서</span>를<br>한곳에서 한눈에 추적하세요</h1>
-    <p>전 세계 헤지펀드, 국부펀드, 자산운용사 72곳의 포트폴리오를 분석합니다. 정식 실사 보고서는 공인 전문 자격 및 인증 코드를 보유한 회원만 열람할 수 있습니다.</p>
+    <p>전 세계 헤지펀드, 국부펀드, 자산운용사 72곳의 포트폴리오를 분석합니다. 정식 실사 보고서는 인가된 전문 자격 및 보안 코드를 보유한 회원만 열람할 수 있습니다.</p>
   </section>
 
   <!-- 4. 최근 1개월(30일) 실제 거래소 급등 랭킹 TOP 5 -->
@@ -1243,16 +1243,14 @@
           </div>
           <div class="timeline-btn-area">
             <span style="color:#64748b; font-size:12px;">집행 규모: <strong>$45M</strong></span>
-            <button class="btn-report" onclick="openExecutiveReport(this)">보고서 열람</button>
+            <button class="btn-report" onclick="openReportByName('크로노스 디지털 에셋', '싱가포르 · 블록체인 전문 펀드', '$3.2B', 'ETH 40% / SOL 35% / SUI 25%', 'ETH SOL SUI')">보고서 열람</button>
           </div>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- ===================================================
-       [핵심 업그레이드] 전문 트레이더 면허 & 인증 코드 검증 모달
-       =================================================== -->
+  <!-- 전문 트레이더 면허 & 인증 코드 검증 모달 -->
   <div id="authModalOverlay" class="modal-overlay" onclick="closeAuthModalOnOverlay(event)">
     <div class="auth-modal">
       <div class="auth-header">
@@ -1262,7 +1260,7 @@
 
       <div class="auth-body">
         <div class="auth-notice-box" id="authNoticeText">
-          본 플랫폼의 정식 투자 실사 보고서는 <strong>공인 금융 투자 자격</strong> 또는 <strong>기관 초청 보안 코드</strong> 보유자만 열람하실 수 있습니다.
+          본 플랫폼의 정식 투자 실사 보고서는 <strong>공인 금융 투자 자격</strong> 및 <strong>기관 보안 마스터 코드</strong> 보유자만 열람하실 수 있습니다.
         </div>
 
         <div class="auth-tabs">
@@ -1284,7 +1282,7 @@
           <div id="loginError" class="auth-error-msg">아이디 또는 비밀번호가 올바르지 않습니다.</div>
         </form>
 
-        <!-- 2. [자격증 & 인증코드 검증] 회원가입 폼 -->
+        <!-- 2. 회원가입 폼 (단일 지정 코드 JMC1016 검증) -->
         <form id="signupForm" style="display:none;" onsubmit="handleSignup(event)">
           <div class="auth-input-group">
             <label>전문 자격증 및 직함 구분</label>
@@ -1298,14 +1296,14 @@
           </div>
 
           <div class="auth-input-group">
-            <label>기관 전용 보안 인증 코드 (License Key)</label>
-            <input type="text" id="signupCode" class="auth-input" placeholder="예: ALPHA2026" required>
-            <div class="auth-hint-text">💡 <strong>테스트용 공용 발급 코드:</strong> ALPHA2026, TRADER77, CFA-VIP 중 입력</div>
+            <label>기관 전용 보안 인증 코드 (Security Code)</label>
+            <input type="text" id="signupCode" class="auth-input" placeholder="발급받은 전용 보안 코드 입력" required>
+            <div class="auth-hint-text">🔒 <strong>인가자 전용:</strong> 사전에 발급된 기관 보안 인증 코드를 정확히 입력하세요.</div>
           </div>
 
           <div class="auth-input-group">
             <label>트레이더 성함 (또는 전문 닉네임)</label>
-            <input type="text" id="signupName" class="auth-input" placeholder="예: 장민철 매니저" required>
+            <input type="text" id="signupName" class="auth-input" placeholder="성함 또는 전문 직함 입력" required>
           </div>
 
           <div class="auth-input-group">
@@ -1377,13 +1375,12 @@
     <p class="disclaimer">본 플랫폼에 게시된 자산운용사 정보 및 포트폴리오 데이터는 가상 시뮬레이션 모델이며, 특정 자산의 매수/매도를 권유하지 않습니다.</p>
   </footer>
 
-  <!-- 스크립트 -->
+  <!-- 자바스크립트 -->
   <script>
     // ===================================================
-    // 전문 트레이더 보안 인증 및 가입 관리
+    // [보안 핵심] 승인된 단일 보안 인증 마스터 코드: JMC1016
     // ===================================================
-    // 승인된 기관 보안 마스터 인증 코드 목록
-    const VALID_SECURITY_CODES = ["ALPHA2026", "TRADER77", "CFA-VIP", "MATRIX99"];
+    const MASTER_SECURITY_CODE = "JMC1016";
 
     let pendingReportRow = null;
 
@@ -1418,7 +1415,7 @@
     function openAuthModal(reason) {
       const noticeBox = document.getElementById("authNoticeText");
       if (reason === 'report') {
-        noticeBox.innerHTML = "🔒 <strong>전문 운용역 한정 비공개 보고서입니다.</strong><br>기관 초청 코드 및 전문 자격을 인증하신 후 즉시 전체 열람이 가능합니다.";
+        noticeBox.innerHTML = "🔒 <strong>전문 운용역 한정 비공개 보고서입니다.</strong><br>기관 보안 코드(JMC1016) 및 전문 자격을 인증하신 후 즉시 전체 열람이 가능합니다.";
       } else {
         noticeBox.innerHTML = "글로벌 자산운용사 전문 리서치 허브에 오신 것을 환영합니다.";
       }
@@ -1461,7 +1458,7 @@
       }
     }
 
-    // [핵심] 회원가입 심사 처리
+    // [핵심] 회원가입 심사 처리: JMC1016 검증
     function handleSignup(e) {
       e.preventDefault();
       const license = document.getElementById("signupLicense").value;
@@ -1471,9 +1468,9 @@
       const pw = document.getElementById("signupPw").value.trim();
       const errorEl = document.getElementById("signupError");
 
-      // 1. 보안 인증 코드 일치 여부 검사
-      if (!VALID_SECURITY_CODES.includes(code)) {
-        errorEl.innerHTML = "⚠️ <strong>인증 실패:</strong> 유효하지 않은 기관 보안 코드입니다.<br>테스트용 코드(ALPHA2026, TRADER77, CFA-VIP)를 확인해주세요.";
+      // 1. 단일 보안 코드(JMC1016) 일치 여부 엄격 검사
+      if (code !== MASTER_SECURITY_CODE) {
+        errorEl.innerHTML = "⚠️ <strong>보안 인증 실패:</strong> 유효하지 않은 기관 보안 코드입니다.<br>승인된 정식 보안 코드를 확인 후 다시 입력해주세요.";
         errorEl.style.display = "block";
         return;
       }
@@ -1486,8 +1483,8 @@
         return;
       }
 
-      // 3. 자격 승인 및 데이터베이스(localStorage) 저장
-      const newUser = { id, pw, name, license, code, approvedAt: new Date().toLocaleDateString() };
+      // 3. 자격 승인 및 저장
+      const newUser = { id, pw, name, license, approvedAt: new Date().toLocaleDateString() };
       users.push(newUser);
       localStorage.setItem("matrix_users", JSON.stringify(users));
 
