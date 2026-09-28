@@ -62,23 +62,20 @@
       color: #38bdf8;
     }
 
-    /* ===================================================
-       [새로 추가된 곳] 3. 무한 롤링 전광판 (Ticker) 스타일
-       =================================================== */
+    /* 3. 무한 롤링 전광판 */
     .ticker-wrap {
       background: #0d1b30;
       border-bottom: 1px solid #1a2942;
-      overflow: hidden; /* 화면 밖으로 넘어가는 글자들을 깔끔하게 숨깁니다 */
-      white-space: nowrap; /* 줄바꿈 방지 */
+      overflow: hidden;
+      white-space: nowrap;
       padding: 10px 0;
     }
 
     .ticker-move {
       display: inline-flex;
-      animation: tickerScroll 25s linear infinite; /* 25초 동안 왼쪽으로 일정하게 무한 회전 */
+      animation: tickerScroll 28s linear infinite;
     }
 
-    /* 마우스를 올리면 읽기 편하게 애니메이션 일시정지 */
     .ticker-move:hover {
       animation-play-state: paused;
     }
@@ -87,7 +84,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-right: 50px; /* 지표 항목 사이의 여백 */
+      margin-right: 50px;
       font-size: 13px;
     }
 
@@ -96,14 +93,9 @@
     .text-green { color: #10b981 !important; }
     .text-blue { color: #38bdf8 !important; }
 
-    /* 왼쪽으로 스르륵 이동시키는 핵심 애니메이션 */
     @keyframes tickerScroll {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%); /* 정확히 복제본 위치까지 이동 후 첫 위치로 리셋 */
-      }
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     /* 4. 메인 배너 */
@@ -152,7 +144,7 @@
 
     /* 5. 게시판 영역 */
     .board-container {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 30px auto 60px auto;
       padding: 0 20px;
       width: 100%;
@@ -181,8 +173,9 @@
 
     .controls-wrapper {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
+      align-items: center;
     }
 
     .search-input {
@@ -193,7 +186,7 @@
       border-radius: 6px;
       font-size: 13px;
       outline: none;
-      min-width: 200px;
+      min-width: 220px;
     }
 
     .search-input:focus {
@@ -202,7 +195,7 @@
 
     .filter-group {
       display: flex;
-      gap: 6px;
+      gap: 5px;
       flex-wrap: wrap;
     }
 
@@ -210,9 +203,9 @@
       background: #0f1d32;
       border: 1px solid #1e293b;
       color: #94a3b8;
-      padding: 8px 14px;
+      padding: 6px 12px;
       border-radius: 6px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -224,12 +217,13 @@
       border-color: #38bdf8;
     }
 
+    /* 테이블 영역 */
     .table-wrapper {
       background-color: #0b172a;
       border: 1px solid #1e293b;
       border-radius: 10px;
       overflow-x: auto;
-      max-height: 700px;
+      max-height: 750px;
       overflow-y: auto;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
@@ -254,7 +248,7 @@
     }
 
     td {
-      padding: 16px 20px;
+      padding: 15px 20px;
       border-bottom: 1px solid #142236;
       vertical-align: middle;
     }
@@ -275,25 +269,35 @@
       color: #64748b;
     }
 
+    /* [다양해진 코인별 뱃지 스타일] */
     .coin-badge {
       display: inline-block;
-      padding: 3px 8px;
+      padding: 3px 7px;
       border-radius: 4px;
       font-size: 11px;
       font-weight: 700;
-      margin: 2px 4px 2px 0;
+      margin: 2px 3px 2px 0;
     }
 
     .badge-btc { background: rgba(247, 147, 26, 0.15); color: #f7931a; }
     .badge-eth { background: rgba(98, 126, 234, 0.15); color: #8fa7ff; }
-    .badge-xrp { background: rgba(0, 168, 204, 0.15); color: #38bdf8; }
     .badge-sol { background: rgba(20, 241, 149, 0.15); color: #14f195; }
+    .badge-xrp { background: rgba(0, 168, 204, 0.15); color: #38bdf8; }
+    .badge-link { background: rgba(55, 91, 210, 0.18); color: #60a5fa; }
+    .badge-avax { background: rgba(232, 65, 66, 0.18); color: #f87171; }
+    .badge-sui { background: rgba(77, 162, 255, 0.18); color: #38bdf8; }
+    .badge-near { background: rgba(0, 192, 139, 0.18); color: #34d399; }
+    .badge-doge { background: rgba(194, 166, 51, 0.18); color: #facc15; }
+    .badge-shib { background: rgba(255, 107, 74, 0.18); color: #fb923c; }
+    .badge-ada { background: rgba(0, 51, 173, 0.2); color: #93c5fd; }
+    .badge-dot { background: rgba(230, 0, 122, 0.18); color: #f472b6; }
+    .badge-apt { background: rgba(45, 170, 220, 0.18); color: #67e8f9; }
 
     .btn-report {
       background-color: #1e293b;
       color: #38bdf8;
       border: 1px solid #334155;
-      padding: 7px 14px;
+      padding: 7px 13px;
       border-radius: 6px;
       cursor: pointer;
       font-size: 12px;
@@ -351,22 +355,21 @@
     </nav>
   </header>
 
-  <!-- 2. [수정된 곳] 왼쪽으로 천천히 움직이는 무한 롤링 전광판 -->
+  <!-- 2. 무한 롤링 전광판 (72개 기관 반영) -->
   <section class="ticker-wrap">
     <div class="ticker-move">
-      <!-- 1세트 -->
-      <div class="ticker-item"><span class="ticker-label">모니터링 운용사:</span><span class="ticker-value text-blue">32개 글로벌 펀드</span></div>
-      <div class="ticker-item"><span class="ticker-label">기관 가상자산 총 운용액:</span><span class="ticker-value">$94.6B (약 127조 원)</span></div>
-      <div class="ticker-item"><span class="ticker-label">최대 비중 편입 자산:</span><span class="ticker-value text-green">Bitcoin (53.8%)</span></div>
-      <div class="ticker-item"><span class="ticker-label">데이터 공시 주기:</span><span class="ticker-value text-blue">분기별 정기 공시</span></div>
-      <div class="ticker-item"><span class="ticker-label">최근 분기 기관 유입세:</span><span class="ticker-value text-green">+18.2% ▲</span></div>
+      <div class="ticker-item"><span class="ticker-label">모니터링 운용사:</span><span class="ticker-value text-blue">72개 글로벌 기관</span></div>
+      <div class="ticker-item"><span class="ticker-label">기관 가상자산 총 운용액:</span><span class="ticker-value">$218.4B (약 292조 원)</span></div>
+      <div class="ticker-item"><span class="ticker-label">최대 비중 자산:</span><span class="ticker-value text-green">Bitcoin (48.2%)</span></div>
+      <div class="ticker-item"><span class="ticker-label">급상승 편입 코인:</span><span class="ticker-value text-blue">SOL · SUI · LINK</span></div>
+      <div class="ticker-item"><span class="ticker-label">분기별 공시 갱신:</span><span class="ticker-value text-green">실시간 연동 완료</span></div>
 
-      <!-- 끊김 없이 이어지게 만드는 2세트 (복제품) -->
-      <div class="ticker-item"><span class="ticker-label">모니터링 운용사:</span><span class="ticker-value text-blue">32개 글로벌 펀드</span></div>
-      <div class="ticker-item"><span class="ticker-label">기관 가상자산 총 운용액:</span><span class="ticker-value">$94.6B (약 127조 원)</span></div>
-      <div class="ticker-item"><span class="ticker-label">최대 비중 편입 자산:</span><span class="ticker-value text-green">Bitcoin (53.8%)</span></div>
-      <div class="ticker-item"><span class="ticker-label">데이터 공시 주기:</span><span class="ticker-value text-blue">분기별 정기 공시</span></div>
-      <div class="ticker-item"><span class="ticker-label">최근 분기 기관 유입세:</span><span class="ticker-value text-green">+18.2% ▲</span></div>
+      <!-- 무한 루프용 복제 세트 -->
+      <div class="ticker-item"><span class="ticker-label">모니터링 운용사:</span><span class="ticker-value text-blue">72개 글로벌 기관</span></div>
+      <div class="ticker-item"><span class="ticker-label">기관 가상자산 총 운용액:</span><span class="ticker-value">$218.4B (약 292조 원)</span></div>
+      <div class="ticker-item"><span class="ticker-label">최대 비중 자산:</span><span class="ticker-value text-green">Bitcoin (48.2%)</span></div>
+      <div class="ticker-item"><span class="ticker-label">급상승 편입 코인:</span><span class="ticker-value text-blue">SOL · SUI · LINK</span></div>
+      <div class="ticker-item"><span class="ticker-label">분기별 공시 갱신:</span><span class="ticker-value text-green">실시간 연동 완료</span></div>
     </div>
   </section>
 
@@ -374,30 +377,35 @@
   <section class="hero">
     <div class="hero-tag">🌐 GLOBAL INSTITUTIONAL ASSET INTELLIGENCE</div>
     <h1>글로벌 자산운용사의 <span>가상자산 투자 보고서</span>를<br>한곳에서 한눈에 추적하세요</h1>
-    <p>전 세계 헤지펀드, 국부펀드, 자산운용사 32곳의 공식 공시 포트폴리오와 코인별 매수 비중을 실시간으로 분석합니다.</p>
+    <p>전 세계 헤지펀드, 국부펀드, 자산운용사 72곳의 실제 상장 코인 포트폴리오와 코인별 매수 비중을 실시간으로 분석합니다.</p>
   </section>
 
   <!-- 4. 게시판 영역 -->
   <main class="board-container">
     <div class="board-header">
       <div class="board-title">
-        <h2>기관별 가상자산 편입 현황</h2>
-        <p>검색창에 기관명 또는 도시를 입력하거나 코인별 필터를 선택하세요.</p>
+        <h2>기관별 가상자산 편입 현황 (72개 기관)</h2>
+        <p>검색창에 기관명 또는 도시를 입력하거나 관심 코인 버튼을 클릭하세요.</p>
       </div>
 
+      <!-- 컨트롤 바: 검색창 + 확장 코인 필터 버튼 -->
       <div class="controls-wrapper">
-        <input type="text" id="searchInput" class="search-input" placeholder="운용사명 또는 도시 검색 (예: 뉴욕, 서울)" onkeyup="filterTable()">
+        <input type="text" id="searchInput" class="search-input" placeholder="운용사명, 도시, 코인 검색 (예: 서울, DOGE, SUI)" onkeyup="filterTable()">
         <div class="filter-group">
           <button class="btn-filter active" onclick="setCoinFilter('all', this)">전체</button>
           <button class="btn-filter" onclick="setCoinFilter('BTC', this)">BTC</button>
           <button class="btn-filter" onclick="setCoinFilter('ETH', this)">ETH</button>
           <button class="btn-filter" onclick="setCoinFilter('SOL', this)">SOL</button>
           <button class="btn-filter" onclick="setCoinFilter('XRP', this)">XRP</button>
+          <button class="btn-filter" onclick="setCoinFilter('LINK', this)">LINK</button>
+          <button class="btn-filter" onclick="setCoinFilter('AVAX', this)">AVAX</button>
+          <button class="btn-filter" onclick="setCoinFilter('SUI', this)">SUI</button>
+          <button class="btn-filter" onclick="setCoinFilter('DOGE', this)">DOGE</button>
         </div>
       </div>
     </div>
 
-    <!-- 32개 글로벌 운용사 테이블 -->
+    <!-- 72개 글로벌 운용사 테이블 -->
     <div class="table-wrapper">
       <table id="fundTable">
         <thead>
@@ -410,7 +418,7 @@
           </tr>
         </thead>
         <tbody>
-          <!-- 1 -->
+          <!-- 1 ~ 10 -->
           <tr data-coins="BTC ETH SOL">
             <td><div class="firm-name">넥서스 글로벌 캐피탈 (Nexus Global)</div><div class="firm-location">미국 뉴욕 · 헤지펀드</div></td>
             <td><strong>$5.4B</strong></td>
@@ -418,23 +426,20 @@
             <td>BTC 55% / ETH 30% / SOL 15%</td>
             <td><button class="btn-report" onclick="openReport('넥서스 글로벌', 'BTC 중심 인플레이션 헤지 및 L1 롱 포지션 구축.')">보고서 요약</button></td>
           </tr>
-          <!-- 2 -->
-          <tr data-coins="XRP BTC">
+          <tr data-coins="XRP BTC LINK">
             <td><div class="firm-name">아펙스 인스티튜셔널 (Apex Partners)</div><div class="firm-location">영국 런던 · 대체투자운용사</div></td>
             <td><strong>$3.8B</strong></td>
-            <td><span class="coin-badge badge-xrp">XRP</span><span class="coin-badge badge-btc">BTC</span></td>
-            <td>XRP 45% / BTC 40% / 현금 15%</td>
-            <td><button class="btn-report" onclick="openReport('아펙스 인스티튜셔널', '글로벌 국경 간 결제망 혁신을 위한 XRP 대량 편입.')">보고서 요약</button></td>
+            <td><span class="coin-badge badge-xrp">XRP</span><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-link">LINK</span></td>
+            <td>XRP 45% / BTC 35% / LINK 20%</td>
+            <td><button class="btn-report" onclick="openReport('아펙스 인스티튜셔널', '글로벌 국경 간 결제 및 스마트 컨트랙트 오라클 인프라 편입.')">보고서 요약</button></td>
           </tr>
-          <!-- 3 -->
-          <tr data-coins="ETH SOL BTC">
+          <tr data-coins="ETH SOL SUI">
             <td><div class="firm-name">크로노스 디지털 에셋 (Chronos Asset)</div><div class="firm-location">싱가포르 · 블록체인 전문 펀드</div></td>
             <td><strong>$3.2B</strong></td>
-            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-btc">BTC</span></td>
-            <td>ETH 45% / SOL 35% / BTC 20%</td>
-            <td><button class="btn-report" onclick="openReport('크로노스 디지털', '스마트 컨트랙트 기반 스테이킹 캐시플로우 집중 추구.')">보고서 요약</button></td>
+            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-sui">SUI</span></td>
+            <td>ETH 40% / SOL 35% / SUI 25%</td>
+            <td><button class="btn-report" onclick="openReport('크로노스 디지털', '차세대 고속 L1 생태계 집중 매수 및 스테이킹 보상 창출.')">보고서 요약</button></td>
           </tr>
-          <!-- 4 -->
           <tr data-coins="BTC ETH">
             <td><div class="firm-name">발할라 인베스트먼트 (Valhalla Fund)</div><div class="firm-location">스위스 취리히 · 프라이빗 뱅크</div></td>
             <td><strong>$2.4B</strong></td>
@@ -442,71 +447,64 @@
             <td>BTC 70% / ETH 30%</td>
             <td><button class="btn-report" onclick="openReport('발할라 인베스트먼트', '디지털 골드 성격의 BTC를 전통 은행 리스크 방어용 비축.')">보고서 요약</button></td>
           </tr>
-          <!-- 5 -->
-          <tr data-coins="BTC SOL">
+          <tr data-coins="BTC SOL AVAX">
             <td><div class="firm-name">오리온 퀀트 매니지먼트 (Orion Quant)</div><div class="firm-location">미국 시카고 · 퀀트 트레이딩</div></td>
             <td><strong>$4.1B</strong></td>
-            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-sol">SOL</span></td>
-            <td>BTC 60% / SOL 40%</td>
-            <td><button class="btn-report" onclick="openReport('오리온 퀀트', '고빈도 매매 모델 기반 변동성 차익 거래 포지션 구축.')">보고서 요약</button></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-avax">AVAX</span></td>
+            <td>BTC 50% / SOL 30% / AVAX 20%</td>
+            <td><button class="btn-report" onclick="openReport('오리온 퀀트', '서브넷 및 고빈도 트레이딩 유동성 공급 포지션.')">보고서 요약</button></td>
           </tr>
-          <!-- 6 -->
-          <tr data-coins="BTC ETH">
+          <tr data-coins="BTC ETH XRP">
             <td><div class="firm-name">아틀라스 소버린 웰스 (Atlas Sovereign)</div><div class="firm-location">아랍에미리트 아부다비 · 국부펀드</div></td>
             <td><strong>$8.5B</strong></td>
-            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span></td>
-            <td>BTC 75% / ETH 25%</td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-xrp">XRP</span></td>
+            <td>BTC 60% / ETH 25% / XRP 15%</td>
             <td><button class="btn-report" onclick="openReport('아틀라스 소버린', '오일 머니 다변화 전략의 일환으로 디지털 기축통화 매입.')">보고서 요약</button></td>
           </tr>
-          <!-- 7 -->
-          <tr data-coins="SOL ETH">
+          <tr data-coins="SOL SUI NEAR">
             <td><div class="firm-name">블루록 벤처 캐피탈 (BlueRock Ventures)</div><div class="firm-location">미국 샌프란시스코 · VC</div></td>
             <td><strong>$2.1B</strong></td>
-            <td><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-eth">ETH</span></td>
-            <td>SOL 55% / ETH 45%</td>
-            <td><button class="btn-report" onclick="openReport('블루록 벤처', '차세대 Web3 및 고속 트랜잭션 디앱 인프라 투자.')">보고서 요약</button></td>
+            <td><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-sui">SUI</span><span class="coin-badge badge-near">NEAR</span></td>
+            <td>SOL 40% / SUI 35% / NEAR 25%</td>
+            <td><button class="btn-report" onclick="openReport('블루록 벤처', 'AI 연계 스마트 컨트랙트 및 대용량 트랜잭션 플랫폼 집중.')">보고서 요약</button></td>
           </tr>
-          <!-- 8 -->
-          <tr data-coins="BTC XRP">
+          <tr data-coins="BTC XRP LINK">
             <td><div class="firm-name">켄타우로스 캐피탈 (Centaurus PE)</div><div class="firm-location">독일 프랑크푸르트 · 사모펀드</div></td>
             <td><strong>$3.5B</strong></td>
-            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-xrp">XRP</span></td>
-            <td>BTC 50% / XRP 50%</td>
-            <td><button class="btn-report" onclick="openReport('켄타우로스 캐피탈', '유럽 은행권 유동성 허브 연동 테스트 및 포트폴리오 편입.')">보고서 요약</button></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-xrp">XRP</span><span class="coin-badge badge-link">LINK</span></td>
+            <td>BTC 45% / XRP 35% / LINK 20%</td>
+            <td><button class="btn-report" onclick="openReport('켄타우로스 캐피탈', '유럽 은행 간 토큰화 자산(RWA) 전송망 인프라 연동.')">보고서 요약</button></td>
           </tr>
-          <!-- 9 -->
-          <tr data-coins="ETH BTC">
+          <tr data-coins="ETH ADA DOT">
             <td><div class="firm-name">엘리시움 에셋 (Elysium Asset)</div><div class="firm-location">프랑스 파리 · 자산운용사</div></td>
             <td><strong>$1.9B</strong></td>
-            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-btc">BTC</span></td>
-            <td>ETH 60% / BTC 40%</td>
-            <td><button class="btn-report" onclick="openReport('엘리시움 에셋', 'ESG 친환경 지분증명(PoS) 친화 포트폴리오 구축.')">보고서 요약</button></td>
+            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-ada">ADA</span><span class="coin-badge badge-dot">DOT</span></td>
+            <td>ETH 50% / ADA 25% / DOT 25%</td>
+            <td><button class="btn-report" onclick="openReport('엘리시움 에셋', '학술 검증 및 파라체인 인터체인 기술 지향 포트폴리오.')">보고서 요약</button></td>
           </tr>
-          <!-- 10 -->
-          <tr data-coins="BTC ETH XRP">
+          <tr data-coins="BTC ETH XRP SHIB">
             <td><div class="firm-name">한양 크립토 파트너스 (Hanyang Partners)</div><div class="firm-location">대한민국 서울 · 블록체인 펀드</div></td>
             <td><strong>$1.8B</strong></td>
-            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-xrp">XRP</span></td>
-            <td>BTC 40% / ETH 35% / XRP 25%</td>
-            <td><button class="btn-report" onclick="openReport('한양 크립토', '아시아 제도권 가상자산 사업자 라이선스 연계 운용.')">보고서 요약</button></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-xrp">XRP</span><span class="coin-badge badge-shib">SHIB</span></td>
+            <td>BTC 40% / ETH 30% / XRP 20% / SHIB 10%</td>
+            <td><button class="btn-report" onclick="openReport('한양 크립토', '아시아 리테일 유동성과 레이어2 시바리움 생태계 분산 투자.')">보고서 요약</button></td>
           </tr>
-          <!-- 11 -->
-          <tr data-coins="BTC XRP">
+
+          <!-- 11 ~ 20 -->
+          <tr data-coins="BTC XRP DOGE">
             <td><div class="firm-name">사쿠라 디지털 랩스 (Sakura Digital)</div><div class="firm-location">일본 도쿄 · 테크 인베스트먼트</div></td>
             <td><strong>$2.7B</strong></td>
-            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-xrp">XRP</span></td>
-            <td>XRP 60% / BTC 40%</td>
-            <td><button class="btn-report" onclick="openReport('사쿠라 디지털', '일본 금융청 승인 화폐 중심 엔화 송금 효율화 프로젝트.')">보고서 요약</button></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-xrp">XRP</span><span class="coin-badge badge-doge">DOGE</span></td>
+            <td>XRP 50% / BTC 35% / DOGE 15%</td>
+            <td><button class="btn-report" onclick="openReport('사쿠라 디지털', '일본 금융청 승인 코인 중심의 소액 결제 및 유동성 포트폴리오.')">보고서 요약</button></td>
           </tr>
-          <!-- 12 -->
-          <tr data-coins="ETH SOL">
+          <tr data-coins="ETH SOL AVAX">
             <td><div class="firm-name">노바 호라이즌 캐피탈 (Nova Horizon)</div><div class="firm-location">캐나다 토론토 · 멀티전략 펀드</div></td>
             <td><strong>$2.2B</strong></td>
-            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span></td>
-            <td>ETH 50% / SOL 50%</td>
+            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-avax">AVAX</span></td>
+            <td>ETH 45% / SOL 35% / AVAX 20%</td>
             <td><button class="btn-report" onclick="openReport('노바 호라이즌', '토론토 증시 ETF 연계 현물 스테이킹 복리 투자.')">보고서 요약</button></td>
           </tr>
-          <!-- 13 -->
           <tr data-coins="BTC ETH SOL">
             <td><div class="firm-name">폴라리스 인베스트먼트 (Polaris Multi)</div><div class="firm-location">홍콩 · 헤지펀드</div></td>
             <td><strong>$4.6B</strong></td>
@@ -514,23 +512,20 @@
             <td>BTC 45% / ETH 35% / SOL 20%</td>
             <td><button class="btn-report" onclick="openReport('폴라리스 인베스트', '홍콩 가상자산 현물 ETF 시장 주요 유동성 공급.')">보고서 요약</button></td>
           </tr>
-          <!-- 14 -->
-          <tr data-coins="SOL BTC">
+          <tr data-coins="SOL SUI APT">
             <td><div class="firm-name">사이퍼 인스티튜셔널 (Cypher Tech)</div><div class="firm-location">미국 보스턴 · 펀드 매니지먼트</div></td>
             <td><strong>$1.8B</strong></td>
-            <td><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-btc">BTC</span></td>
-            <td>SOL 60% / BTC 40%</td>
-            <td><button class="btn-report" onclick="openReport('사이퍼 인스티튜셔널', '기관용 블록체인 결제 레이어 기술 집중 투자.')">보고서 요약</button></td>
+            <td><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-sui">SUI</span><span class="coin-badge badge-apt">APT</span></td>
+            <td>SOL 40% / SUI 35% / APT 25%</td>
+            <td><button class="btn-report" onclick="openReport('사이퍼 인스티튜셔널', 'Move 언어 기반 신생 고속 블록체인 생태계 집중.')">보고서 요약</button></td>
           </tr>
-          <!-- 15 -->
-          <tr data-coins="BTC ETH">
+          <tr data-coins="BTC ETH LINK">
             <td><div class="firm-name">헬리오스 글로벌 펀드 (Helios Global)</div><div class="firm-location">네덜란드 암스테르담 · 연금운용사</div></td>
             <td><strong>$2.9B</strong></td>
-            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span></td>
-            <td>BTC 65% / ETH 35%</td>
-            <td><button class="btn-report" onclick="openReport('헬리오스 글로벌', '유럽 기관 연기금 자산 배분용 안전자산 바스켓.')">보고서 요약</button></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-link">LINK</span></td>
+            <td>BTC 55% / ETH 30% / LINK 15%</td>
+            <td><button class="btn-report" onclick="openReport('헬리오스 글로벌', '유럽 기관 연기금 자산 배분용 안전 자산 바스켓.')">보고서 요약</button></td>
           </tr>
-          <!-- 16 -->
           <tr data-coins="BTC ETH XRP">
             <td><div class="firm-name">판게아 자산운용 (Pangea Asset)</div><div class="firm-location">호주 시드니 · 자산운용</div></td>
             <td><strong>$1.7B</strong></td>
@@ -538,87 +533,78 @@
             <td>BTC 40% / ETH 40% / XRP 20%</td>
             <td><button class="btn-report" onclick="openReport('판게아 자산운용', '오세아니아 금융권 크로스보더 자산 배분 전략.')">보고서 요약</button></td>
           </tr>
-          <!-- 17 -->
-          <tr data-coins="BTC ETH">
+          <tr data-coins="BTC ETH AVAX">
             <td><div class="firm-name">티탄 인스티튜셔널 (Titan Partners)</div><div class="firm-location">미국 샬럿 · 대체투자</div></td>
             <td><strong>$3.3B</strong></td>
-            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span></td>
-            <td>BTC 80% / ETH 20%</td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-avax">AVAX</span></td>
+            <td>BTC 70% / ETH 20% / AVAX 10%</td>
             <td><button class="btn-report" onclick="openReport('티탄 인스티튜셔널', '월가 대형 상업은행 연계 디지털 볼트 보관 포지션.')">보고서 요약</button></td>
           </tr>
-          <!-- 18 -->
-          <tr data-coins="ETH SOL">
+          <tr data-coins="ETH SOL LINK">
             <td><div class="firm-name">제니스 블록 파트너스 (Zenith Block)</div><div class="firm-location">영국령 케이맨 제도 · 오프쇼어 펀드</div></td>
             <td><strong>$2.5B</strong></td>
-            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span></td>
-            <td>ETH 50% / SOL 50%</td>
-            <td><button class="btn-report" onclick="openReport('제니스 블록', '디파이 일드 파밍 및 토큰화 채권(RWA) 연계 수익 창출.')">보고서 요약</button></td>
+            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-link">LINK</span></td>
+            <td>ETH 40% / SOL 40% / LINK 20%</td>
+            <td><button class="btn-report" onclick="openReport('제니스 블록', '디파이 일드 파밍 및 오라클 데이터 연계 수익 창출.')">보고서 요약</button></td>
           </tr>
-          <!-- 19 -->
-          <tr data-coins="BTC XRP">
+          <tr data-coins="BTC XRP ADA">
             <td><div class="firm-name">아테나 웰스 (Athena Wealth)</div><div class="firm-location">룩셈부르크 · 패밀리 오피스</div></td>
             <td><strong>$3.1B</strong></td>
-            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-xrp">XRP</span></td>
-            <td>BTC 60% / XRP 40%</td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-xrp">XRP</span><span class="coin-badge badge-ada">ADA</span></td>
+            <td>BTC 50% / XRP 30% / ADA 20%</td>
             <td><button class="btn-report" onclick="openReport('아테나 웰스', '초고액 자산가 세대 이전 목적의 장기 비축 자산.')">보고서 요약</button></td>
           </tr>
-          <!-- 20 -->
-          <tr data-coins="SOL BTC">
+          <tr data-coins="SOL NEAR SUI">
             <td><div class="firm-name">오디세이 펀드 매니지먼트 (Odyssey Fund)</div><div class="firm-location">싱가포르 · 퀀트 헤지펀드</div></td>
             <td><strong>$2.0B</strong></td>
-            <td><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-btc">BTC</span></td>
-            <td>SOL 55% / BTC 45%</td>
+            <td><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-near">NEAR</span><span class="coin-badge badge-sui">SUI</span></td>
+            <td>SOL 45% / SUI 30% / NEAR 25%</td>
             <td><button class="btn-report" onclick="openReport('오디세이 펀드', '동남아 결제 핀테크 연동 및 거래 수수료 수익 풀 편입.')">보고서 요약</button></td>
           </tr>
-          <!-- 21 -->
-          <tr data-coins="BTC ETH">
+
+          <!-- 21 ~ 30 -->
+          <tr data-coins="BTC ETH LINK">
             <td><div class="firm-name">아르고스 리스크 패리티 (Argos Parity)</div><div class="firm-location">미국 뉴욕 · 리스크 관리 펀드</div></td>
             <td><strong>$4.8B</strong></td>
-            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span></td>
-            <td>BTC 50% / ETH 50%</td>
-            <td><button class="btn-report" onclick="openReport('아르고스 패리티', '전통 주식-채권 60:40 포트폴리오 헤지용 분산 편입.')">보고서 요약</button></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-link">LINK</span></td>
+            <td>BTC 45% / ETH 40% / LINK 15%</td>
+            <td><button class="btn-report" onclick="openReport('아르고스 패리티', '전통 포트폴리오 리스크 헤지용 탈중앙 데이터 인프라 확보.')">보고서 요약</button></td>
           </tr>
-          <!-- 22 -->
-          <tr data-coins="BTC SOL XRP">
+          <tr data-coins="BTC SOL DOGE">
             <td><div class="firm-name">피닉스 크립토 캐피탈 (Phoenix Crypto)</div><div class="firm-location">미국 오스틴 · 가상자산 전문사</div></td>
             <td><strong>$1.3B</strong></td>
-            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-xrp">XRP</span></td>
-            <td>BTC 40% / SOL 30% / XRP 30%</td>
-            <td><button class="btn-report" onclick="openReport('피닉스 크립토', '탈중앙화 물리적 인프라(DePIN) 및 모빌리티 결제 집중.')">보고서 요약</button></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-doge">DOGE</span></td>
+            <td>BTC 40% / SOL 35% / DOGE 25%</td>
+            <td><button class="btn-report" onclick="openReport('피닉스 크립토', '소셜 페이먼트 및 탈중앙 커뮤니티 유동성 투자.')">보고서 요약</button></td>
           </tr>
-          <!-- 23 -->
-          <tr data-coins="BTC ETH">
+          <tr data-coins="BTC ETH XRP">
             <td><div class="firm-name">템플러 글로벌 인베스트 (Templar Global)</div><div class="firm-location">영국 런던 · 헤지펀드</div></td>
             <td><strong>$3.0B</strong></td>
-            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span></td>
-            <td>BTC 70% / ETH 30%</td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-xrp">XRP</span></td>
+            <td>BTC 60% / ETH 25% / XRP 15%</td>
             <td><button class="btn-report" onclick="openReport('템플러 글로벌', '영국 파운드화 가치 방어 목적의 디지털 헤지 자산.')">보고서 요약</button></td>
           </tr>
-          <!-- 24 -->
-          <tr data-coins="ETH SOL">
+          <tr data-coins="ETH SOL ADA">
             <td><div class="firm-name">하이페리온 얼라이언스 (Hyperion Alliance)</div><div class="firm-location">스웨덴 스톡홀름 · 노르딕 펀드</div></td>
             <td><strong>$1.6B</strong></td>
-            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span></td>
-            <td>ETH 65% / SOL 35%</td>
-            <td><button class="btn-report" onclick="openReport('하이페리온', '북유럽 그린 에너지 기반 노드 운영 및 스테이킹 보상 창출.')">보고서 요약</button></td>
+            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-ada">ADA</span></td>
+            <td>ETH 55% / SOL 25% / ADA 20%</td>
+            <td><button class="btn-report" onclick="openReport('하이페리온', '친환경 노드 운영 및 카르다노 생태계 스테이킹 보상 창출.')">보고서 요약</button></td>
           </tr>
-          <!-- 25 -->
-          <tr data-coins="BTC ETH">
+          <tr data-coins="BTC ETH NEAR">
             <td><div class="firm-name">볼텍스 디지털 리서치 (Vortex Digital)</div><div class="firm-location">이스라엘 텔아비브 · 사이버 테크</div></td>
             <td><strong>$1.4B</strong></td>
-            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span></td>
-            <td>BTC 60% / ETH 40%</td>
-            <td><button class="btn-report" onclick="openReport('볼텍스 디지털', '영지식 증명(ZK) 암호학 기반 보안 프로토콜 집중 배분.')">보고서 요약</button></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-near">NEAR</span></td>
+            <td>BTC 50% / ETH 30% / NEAR 20%</td>
+            <td><button class="btn-report" onclick="openReport('볼텍스 디지털', '사용자 친화적 계정 추상화 및 샤딩 인프라 집중 배분.')">보고서 요약</button></td>
           </tr>
-          <!-- 26 -->
-          <tr data-coins="BTC XRP">
+          <tr data-coins="BTC XRP LINK">
             <td><div class="firm-name">미네르바 헤지 캐피탈 (Minerva Hedge)</div><div class="firm-location">미국 그리니치 · 매크로 펀드</div></td>
             <td><strong>$3.9B</strong></td>
-            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-xrp">XRP</span></td>
-            <td>BTC 65% / XRP 35%</td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-xrp">XRP</span><span class="coin-badge badge-link">LINK</span></td>
+            <td>BTC 55% / XRP 30% / LINK 15%</td>
             <td><button class="btn-report" onclick="openReport('미네르바 헤지', '글로벌 유동성 긴축 국면 통화 바스켓 리밸런싱 전략.')">보고서 요약</button></td>
           </tr>
-          <!-- 27 -->
           <tr data-coins="BTC ETH">
             <td><div class="firm-name">에테르나 패밀리 오피스 (Aeterna Office)</div><div class="firm-location">모나코 · 자산관리</div></td>
             <td><strong>$2.3B</strong></td>
@@ -626,23 +612,20 @@
             <td>BTC 80% / ETH 20%</td>
             <td><button class="btn-report" onclick="openReport('에테르나 오피스', '유럽 가문 자산 보존을 위한 콜드 월렛 장기 비축.')">보고서 요약</button></td>
           </tr>
-          <!-- 28 -->
-          <tr data-coins="SOL ETH">
+          <tr data-coins="SOL SUI APT">
             <td><div class="firm-name">유니콘 크립토 벤처스 (Unicorn Ventures)</div><div class="firm-location">미국 실리콘밸리 · 시드 투자</div></td>
             <td><strong>$1.9B</strong></td>
-            <td><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-eth">ETH</span></td>
-            <td>SOL 60% / ETH 40%</td>
+            <td><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-sui">SUI</span><span class="coin-badge badge-apt">APT</span></td>
+            <td>SOL 50% / SUI 30% / APT 20%</td>
             <td><button class="btn-report" onclick="openReport('유니콘 벤처스', '모바일 웹3 생태계 조기 활성화를 위한 전략적 편입.')">보고서 요약</button></td>
           </tr>
-          <!-- 29 -->
-          <tr data-coins="BTC ETH">
+          <tr data-coins="BTC ETH DOT">
             <td><div class="firm-name">바이킹 디지털 에셋 (Viking Digital)</div><div class="firm-location">노르웨이 오슬로 · 친환경 펀드</div></td>
             <td><strong>$1.2B</strong></td>
-            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span></td>
-            <td>BTC 50% / ETH 50%</td>
-            <td><button class="btn-report" onclick="openReport('바이킹 디지털', '수력 발전 기반 친환경 채굴 풀 및 친환경 검증 자산 확보.')">보고서 요약</button></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-dot">DOT</span></td>
+            <td>BTC 45% / ETH 35% / DOT 20%</td>
+            <td><button class="btn-report" onclick="openReport('바이킹 디지털', '수력 발전 친환경 채굴 및 크로스체인 인터체인 네트워크 지원.')">보고서 요약</button></td>
           </tr>
-          <!-- 30 -->
           <tr data-coins="BTC XRP SOL">
             <td><div class="firm-name">아카디아 자산배분 (Arcadia Allocation)</div><div class="firm-location">아일랜드 더블린 · 펀드 운용</div></td>
             <td><strong>$2.6B</strong></td>
@@ -650,15 +633,15 @@
             <td>BTC 40% / XRP 30% / SOL 30%</td>
             <td><button class="btn-report" onclick="openReport('아카디아 자산배분', '빅테크 유럽 지사 결제망과 연계한 분산 유동성 공급.')">보고서 요약</button></td>
           </tr>
-          <!-- 31 -->
-          <tr data-coins="ETH BTC">
+
+          <!-- 31 ~ 40 -->
+          <tr data-coins="ETH LINK DOT">
             <td><div class="firm-name">세레스 거버넌스 펀드 (Ceres Governance)</div><div class="firm-location">스위스 제네바 · 임팩트 투자</div></td>
             <td><strong>$2.8B</strong></td>
-            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-btc">BTC</span></td>
-            <td>ETH 70% / BTC 30%</td>
-            <td><button class="btn-report" onclick="openReport('세레스 거버넌스', '탈중앙화 자율조직(DAO) 투표권 및 거버넌스 지분 참여.')">보고서 요약</button></td>
+            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-link">LINK</span><span class="coin-badge badge-dot">DOT</span></td>
+            <td>ETH 60% / LINK 25% / DOT 15%</td>
+            <td><button class="btn-report" onclick="openReport('세레스 거버넌스', '탈중앙 오라클 네트워크 및 탈중앙 거버넌스 참여.')">보고서 요약</button></td>
           </tr>
-          <!-- 32 -->
           <tr data-coins="BTC ETH SOL XRP">
             <td><div class="firm-name">델타 블록 캐피탈 (Delta Block)</div><div class="firm-location">아랍에미리트 두바이 · 가상자산 허브</div></td>
             <td><strong>$4.2B</strong></td>
@@ -666,12 +649,298 @@
             <td>BTC 35% / ETH 25% / SOL 20% / XRP 20%</td>
             <td><button class="btn-report" onclick="openReport('델타 블록 캐피탈', '중동 VARA 규제 프레임워크 1호 승인 포괄적 포트폴리오.')">보고서 요약</button></td>
           </tr>
+          <tr data-coins="BTC LINK AVAX">
+            <td><div class="firm-name">메트로폴리스 에셋 (Metropolis Asset)</div><div class="firm-location">미국 뉴욕 · 대체자산운용</div></td>
+            <td><strong>$3.7B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-link">LINK</span><span class="coin-badge badge-avax">AVAX</span></td>
+            <td>BTC 50% / LINK 30% / AVAX 20%</td>
+            <td><button class="btn-report" onclick="openReport('메트로폴리스 에셋', '전통 자산의 온체인 토큰화(RWA) 및 크로스체인 연동 집중.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="SOL NEAR APT">
+            <td><div class="firm-name">네뷸라 인스티튜셔널 (Nebula Fund)</div><div class="firm-location">미국 시애틀 · 테크 헤지펀드</div></td>
+            <td><strong>$2.3B</strong></td>
+            <td><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-near">NEAR</span><span class="coin-badge badge-apt">APT</span></td>
+            <td>SOL 45% / NEAR 30% / APT 25%</td>
+            <td><button class="btn-report" onclick="openReport('네뷸라 인스티튜셔널', '클라우드 인프라 분산화 및 고성능 병렬 실행 레이어 포지션.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC ETH XRP">
+            <td><div class="firm-name">카이로스 매크로 펀드 (Kairos Macro)</div><div class="firm-location">영국 런던 · 매크로 투자</div></td>
+            <td><strong>$5.1B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-xrp">XRP</span></td>
+            <td>BTC 55% / ETH 30% / XRP 15%</td>
+            <td><button class="btn-report" onclick="openReport('카이로스 매크로', '영국 및 영연방 금융권 환리스크 완화 목적 가상자산 바스켓.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC ETH SOL">
+            <td><div class="firm-name">오로라 캐피탈 매니지먼트 (Aurora Capital)</div><div class="firm-location">아이슬란드 레이캬비크 · 그린 펀드</div></td>
+            <td><strong>$1.5B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span></td>
+            <td>BTC 60% / ETH 25% / SOL 15%</td>
+            <td><button class="btn-report" onclick="openReport('오로라 캐피탈', '지열 에너지 기반 무탄소 노드 운영 자산 비축.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="ETH AVAX LINK">
+            <td><div class="firm-name">프로메테우스 디지털 (Prometheus Digital)</div><div class="firm-location">독일 베를린 · 핀테크 투자</div></td>
+            <td><strong>$2.4B</strong></td>
+            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-avax">AVAX</span><span class="coin-badge badge-link">LINK</span></td>
+            <td>ETH 45% / AVAX 35% / LINK 20%</td>
+            <td><button class="btn-report" onclick="openReport('프로메테우스 디지털', 'EU MiCA 규제 적합 금융 프로토콜 연계 투자.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC SOL SUI">
+            <td><div class="firm-name">실크로드 벤처스 (Silk Road Ventures)</div><div class="firm-location">싱가포르 · 동남아 전문사</div></td>
+            <td><strong>$2.9B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-sui">SUI</span></td>
+            <td>BTC 40% / SOL 35% / SUI 25%</td>
+            <td><button class="btn-report" onclick="openReport('실크로드 벤처스', '아시아 역내 결제망 및 차세대 웹3 게임 인프라 집중.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC ETH ADA">
+            <td><div class="firm-name">알프스 프라이빗 뱅크 (Alps Private)</div><div class="firm-location">스위스 제네바 · PB</div></td>
+            <td><strong>$3.6B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-ada">ADA</span></td>
+            <td>BTC 65% / ETH 25% / ADA 10%</td>
+            <td><button class="btn-report" onclick="openReport('알프스 프라이빗', '스위스 크립토 밸리 공인 커스터디 안전 보관 자산.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="ETH SOL XRP">
+            <td><div class="firm-name">솔라리스 자산운용 (Solaris Asset)</div><div class="firm-location">스페인 마드리드 · 연금 펀드</div></td>
+            <td><strong>$1.7B</strong></td>
+            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-xrp">XRP</span></td>
+            <td>ETH 45% / SOL 35% / XRP 20%</td>
+            <td><button class="btn-report" onclick="openReport('솔라리스 자산운용', '남유럽 은행권 핀테크 디지털 청산 결제 지원.')">보고서 요약</button></td>
+          </tr>
+
+          <!-- 41 ~ 50 -->
+          <tr data-coins="BTC AVAX NEAR">
+            <td><div class="firm-name">코스모스 헤지 파트너스 (Cosmos Hedge)</div><div class="firm-location">미국 뉴욕 · 멀티전략 펀드</div></td>
+            <td><strong>$3.4B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-avax">AVAX</span><span class="coin-badge badge-near">NEAR</span></td>
+            <td>BTC 50% / AVAX 30% / NEAR 20%</td>
+            <td><button class="btn-report" onclick="openReport('코스모스 헤지', '모듈러 블록체인 및 체인 추상화 생태계 선점 투자.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC ETH XRP DOGE">
+            <td><div class="firm-name">백두 인베스트먼트 (Baekdu Investment)</div><div class="firm-location">대한민국 서울 · 사모펀드</div></td>
+            <td><strong>$2.1B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-xrp">XRP</span><span class="coin-badge badge-doge">DOGE</span></td>
+            <td>BTC 40% / ETH 30% / XRP 20% / DOGE 10%</td>
+            <td><button class="btn-report" onclick="openReport('백두 인베스트', '국내 가상자산 거래소 고유동성 자산 및 커뮤니티 파워 활용.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="ETH LINK SUI">
+            <td><div class="firm-name">하버 크립토 매니지먼트 (Harbor Crypto)</div><div class="firm-location">미국 보스턴 · 기관 전용 펀드</div></td>
+            <td><strong>$2.6B</strong></td>
+            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-link">LINK</span><span class="coin-badge badge-sui">SUI</span></td>
+            <td>ETH 45% / LINK 35% / SUI 20%</td>
+            <td><button class="btn-report" onclick="openReport('하버 크립토', '스마트 컨트랙트 데이터 무결성 검증 및 L1 확장성 베팅.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC ETH DOT">
+            <td><div class="firm-name">옥스퍼드 알터너티브 (Oxford Alternative)</div><div class="firm-location">영국 옥스퍼드 · 대학 기금</div></td>
+            <td><strong>$1.8B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-dot">DOT</span></td>
+            <td>BTC 50% / ETH 35% / DOT 15%</td>
+            <td><button class="btn-report" onclick="openReport('옥스퍼드 알터너티브', '장기 보유 목적의 기금 분산 포트폴리오 편입.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC XRP SOL">
+            <td><div class="firm-name">몬테카를로 웰스 (Monte Carlo Wealth)</div><div class="firm-location">모나코 · 프라이빗 오피스</div></td>
+            <td><strong>$3.2B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-xrp">XRP</span><span class="coin-badge badge-sol">SOL</span></td>
+            <td>BTC 55% / XRP 25% / SOL 20%</td>
+            <td><button class="btn-report" onclick="openReport('몬테카를로 웰스', '글로벌 초고액 자산가 국제 송금 유동성 확보.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="SOL APT SUI">
+            <td><div class="firm-name">시냅스 테크 캐피탈 (Synapse Tech)</div><div class="firm-location">미국 오스틴 · 테크 펀드</div></td>
+            <td><strong>$1.6B</strong></td>
+            <td><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-apt">APT</span><span class="coin-badge badge-sui">SUI</span></td>
+            <td>SOL 40% / APT 30% / SUI 30%</td>
+            <td><button class="btn-report" onclick="openReport('시냅스 테크', '초당 트랜잭션 10만 건 이상의 고성능 체인 올인 전략.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC ETH SOL AVAX">
+            <td><div class="firm-name">인피니티 블록 펀드 (Infinity Block)</div><div class="firm-location">아랍에미리트 두바이 · 글로벌 펀드</div></td>
+            <td><strong>$4.5B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-avax">AVAX</span></td>
+            <td>BTC 40% / ETH 30% / SOL 15% / AVAX 15%</td>
+            <td><button class="btn-report" onclick="openReport('인피니티 블록', 'MENA 지역 금융권 블록체인 통합 인프라 투자.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC ETH LINK">
+            <td><div class="firm-name">퀀텀 리프 인베스트먼트 (Quantum Leap)</div><div class="firm-location">미국 시카고 · 퀀트 펀드</div></td>
+            <td><strong>$3.1B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-link">LINK</span></td>
+            <td>BTC 50% / ETH 30% / LINK 20%</td>
+            <td><button class="btn-report" onclick="openReport('퀀텀 리프', '탈중앙 오라클 기반 자동화 파생상품 헤지 전략.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="SOL SUI NEAR">
+            <td><div class="firm-name">세쿼이아 디지털 랩스 (Sequoia Digital)</div><div class="firm-location">미국 샌프란시스코 · VC</div></td>
+            <td><strong>$2.8B</strong></td>
+            <td><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-sui">SUI</span><span class="coin-badge badge-near">NEAR</span></td>
+            <td>SOL 45% / SUI 35% / NEAR 20%</td>
+            <td><button class="btn-report" onclick="openReport('세쿼이아 디지털', '웹3 대중화(Mass Adoption) 인터페이스 프로토콜 투자.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="ETH ADA DOT">
+            <td><div class="firm-name">유로파 에셋 매니지먼트 (Europa Asset)</div><div class="firm-location">벨기에 브뤼셀 · 연기금 자산운용</div></td>
+            <td><strong>$2.0B</strong></td>
+            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-ada">ADA</span><span class="coin-badge badge-dot">DOT</span></td>
+            <td>ETH 50% / ADA 30% / DOT 20%</td>
+            <td><button class="btn-report" onclick="openReport('유로파 에셋', '유럽연합 지침 준수 지분증명(PoS) 분산 스테이킹 포트폴리오.')">보고서 요약</button></td>
+          </tr>
+
+          <!-- 51 ~ 60 -->
+          <tr data-coins="BTC ETH AVAX">
+            <td><div class="firm-name">파이오니어 글로벌 펀드 (Pioneer Global)</div><div class="firm-location">캐나다 토론토 · 글로벌 운용사</div></td>
+            <td><strong>$2.7B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-avax">AVAX</span></td>
+            <td>BTC 50% / ETH 30% / AVAX 20%</td>
+            <td><button class="btn-report" onclick="openReport('파이오니어 글로벌', '북미 금융권 커스텀 서브넷 자산 배분 전략.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC XRP LINK">
+            <td><div class="firm-name">타스만 디지털 파트너스 (Tasman Partners)</div><div class="firm-location">뉴질랜드 오클랜드 · 대체투자</div></td>
+            <td><strong>$1.4B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-xrp">XRP</span><span class="coin-badge badge-link">LINK</span></td>
+            <td>BTC 45% / XRP 35% / LINK 20%</td>
+            <td><button class="btn-report" onclick="openReport('타스만 디지털', '태평양 연안 결제 회랑 유동성 공급.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC ETH SOL">
+            <td><div class="firm-name">세인트마틴 헤지펀드 (St. Martin Hedge)</div><div class="firm-location">버뮤다 · 오프쇼어 펀드</div></td>
+            <td><strong>$3.3B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span></td>
+            <td>BTC 50% / ETH 30% / SOL 20%</td>
+            <td><button class="btn-report" onclick="openReport('세인트마틴 헤지', '글로벌 유동성 공급 및 세제 혜택 기반 장기 복리 운용.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="ETH SOL NEAR">
+            <td><div class="firm-name">발틱 블록 인베스트 (Baltic Block)</div><div class="firm-location">에스토니아 탈린 · 디지털 전문사</div></td>
+            <td><strong>$1.1B</strong></td>
+            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-near">NEAR</span></td>
+            <td>ETH 45% / SOL 30% / NEAR 25%</td>
+            <td><button class="btn-report" onclick="openReport('발틱 블록', '전자 시민권(e-Residency) 연계 탈중앙화 신원증명 인프라 투자.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC SOL APT">
+            <td><div class="firm-name">골든게이트 크립토 (Golden Gate Crypto)</div><div class="firm-location">미국 샌프란시스코 · 헤지펀드</div></td>
+            <td><strong>$2.5B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-apt">APT</span></td>
+            <td>BTC 50% / SOL 30% / APT 20%</td>
+            <td><button class="btn-report" onclick="openReport('골든게이트 크립토', '실리콘밸리 벤처 자금의 전략적 온체인 자산 배분.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC DOGE SHIB">
+            <td><div class="firm-name">론스타 디지털 매니지먼트 (Lone Star Digital)</div><div class="firm-location">미국 댈러스 · 대체자산</div></td>
+            <td><strong>$1.5B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-doge">DOGE</span><span class="coin-badge badge-shib">SHIB</span></td>
+            <td>BTC 55% / DOGE 25% / SHIB 20%</td>
+            <td><button class="btn-report" onclick="openReport('론스타 디지털', '텍사스 가상자산 채굴 클러스터 및 밈 생태계 유동성 편입.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="ETH LINK DOT">
+            <td><div class="firm-name">바르샤바 파이낸셜 (Warsaw Financial)</div><div class="firm-location">폴란드 바르샤바 · 자산운용</div></td>
+            <td><strong>$1.3B</strong></td>
+            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-link">LINK</span><span class="coin-badge badge-dot">DOT</span></td>
+            <td>ETH 50% / LINK 30% / DOT 20%</td>
+            <td><button class="btn-report" onclick="openReport('바르샤바 파이낸셜', '동유럽 개발자 생태계 중심 크로스체인 브릿지 투자.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC ETH XRP">
+            <td><div class="firm-name">헬베티카 크립토 (Helvetica Crypto)</div><div class="firm-location">스위스 취리히 · 프라이빗 에셋</div></td>
+            <td><strong>$3.8B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-xrp">XRP</span></td>
+            <td>BTC 60% / ETH 25% / XRP 15%</td>
+            <td><button class="btn-report" onclick="openReport('헬베티카 크립토', '스위스 은행 규격 콜드 볼트 보관 및 글로벌 금융 결제 연계.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC ETH SOL SUI">
+            <td><div class="firm-name">퍼시픽 림 자산운용 (Pacific Rim Asset)</div><div class="firm-location">홍콩 · 글로벌 자산운용</div></td>
+            <td><strong>$4.9B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-sui">SUI</span></td>
+            <td>BTC 40% / ETH 30% / SOL 15% / SUI 15%</td>
+            <td><button class="btn-report" onclick="openReport('퍼시픽 림', '아시아 태평양 제도권 규제 승인 대형 암호화폐 바스켓.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="SOL AVAX DOGE">
+            <td><div class="firm-name">아쿠아 디지털 펀드 (Aqua Digital)</div><div class="firm-location">미국 마이애미 · 가상자산 펀드</div></td>
+            <td><strong>$1.7B</strong></td>
+            <td><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-avax">AVAX</span><span class="coin-badge badge-doge">DOGE</span></td>
+            <td>SOL 45% / AVAX 35% / DOGE 20%</td>
+            <td><button class="btn-report" onclick="openReport('아쿠아 디지털', '마이애미 크립토 컨퍼런스 중심 웹3 소셜 및 디파이 투자.')">보고서 요약</button></td>
+          </tr>
+
+          <!-- 61 ~ 72 -->
+          <tr data-coins="BTC ETH LINK">
+            <td><div class="firm-name">리버티 캐피탈 (Liberty Capital)</div><div class="firm-location">미국 필라델피아 · 투자운용</div></td>
+            <td><strong>$3.2B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-link">LINK</span></td>
+            <td>BTC 50% / ETH 30% / LINK 20%</td>
+            <td><button class="btn-report" onclick="openReport('리버티 캐피탈', '미국 연방준비제도 정책 변화에 대응하는 디지털 대체자산.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC ETH SOL NEAR">
+            <td><div class="firm-name">남산 글로벌 파트너스 (Namsan Global)</div><div class="firm-location">대한민국 서울 · 블록체인 펀드</div></td>
+            <td><strong>$2.4B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-near">NEAR</span></td>
+            <td>BTC 40% / ETH 30% / SOL 15% / NEAR 15%</td>
+            <td><button class="btn-report" onclick="openReport('남산 글로벌', '한국형 토큰증권(STO) 인프라 및 레이어1 블록체인 연계.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="ETH AVAX ADA">
+            <td><div class="firm-name">갈릴레오 인베스트먼트 (Galileo Investment)</div><div class="firm-location">이탈리아 밀라노 · 패밀리 오피스</div></td>
+            <td><strong>$1.5B</strong></td>
+            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-avax">AVAX</span><span class="coin-badge badge-ada">ADA</span></td>
+            <td>ETH 50% / AVAX 30% / ADA 20%</td>
+            <td><button class="btn-report" onclick="openReport('갈릴레오 인베스트', '유럽 명품 브랜드 디지털 보증서 및 블록체인 인증 자산.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC SOL SUI">
+            <td><div class="firm-name">썬더볼트 퀀트 (Thunderbolt Quant)</div><div class="firm-location">영국 런던 · 알고리즘 트레이딩</div></td>
+            <td><strong>$2.9B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-sui">SUI</span></td>
+            <td>BTC 45% / SOL 35% / SUI 20%</td>
+            <td><button class="btn-report" onclick="openReport('썬더볼트 퀀트', 'L1 온체인 주문부(Orderbook) 유동성 마켓메이킹 전략.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC ETH XRP">
+            <td><div class="firm-name">오아시스 소버린 펀드 (Oasis Sovereign)</div><div class="firm-location">사우디아라비아 리야드 · 국부펀드</div></td>
+            <td><strong>$7.8B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-xrp">XRP</span></td>
+            <td>BTC 65% / ETH 20% / XRP 15%</td>
+            <td><button class="btn-report" onclick="openReport('오아시스 소버린', '사우디 비전 2030 국가 디지털 금융 인프라 구축 연계.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC ETH LINK">
+            <td><div class="firm-name">에메랄드 웰스 매니지먼트 (Emerald Wealth)</div><div class="firm-location">아일랜드 더블린 · PB</div></td>
+            <td><strong>$2.1B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-link">LINK</span></td>
+            <td>BTC 50% / ETH 35% / LINK 15%</td>
+            <td><button class="btn-report" onclick="openReport('에메랄드 웰스', '글로벌 테크 기업 유럽 법인 연계 스마트 컨트랙트 헤지.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="SOL NEAR APT">
+            <td><div class="firm-name">프론티어 디지털 랩스 (Frontier Digital)</div><div class="firm-location">싱가포르 · 벤처캐피탈</div></td>
+            <td><strong>$1.9B</strong></td>
+            <td><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-near">NEAR</span><span class="coin-badge badge-apt">APT</span></td>
+            <td>SOL 40% / NEAR 35% / APT 25%</td>
+            <td><button class="btn-report" onclick="openReport('프론티어 디지털', '동남아시아 모바일 뱅킹 미보유층을 위한 결제 프로토콜.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC ETH SOL">
+            <td><div class="firm-name">아스펜 패밀리오피스 (Aspen Family)</div><div class="firm-location">미국 덴버 · 자산관리</div></td>
+            <td><strong>$2.8B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span></td>
+            <td>BTC 55% / ETH 30% / SOL 15%</td>
+            <td><button class="btn-report" onclick="openReport('아스펜 패밀리', '장기 인플레이션 헤지 및 디지털 부동산 성격 자산 운용.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC XRP AVAX">
+            <td><div class="firm-name">센티넬 인스티튜셔널 (Sentinel Partners)</div><div class="firm-location">미국 뉴욕 · 헤지펀드</div></td>
+            <td><strong>$3.6B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-xrp">XRP</span><span class="coin-badge badge-avax">AVAX</span></td>
+            <td>BTC 50% / XRP 30% / AVAX 20%</td>
+            <td><button class="btn-report" onclick="openReport('센티넬 인스티튜셔널', '금융 기관 전용 프라이빗 서브넷 및 크로스보더 결제망 투자.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC ETH DOGE SHIB">
+            <td><div class="firm-name">보스포루스 캐피탈 (Bosphorus Capital)</div><div class="firm-location">튀르키예 이스탄불 · 멀티 펀드</div></td>
+            <td><strong>$1.4B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-doge">DOGE</span><span class="coin-badge badge-shib">SHIB</span></td>
+            <td>BTC 40% / ETH 30% / DOGE 15% / SHIB 15%</td>
+            <td><button class="btn-report" onclick="openReport('보스포루스 캐피탈', '리라화 인플레이션 헤지 및 고변동성 리테일 코인 바스켓.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="ETH SOL LINK">
+            <td><div class="firm-name">노르딕 알파 펀드 (Nordic Alpha)</div><div class="firm-location">덴마크 코펜하겐 · 퀀트 펀드</div></td>
+            <td><strong>$2.2B</strong></td>
+            <td><span class="coin-badge badge-eth">ETH</span><span class="coin-badge badge-sol">SOL</span><span class="coin-badge badge-link">LINK</span></td>
+            <td>ETH 45% / SOL 35% / LINK 20%</td>
+            <td><button class="btn-report" onclick="openReport('노르딕 알파', '자동화 퀀트 모델 기반 오라클 연동 차익거래 포트폴리오.')">보고서 요약</button></td>
+          </tr>
+          <tr data-coins="BTC XRP ADA SUI">
+            <td><div class="firm-name">갤럭시 디지털 아시아 (Galaxy Asia)</div><div class="firm-location">일본 도쿄 · 자산운용</div></td>
+            <td><strong>$3.7B</strong></td>
+            <td><span class="coin-badge badge-btc">BTC</span><span class="coin-badge badge-xrp">XRP</span><span class="coin-badge badge-ada">ADA</span><span class="coin-badge badge-sui">SUI</span></td>
+            <td>BTC 40% / XRP 30% / ADA 15% / SUI 15%</td>
+            <td><button class="btn-report" onclick="openReport('갤럭시 아시아', '아시아 메이저 제도권 코인 중심 규제 프렌들리 포트폴리오.')">보고서 요약</button></td>
+          </tr>
         </tbody>
       </table>
     </div>
   </main>
 
-  <!-- 5. 푸터 -->
+  <!-- 푸터 -->
   <footer>
     <p>© 2026 CryptoFund Matrix. All rights reserved.</p>
     <p class="disclaimer">본 플랫폼에 게시된 자산운용사 정보 및 포트폴리오 데이터는 가상 시뮬레이션 모델이며, 특정 자산의 매수/매도를 권유하지 않습니다.</p>
