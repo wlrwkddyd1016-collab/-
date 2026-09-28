@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Global Institutional Digital Asset Tracker</title>
+  <title>CryptoFund Matrix | 글로벌 자산운용사 가상자산 보고서 허브</title>
   
   <style>
-    /* 1. 기본 스타일 초기화 */
+    /* 1. 기본 스타일 */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -15,7 +15,7 @@
     }
 
     body {
-      background-color: #08101e; /* 금융 터미널 느낌의 딥 네이비 블랙 */
+      background-color: #070e1b;
       color: #e2e8f0;
       min-height: 100vh;
       display: flex;
@@ -24,32 +24,36 @@
 
     /* 2. 상단 네비게이션 헤더 */
     header {
-      background-color: #0b172a;
-      border-bottom: 1px solid #1e293b;
-      padding: 18px 40px;
+      background-color: #0a1526;
+      border-bottom: 1px solid #1a2942;
+      padding: 16px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     .logo {
       font-size: 19px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.5px;
       color: #ffffff;
+      text-decoration: none;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
     .logo span {
-      color: #38bdf8; /* 밝은 스카이블루 포인트 */
+      color: #38bdf8;
     }
 
     nav a {
       color: #94a3b8;
       text-decoration: none;
-      margin-left: 24px;
+      margin-left: 20px;
       font-size: 14px;
       transition: color 0.2s ease;
     }
@@ -58,74 +62,113 @@
       color: #38bdf8;
     }
 
-    /* 3. 상단 실시간 요약 지표 바 (거래소 전광판 느낌) */
-    .market-summary {
-      background: #0f1d32;
-      border-bottom: 1px solid #1e293b;
-      padding: 12px 40px;
+    /* 3. 상단 통계 띠 (Ticker Bar) */
+    .market-ticker {
+      background: #0d1b30;
+      border-bottom: 1px solid #1a2942;
+      padding: 10px 40px;
       display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 15px;
+      justify-content: space-between;
       font-size: 13px;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .summary-item {
+    .ticker-item {
       display: flex;
       gap: 8px;
     }
 
-    .summary-label {
-      color: #64748b;
-    }
-
-    .summary-value {
-      font-weight: 600;
-      color: #f8fafc;
-    }
-
+    .ticker-label { color: #64748b; }
+    .ticker-value { color: #f8fafc; font-weight: 600; }
     .text-green { color: #10b981 !important; }
     .text-blue { color: #38bdf8 !important; }
 
-    /* 4. 메인 타이틀 배너 */
+    /* 4. 메인 정체성 소개 배너 (Hero Section) */
     .hero {
-      padding: 60px 20px 40px 20px;
+      padding: 70px 20px 50px 20px;
       text-align: center;
-      background: radial-gradient(circle at 50% 20%, #132742 0%, #08101e 70%);
+      background: radial-gradient(circle at 50% 10%, #152d4e 0%, #070e1b 75%);
     }
 
-    .hero-badge {
-      display: inline-block;
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.3);
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
       color: #38bdf8;
-      padding: 4px 12px;
+      padding: 6px 14px;
       border-radius: 20px;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .hero h1 {
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 14px;
+      font-size: 38px;
+      font-weight: 800;
       color: #ffffff;
-      line-height: 1.3;
+      line-height: 1.35;
+      margin-bottom: 18px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .hero p {
-      font-size: 16px;
+      font-size: 17px;
       color: #94a3b8;
-      max-width: 700px;
+      max-width: 720px;
+      margin: 0 auto 35px auto;
+      line-height: 1.7;
+    }
+
+    /* 5. 플랫폼 3대 핵심 특징 카드 (어떤 사이트인지 알려주는 곳) */
+    .features-grid {
+      max-width: 1100px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 0 20px;
+      text-align: left;
+    }
+
+    .feature-card {
+      background: #0b172a;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-icon {
+      font-size: 24px;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .feature-card h3 {
+      font-size: 16px;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      font-size: 13px;
+      color: #94a3b8;
       line-height: 1.6;
     }
 
-    /* 5. 기관 보고서 게시판 테이블 영역 */
-    .main-container {
-      max-width: 1200px;
-      margin: 20px auto 60px auto;
+    /* 6. 게시판 영역 */
+    .board-container {
+      max-width: 1100px;
+      margin: 60px auto;
       padding: 0 20px;
       width: 100%;
       flex: 1;
@@ -135,16 +178,47 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 15px;
     }
 
-    .board-title {
-      font-size: 20px;
-      font-weight: 600;
+    .board-title h2 {
+      font-size: 22px;
       color: #ffffff;
+      margin-bottom: 4px;
     }
 
-    /* 테이블 컨테이너 */
+    .board-title p {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    /* 코인별 빠른 필터 버튼 */
+    .filter-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-filter {
+      background: #0f1d32;
+      border: 1px solid #1e293b;
+      color: #94a3b8;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-filter:hover, .btn-filter.active {
+      background: #38bdf8;
+      color: #070e1b;
+      border-color: #38bdf8;
+    }
+
+    /* 테이블 스타일 */
     .table-wrapper {
       background-color: #0b172a;
       border: 1px solid #1e293b;
@@ -171,15 +245,14 @@
 
     td {
       padding: 18px 20px;
-      border-bottom: 1px solid #172437;
+      border-bottom: 1px solid #142236;
       vertical-align: middle;
     }
 
     tr:hover {
-      background-color: #11223b;
+      background-color: #102138;
     }
 
-    /* 운용사 이름 및 태그 */
     .firm-name {
       font-size: 15px;
       font-weight: 600;
@@ -192,7 +265,7 @@
       color: #64748b;
     }
 
-    /* 보유 코인 뱃지 */
+    /* 코인 뱃지 */
     .coin-badge {
       display: inline-block;
       padding: 3px 8px;
@@ -225,11 +298,11 @@
       color: #08101e;
     }
 
-    /* 6. 푸터 */
+    /* 7. 푸터 */
     footer {
-      background-color: #060c17;
-      border-top: 1px solid #1e293b;
-      padding: 30px 20px;
+      background-color: #050a14;
+      border-top: 1px solid #1a2942;
+      padding: 35px 20px;
       text-align: center;
       font-size: 13px;
       color: #64748b;
@@ -249,68 +322,102 @@
         gap: 12px;
         padding: 16px;
       }
-      .market-summary {
+      .market-ticker {
         flex-direction: column;
-        gap: 8px;
-        padding: 12px 20px;
+        gap: 6px;
+        padding: 10px 20px;
       }
       .hero h1 {
-        font-size: 26px;
+        font-size: 27px;
       }
-      th, td {
-        padding: 12px 14px;
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .board-header {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- 1. 헤더 -->
+  <!-- 상단 네비게이션 -->
   <header>
-    <div class="logo">
-      🏛️ GLOBAL <span>CRYPTO ASSET</span> MATRIX
-    </div>
+    <a href="index.html" class="logo">
+      🏛️ CRYPTO<span>FUND</span> MATRIX
+    </a>
     <nav>
       <a href="index.html" class="active">운용사별 포트폴리오</a>
       <a href="about.html">플랫폼 소개</a>
     </nav>
   </header>
 
-  <!-- 2. 시장 종합 지표 바 -->
-  <section class="market-summary">
-    <div class="summary-item">
-      <span class="summary-label">모니터링 운용사:</span>
-      <span class="summary-value text-blue">4개 글로벌 펀드</span>
+  <!-- 실시간 지표 띠 -->
+  <section class="market-ticker">
+    <div class="ticker-item">
+      <span class="ticker-label">모니터링 운용사:</span>
+      <span class="ticker-value text-blue">4개 글로벌 펀드</span>
     </div>
-    <div class="summary-item">
-      <span class="summary-label">기관 총 디지털 자산 운용액:</span>
-      <span class="summary-value">$14.8B (약 19.8조 원)</span>
+    <div class="ticker-item">
+      <span class="ticker-label">기관 가상자산 총 운용액:</span>
+      <span class="ticker-value">$14.8B (약 19.8조 원)</span>
     </div>
-    <div class="summary-item">
-      <span class="summary-label">최대 비중 편입 자산:</span>
-      <span class="summary-value text-green">Bitcoin (52.4%)</span>
+    <div class="ticker-item">
+      <span class="ticker-label">최대 비중 편입 자산:</span>
+      <span class="ticker-value text-green">Bitcoin (52.4%)</span>
     </div>
-    <div class="summary-item">
-      <span class="summary-label">최근 분기 자금 유입세:</span>
-      <span class="summary-value text-green">+18.2% ▲</span>
+    <div class="ticker-item">
+      <span class="ticker-label">보고서 갱신 주기:</span>
+      <span class="ticker-value text-blue">분기별 정기 공시</span>
     </div>
   </section>
 
-  <!-- 3. 메인 배너 -->
+  <!-- 메인 헤어로: 사이트 정체성 설명 -->
   <section class="hero">
-    <div class="hero-badge">QUARTERLY INSTITUTIONAL HOLDINGS</div>
-    <h1>글로벌 자산운용사 가상자산 편입 현황</h1>
-    <p>세계 유수의 헤지펀드와 자산운용사들이 공식 보고서를 통해 공시한 암호화폐 포트폴리오와 전략적 배분 내역을 실시간으로 추적합니다.</p>
+    <div class="hero-tag">🌐 GLOBAL INSTITUTIONAL ASSET INTELLIGENCE</div>
+    <h1>글로벌 자산운용사의 <span>가상자산 투자 보고서</span>를<br>한곳에서 한눈에 추적하세요</h1>
+    <p>전 세계 헤지펀드와 초대형 투자회사들이 실제로 어떤 코인을 얼만큼 매수했는지, 공식 공시 보고서와 포트폴리오 비중을 투명하게 정리하여 제공합니다.</p>
+
+    <!-- 사이트 핵심 기능 3가지 안내 카드 -->
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📑</div>
+        <h3>분기별 투자 공시 보고서</h3>
+        <p>각 기관이 공식 제출한 디지털 자산 운용 보고서의 핵심 요약과 매수 배경을 확인합니다.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>정밀 포트폴리오 비중</h3>
+        <p>비트코인, 이더리움, 솔라나, 리플 등 각 기관이 담은 코인별 비중을 수치로 투명하게 비교합니다.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>기관별 전략 포지셔닝</h3>
+        <p>인플레이션 헤지, 디파이 생태계, 국가 간 결제망 등 기관들의 투자 목적을 분석합니다.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- 4. 운용사 포트폴리오 테이블 (게시판) -->
-  <main class="main-container">
+  <!-- 운용사 현황 테이블 (게시판) -->
+  <main class="board-container">
     <div class="board-header">
-      <div class="board-title">📊 글로벌 기관 포트폴리오 현황 보고서</div>
+      <div class="board-title">
+        <h2>기관별 가상자산 편입 현황</h2>
+        <p>기관명을 클릭하거나 [보고서 요약]을 눌러 세부 전략을 열람하세요.</p>
+      </div>
+
+      <!-- 빠른 필터 버튼 -->
+      <div class="filter-group">
+        <button class="btn-filter active" onclick="filterTable('all', this)">전체 보기</button>
+        <button class="btn-filter" onclick="filterTable('BTC', this)">BTC 보유사</button>
+        <button class="btn-filter" onclick="filterTable('ETH', this)">ETH 보유사</button>
+        <button class="btn-filter" onclick="filterTable('XRP', this)">XRP 보유사</button>
+      </div>
     </div>
 
     <div class="table-wrapper">
-      <table>
+      <table id="fundTable">
         <thead>
           <tr>
             <th>자산운용사명</th>
@@ -322,7 +429,7 @@
         </thead>
         <tbody>
           <!-- 운용사 1 -->
-          <tr>
+          <tr data-coins="BTC ETH SOL">
             <td>
               <div class="firm-name">넥서스 글로벌 캐피탈 (Nexus Global)</div>
               <div class="firm-location">미국 뉴욕 · 헤지펀드</div>
@@ -334,11 +441,11 @@
               <span class="coin-badge badge-sol">SOL</span>
             </td>
             <td>비트코인 55% / 이더리움 30% / 솔라나 15%</td>
-            <td><button class="btn-report" onclick="showReport('넥서스 글로벌', 'BTC 중심의 인플레이션 헤지 및 레이어1 생태계 롱 포지션 구축')">보고서 요약</button></td>
+            <td><button class="btn-report" onclick="openReport('넥서스 글로벌 캐피탈', 'BTC 중심의 인플레이션 헤지 및 레이어1 생태계 롱 포지션 구축. 현물 ETF 승인 이후 장기 보유 기조 유지.')">보고서 요약</button></td>
           </tr>
 
           <!-- 운용사 2 -->
-          <tr>
+          <tr data-coins="XRP BTC">
             <td>
               <div class="firm-name">아펙스 인스티튜셔널 파트너스 (Apex Partners)</div>
               <div class="firm-location">영국 런던 · 대체투자운용사</div>
@@ -349,11 +456,11 @@
               <span class="coin-badge badge-btc">BTC</span>
             </td>
             <td>리플(XRP) 45% / 비트코인 40% / 현금성 15%</td>
-            <td><button class="btn-report" onclick="showReport('아펙스 파트너스', '국가 간 결제 유동성 혁신에 주목하여 XRP 및 BTC 집중 편입')">보고서 요약</button></td>
+            <td><button class="btn-report" onclick="openReport('아펙스 파트너스', '국가 간 결제 및 유동성 혁신에 주목하여 XRP 대량 편입. 제도권 금융 연계 프로젝트에 높은 가중치 부여.')">보고서 요약</button></td>
           </tr>
 
           <!-- 운용사 3 -->
-          <tr>
+          <tr data-coins="ETH SOL BTC">
             <td>
               <div class="firm-name">크로노스 디지털 에셋 (Chronos Asset)</div>
               <div class="firm-location">싱가포르 · 블록체인 전문 펀드</div>
@@ -365,11 +472,11 @@
               <span class="coin-badge badge-btc">BTC</span>
             </td>
             <td>이더리움 45% / 솔라나 35% / 비트코인 20%</td>
-            <td><button class="btn-report" onclick="showReport('크로노스 디지털', '스마트 컨트랙트 플랫폼 및 디파이(DeFi) 기반 캐시플로우 집중 투자')">보고서 요약</button></td>
+            <td><button class="btn-report" onclick="openReport('크로노스 디지털 에셋', '스마트 컨트랙트 및 디파이(DeFi) 생태계 기반 스테이킹 캐시플로우 집중 추구 포트폴리오.')">보고서 요약</button></td>
           </tr>
 
           <!-- 운용사 4 -->
-          <tr>
+          <tr data-coins="BTC ETH">
             <td>
               <div class="firm-name">발할라 인베스트먼트 (Valhalla Fund)</div>
               <div class="firm-location">스위스 취리히 · 프라이빗 뱅크</div>
@@ -380,23 +487,42 @@
               <span class="coin-badge badge-eth">ETH</span>
             </td>
             <td>비트코인 70% / 이더리움 30%</td>
-            <td><button class="btn-report" onclick="showReport('발할라 펀드', '전통 금융 리스크 방어용 금(Gold) 대체 자산으로 BTC 최우선 비축')">보고서 요약</button></td>
+            <td><button class="btn-report" onclick="openReport('발할라 인베스트먼트', '전통 은행권 시스템 리스크 방어용 디지털 골드(BTC) 안전자산 포지션 최우선 편입.')">보고서 요약</button></td>
           </tr>
         </tbody>
       </table>
     </div>
   </main>
 
-  <!-- 5. 푸터 -->
+  <!-- 하단 푸터 -->
   <footer>
-    <p>© 2026 Global Crypto Asset Matrix. All rights reserved.</p>
-    <p class="disclaimer">본 사이트에 표시된 기관명과 포트폴리오 데이터는 가상 시뮬레이션 데이터이며, 실제 투자 권유를 목적으로 하지 않습니다.</p>
+    <p>© 2026 CryptoFund Matrix. All rights reserved.</p>
+    <p class="disclaimer">본 플랫폼에 게시된 자산운용사 정보 및 포트폴리오 데이터는 이해를 돕기 위한 가상 시뮬레이션 모델이며, 특정 자산의 매수/매도를 권유하지 않습니다.</p>
   </footer>
 
-  <!-- 보고서 클릭 자바스크립트 -->
+  <!-- 필터 및 보고서 스크립트 -->
   <script>
-    function showReport(firmName, summary) {
-      alert("📋 [" + firmName + " 기관 투자 브리핑]\n\n" + summary + "\n\n* 최신 공시 기준 작성 완료");
+    // 1. 코인별 운용사 필터 기능
+    function filterTable(coin, clickedBtn) {
+      // 모든 버튼의 active 클래스 제거 후 클릭한 버튼에만 추가
+      const buttons = document.querySelectorAll('.btn-filter');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      clickedBtn.classList.add('active');
+
+      const rows = document.querySelectorAll('#fundTable tbody tr');
+      rows.forEach(row => {
+        const rowCoins = row.getAttribute('data-coins');
+        if (coin === 'all' || rowCoins.includes(coin)) {
+          row.style.display = ''; // 보이기
+        } else {
+          row.style.display = 'none'; // 숨기기
+        }
+      });
+    }
+
+    // 2. 보고서 요약 팝업 함수
+    function openReport(firmName, briefing) {
+      alert("📑 [" + firmName + " 정기 공시 보고서]\n\n" + briefing + "\n\n* 기준일: 최신 분기 공시 데이터 완료");
     }
   </script>
 
